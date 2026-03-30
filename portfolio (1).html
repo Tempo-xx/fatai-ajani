@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fatai Ajani — E-commerce Growth Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0b0f1a;--ink2: #151c2e;--blue: #2563eb;--blue2: #1d4ed8;
+  --sky: #eff6ff;--sky2: #dbeafe;--gold: #f59e0b;--gold2: #d97706;
+  --green: #10b981;--white: #ffffff;--offwhite: #f8fafc;
+  --g100: #f1f5f9;--g200: #e2e8f0;--g300: #cbd5e1;--g400: #94a3b8;
+  --g500: #64748b;--g600: #475569;--g700: #334155;--g800: #1e293b;
+  --r: 14px;--r2: 22px;
+  --sh: 0 2px 20px rgba(11,15,26,.08);--sh2: 0 8px 48px rgba(11,15,26,.14);
+  --sh3: 0 20px 80px rgba(11,15,26,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--offwhite);color:var(--ink);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--g100)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:10px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.93);
+  backdrop-filter:blur(20px);border-bottom:1px solid var(--g200);
+  display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:70px}
+.logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.logo b{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--g600);font-size:.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-hire{background:var(--ink);color:#fff !important;padding:9px 24px;border-radius:50px;font-weight:600 !important;font-size:.82rem !important;transition:background .2s,transform .2s !important}
+.nav-hire:hover{background:var(--blue) !important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--ink);display:flex;align-items:center;
+  padding:120px 6% 80px;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none}
+.hero-glow1{position:absolute;top:-200px;right:-100px;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.2) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-100px;left:10%;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,158,11,.07) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;
+  gap:72px;align-items:center;position:relative;z-index:1}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.15);
+  border:1px solid rgba(37,99,235,.3);color:#93c5fd;padding:6px 18px;border-radius:50px;
+  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
+.hero-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h1.hero-heading{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,4.8rem);font-weight:900;
+  color:#fff;line-height:1.05;margin-bottom:24px;letter-spacing:-.03em}
+h1.hero-heading em{color:var(--gold);font-style:italic}
+.hero-sub{color:#94a3b8;font-size:1.05rem;line-height:1.75;margin-bottom:40px;max-width:540px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.btn-solid{background:var(--blue);color:#fff;padding:14px 32px;border-radius:50px;
+  font-size:.9rem;font-weight:600;text-decoration:none;transition:all .2s;border:2px solid var(--blue)}
+.btn-solid:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:50px;
+  border:2px solid rgba(255,255,255,.2);font-size:.9rem;font-weight:500;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
+.whatsapp-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;
+  padding:14px 28px;border-radius:50px;font-size:.9rem;font-weight:600;text-decoration:none;
+  transition:all .2s;border:2px solid #25D366}
+.whatsapp-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.35)}
+.whatsapp-btn svg{width:20px;height:20px;flex-shrink:0}
+.hero-stats{display:flex;gap:36px;padding-top:36px;border-top:1px solid rgba(255,255,255,.07)}
+.hstat .num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1}
+.hstat .num b{color:var(--gold)}
+.hstat .lbl{color:var(--g500);font-size:.75rem;margin-top:4px;letter-spacing:.04em}
+.hero-right{position:relative;display:flex;justify-content:center;align-items:center}
+.photo-wrap{width:320px;height:390px;border-radius:var(--r2);overflow:hidden;position:relative;z-index:2;
+  border:3px solid rgba(255,255,255,.08);box-shadow:var(--sh3)}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.photo-ring{position:absolute;inset:-14px;border-radius:28px;border:1px solid rgba(37,99,235,.25);z-index:1}
+.float-card{position:absolute;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:14px 18px;z-index:3;
+  animation:floatY 5s ease-in-out infinite}
+.float-card:nth-child(3){animation-delay:-2.5s}
+.float-card:nth-child(4){animation-delay:-1s}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.fc-label{font-size:.65rem;color:var(--g500);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.fc-val{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1}
+.fc-tag{font-size:.7rem;color:var(--green);font-weight:600;margin-top:3px}
+
+/* SECTIONS */
+section{padding:96px 6%}
+.sec-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+h2.sec-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.9rem);font-weight:800;
+  color:var(--ink);line-height:1.12;margin-bottom:18px;letter-spacing:-.03em}
+.sec-sub{color:var(--g600);font-size:1rem;line-height:1.75;max-width:580px;margin-bottom:56px}
+
+/* SERVICES BAR */
+.svc-bar{background:#fff;padding:48px 6%;border-bottom:1px solid var(--g200)}
+.svc-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.svc-chip{display:flex;align-items:center;gap:12px;background:var(--g100);border-radius:var(--r);
+  padding:16px 18px;transition:all .22s;cursor:default;border:1px solid transparent}
+.svc-chip:hover{background:var(--sky);border-color:var(--sky2);transform:translateY(-3px);box-shadow:var(--sh)}
+.svc-ico{width:36px;height:36px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.svc-chip span{font-size:.82rem;font-weight:600;color:var(--ink)}
+
+/* ABOUT */
+.about-section{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:center}
+.about-photo{width:100%;aspect-ratio:.8;border-radius:var(--r2);overflow:hidden;position:relative;box-shadow:var(--sh2)}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.about-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(11,15,26,.82);
+  backdrop-filter:blur(10px);border-radius:var(--r);padding:16px 20px;border:1px solid rgba(255,255,255,.08)}
+.ab-name{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:#fff}
+.ab-role{color:var(--g400);font-size:.8rem;margin-top:2px}
+.about-content p{color:var(--g600);font-size:.95rem;line-height:1.8;margin-bottom:16px}
+.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.about-chip{background:var(--g100);border-radius:8px;padding:6px 14px;font-size:.8rem;font-weight:600;color:var(--g700)}
+
+/* CASE STUDIES */
+.cs-section{background:var(--offwhite)}
+.cs-card{background:#fff;border-radius:var(--r2);border:1px solid var(--g200);box-shadow:var(--sh);
+  margin-bottom:40px;overflow:hidden;transition:box-shadow .3s,transform .3s}
+.cs-card:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.cs-toggle{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:0;display:block}
+.cs-head{padding:36px 44px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
+  position:relative;overflow:hidden}
+.cs-head::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.04}
+.cs-head.blue::after{background:linear-gradient(135deg,var(--blue) 0%,transparent 55%)}
+.cs-head.gold::after{background:linear-gradient(135deg,var(--gold) 0%,transparent 55%)}
+.cs-head.green::after{background:linear-gradient(135deg,var(--green) 0%,transparent 55%)}
+.cs-head.purple::after{background:linear-gradient(135deg,#7c3aed 0%,transparent 55%)}
+.cs-cat{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:50px;margin-bottom:12px}
+.cs-cat.blue{background:var(--sky2);color:var(--blue2)}
+.cs-cat.gold{background:#fef3c7;color:#92400e}
+.cs-cat.green{background:#d1fae5;color:#065f46}
+.cs-cat.purple{background:#ede9fe;color:#4c1d95}
+.cs-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:800;color:var(--ink);
+  margin-bottom:8px;letter-spacing:-.02em}
+.cs-meta{color:var(--g400);font-size:.8rem}
+.cs-arrow{width:40px;height:40px;border-radius:50%;background:var(--g100);display:flex;
+  align-items:center;justify-content:center;transition:transform .3s,background .2s;
+  flex-shrink:0;font-size:1rem;color:var(--g500)}
+.cs-card.open .cs-arrow{transform:rotate(180deg);background:var(--sky2);color:var(--blue)}
+.cs-kpi-row{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.kpi-pill{background:var(--g100);border-radius:50px;padding:8px 18px;display:flex;align-items:center;gap:8px}
+.kv{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:700}
+.kv.green{color:var(--green)}.kv.gold{color:var(--gold2)}.kv.blue{color:var(--blue)}
+.kl{font-size:.72rem;color:var(--g500);font-weight:500}
+.cs-body{display:none;padding:0 44px 40px;border-top:1px solid var(--g100)}
+.cs-card.open .cs-body{display:block}
+.cs-body-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:36px}
+.cs-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g400);margin-bottom:14px}
+.cs-text{color:var(--g600);font-size:.92rem;line-height:1.8;margin-bottom:18px}
+.cs-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.cs-list li{display:flex;align-items:flex-start;gap:10px;color:var(--g700);font-size:.88rem;line-height:1.6}
+.cs-list li::before{content:'→';font-weight:700;flex-shrink:0;margin-top:1px}
+.cs-list.blue li::before{color:var(--blue)}.cs-list.gold li::before{color:var(--gold2)}
+.cs-list.green li::before{color:var(--green)}.cs-list.purple li::before{color:#7c3aed}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.res-box{background:var(--g100);border-radius:var(--r);padding:16px 12px;text-align:center}
+.res-num{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;line-height:1}
+.res-num.green{color:var(--green)}.res-num.gold{color:var(--gold2)}.res-num.blue{color:var(--blue)}
+.res-lbl{font-size:.68rem;color:var(--g400);margin-top:4px;line-height:1.3}
+
+/* PROOF GALLERY */
+.proof-gallery{margin-top:28px}
+.proof-title{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--g400);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.proof-title::before{content:'📸';font-size:.9rem}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.proof-img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r);
+  border:1px solid var(--g200);cursor:zoom-in;transition:transform .2s,box-shadow .2s;background:var(--g100)}
+.proof-img:hover{transform:scale(1.03);box-shadow:var(--sh2)}
+
+/* TOOLS */
+.tools-section{background:var(--ink)}
+.tools-section .eyebrow{color:#93c5fd}
+.tools-section h2.sec-title{color:#fff}
+.tools-section .sec-sub{color:var(--g500)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.tool-group{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r2);padding:26px;transition:border-color .2s}
+.tool-group:hover{border-color:rgba(37,99,235,.3)}
+.tg-title{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:14px}
+.tool-tags{display:flex;flex-wrap:wrap;gap:7px}
+.ttag{background:rgba(255,255,255,.06);color:#cbd5e1;padding:5px 13px;border-radius:6px;
+  font-size:.78rem;font-weight:500;border:1px solid rgba(255,255,255,.07);transition:all .2s}
+.ttag:hover{background:rgba(37,99,235,.2);border-color:rgba(37,99,235,.35);color:#93c5fd}
+
+/* APPROACH */
+.approach-section{background:var(--offwhite)}
+.approach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.ap-card{background:#fff;border-radius:var(--r2);padding:32px 26px;border:1px solid var(--g200);transition:all .25s}
+.ap-card:hover{background:var(--sky);border-color:var(--sky2);transform:translateY(-5px);box-shadow:var(--sh)}
+.ap-num{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:900;color:var(--g200);line-height:1;margin-bottom:16px}
+.ap-card h3{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.ap-card p{font-size:.87rem;color:var(--g600);line-height:1.7}
+
+/* CONTACT */
+.contact-section{background:linear-gradient(140deg,var(--ink) 0%,#0d2a6e 100%);padding:96px 6%;position:relative;overflow:hidden}
+.contact-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;
+  border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.14) 0%,transparent 70%);pointer-events:none}
+.contact-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.contact-section .eyebrow{color:#93c5fd;margin-bottom:10px}
+.contact-section h2.sec-title{color:#fff;margin-bottom:16px}
+.contact-section .sec-sub{color:#94a3b8;margin:0 auto 44px;text-align:center;max-width:500px}
+.contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.contact-details{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
+  padding-top:40px;border-top:1px solid rgba(255,255,255,.07)}
+.cd{text-align:center}
+.cd strong{display:block;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:5px}
+.cd span{color:#94a3b8;font-size:.88rem}
+.cd a{color:#93c5fd;text-decoration:none;font-size:.88rem}
+.cd a:hover{color:#fff}
+
+/* FOOTER */
+footer{background:#060c18;padding:28px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer p{color:var(--g700);font-size:.78rem}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:var(--g700);font-size:.78rem;text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--g400)}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.9);align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:88vh;border-radius:var(--r);box-shadow:0 24px 80px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:24px;right:28px;color:#fff;font-size:2rem;cursor:pointer;
+  background:rgba(255,255,255,.1);border-radius:50%;width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-close:hover{background:rgba(255,255,255,.2)}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:300;background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 10px 36px rgba(37,211,102,.55)}
+.wa-float svg{width:28px;height:28px}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.show{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-right{justify-content:flex-start;margin-top:8px}
+  .photo-wrap{width:260px;height:320px}
+  .about-grid{grid-template-columns:1fr}
+  .cs-body-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:600px){
+  .cs-head,.cs-body{padding:24px 20px}
+  .hero-stats{gap:20px}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .contact-details{gap:24px}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLB()">
+  <div class="lb-close">✕</div>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/2349025243381" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#"><b>F</b>atai Ajani</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Case Studies</a></li>
+    <li><a href="#tools">Stack</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#contact" class="nav-hire">Hire Me</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div><div class="hero-glow1"></div><div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill"><div class="hero-dot"></div>Open to Remote Opportunities</div>
+      <h1 class="hero-heading">E-commerce<br><em>Growth</em> &amp;<br>Conversion Expert</h1>
+      <p class="hero-sub">I help online brands and e-commerce stores increase revenue, reduce drop-offs, and build customer experiences that convert — across Shopify, WooCommerce, Magento, PrestaShop, and beyond.</p>
+      <div class="hero-btns">
+        <a href="#work" class="btn-solid">View Case Studies</a>
+        <a href="https://wa.me/2349025243381" target="_blank" class="whatsapp-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Me
+        </a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="num">30<b>%+</b></div><div class="lbl">Avg. Conversion Lift</div></div>
+        <div class="hstat"><div class="num">50<b>+</b></div><div class="lbl">Stores Optimised</div></div>
+        <div class="hstat"><div class="num">6<b>+</b></div><div class="lbl">Platforms Mastered</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="photo-ring"></div>
+      <div class="photo-wrap"><img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani — E-commerce Growth Strategist"></div>
+      <div class="float-card" style="right:-20px;top:30px">
+        <div class="fc-label">ROAS — Ads Campaign</div>
+        <div class="fc-val">4.7×</div>
+        <div class="fc-tag">↑ from 1.8× baseline</div>
+      </div>
+      <div class="float-card" style="left:-30px;bottom:60px">
+        <div class="fc-label">Email Revenue Share</div>
+        <div class="fc-val">38%</div>
+        <div class="fc-tag">↑ Klaviyo automation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES BAR -->
+<div class="svc-bar">
+  <div class="svc-grid">
+    <div class="svc-chip"><div class="svc-ico">🛒</div><span>Store Optimisation</span></div>
+    <div class="svc-chip"><div class="svc-ico">📈</div><span>CRO Strategy</span></div>
+    <div class="svc-chip"><div class="svc-ico">💌</div><span>Email Marketing</span></div>
+    <div class="svc-chip"><div class="svc-ico">🎯</div><span>Paid Advertising</span></div>
+    <div class="svc-chip"><div class="svc-ico">🔍</div><span>SEO &amp; Growth</span></div>
+    <div class="svc-chip"><div class="svc-ico">📊</div><span>Analytics &amp; Data</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani">
+        <div class="about-badge">
+          <div class="ab-name">Fatai Ajani</div>
+          <div class="ab-role">E-commerce Growth Strategist · Lagos, Nigeria</div>
+        </div>
+      </div>
+      <div class="about-content fade-up">
+        <p class="eyebrow">About Me</p>
+        <h2 class="sec-title">Turning Clicks Into Customers — At Scale</h2>
+        <p>I'm an e-commerce growth strategist with deep expertise across the full online retail stack — from store architecture and UX to paid advertising, email retention, and conversion optimisation.</p>
+        <p>I've worked with brands across fashion, beauty, consumer electronics, and home goods, helping them identify where revenue is leaking and implementing strategies that deliver measurable, compounding results.</p>
+        <p>My approach is simple: diagnose with data, prioritise by impact, execute with discipline. Every decision is backed by analytics, customer behaviour insights, and tested frameworks.</p>
+        <p>Whether you need a full growth audit, a paid ads overhaul, a Klaviyo retention system, or a store UX transformation — I deliver outcomes, not just deliverables.</p>
+        <div class="about-chips">
+          <span class="about-chip">Shopify &amp; WooCommerce</span>
+          <span class="about-chip">Klaviyo Expert</span>
+          <span class="about-chip">Meta &amp; TikTok Ads</span>
+          <span class="about-chip">CRO Specialist</span>
+          <span class="about-chip">Remote-Ready</span>
+          <span class="about-chip">US &amp; Global Clients</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cs-section" id="work">
+  <div class="sec-inner">
+    <p class="eyebrow">Selected Work</p>
+    <h2 class="sec-title">Project Screenshots &amp; Campaign Results</h2>
+    <p class="sec-sub">Four in-depth case studies showing real strategy, execution, and results — across store optimisation, paid ads, email marketing, and full-funnel growth.</p>
+
+    <!-- CS 1 -->
+    <div class="cs-card fade-up" id="cs1">
+      <button class="cs-toggle" onclick="toggleCS('cs1')">
+        <div class="cs-head blue">
+          <div>
+            <div class="cs-cat blue">🛒 Store UX &amp; Conversion Optimisation</div>
+            <div class="cs-title">Fashion E-commerce — Full Store Overhaul</div>
+            <div class="cs-meta">Shopify Plus &nbsp;·&nbsp; 3-month engagement &nbsp;·&nbsp; 2023</div>
+            <div class="cs-kpi-row">
+              <div class="kpi-pill"><span class="kv green">+34%</span><span class="kl">Conversion Rate</span></div>
+              <div class="kpi-pill"><span class="kv gold">-41%</span><span class="kl">Cart Abandonment</span></div>
+              <div class="kpi-pill"><span class="kv blue">+22%</span><span class="kl">Avg. Order Value</span></div>
+            </div>
+          </div>
+          <div class="cs-arrow">▾</div>
+        </div>
+      </button>
+      <div class="cs-body">
+        <div class="cs-body-grid">
+          <div>
+            <p class="cs-label">The Challenge</p>
+            <p class="cs-text">A fashion brand with strong social traffic was seeing a 78% cart abandonment rate and conversion stuck below 1.2%. Despite healthy Instagram follower counts, the store wasn't turning attention into sales. A full UX audit was commissioned to diagnose and fix root causes.</p>
+            <p class="cs-label">What I Did</p>
+            <ul class="cs-list blue">
+              <li>Full UX audit — heatmaps, session recordings, and customer journey mapping to identify friction points</li>
+              <li>Redesigned product pages with stronger trust signals — reviews, size guides, returns policy placed prominently</li>
+              <li>Simplified checkout from 4 steps to 2, adding one-click upsells at cart stage</li>
+              <li>Rebuilt mobile experience — 74% of traffic was mobile yet the store was desktop-first</li>
+              <li>A/B tested 3 hero variants and 2 CTA formats, deploying the highest-converting combination</li>
+              <li>Implemented sticky add-to-cart bar, low-stock indicators, and delivery countdown urgency signals</li>
+            </ul>
+          </div>
+          <div>
+            <p class="cs-label">Results</p>
+            <div class="res-grid">
+              <div class="res-box"><div class="res-num green">+34%</div><div class="res-lbl">Conversion Rate</div></div>
+              <div class="res-box"><div class="res-num gold">-41%</div><div class="res-lbl">Cart Abandonment</div></div>
+              <div class="res-box"><div class="res-num blue">+22%</div><div class="res-lbl">Avg. Order Value</div></div>
+              <div class="res-box"><div class="res-num green">+55%</div><div class="res-lbl">Mobile Conv. Rate</div></div>
+              <div class="res-box"><div class="res-num gold">-28%</div><div class="res-lbl">Bounce Rate</div></div>
+              <div class="res-box"><div class="res-num blue">2.1s</div><div class="res-lbl">Page Load Time</div></div>
+            </div>
+            <div class="proof-gallery">
+              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
+              <div class="proof-grid">
+                <img class="proof-img" src="https://i.postimg.cc/ydfDvKs5/Image1.webp" alt="Store design" onclick="openLB(this)">
+                <img class="proof-img" src="https://i.postimg.cc/XYwXtdnG/Image1.webp" alt="Store UX" onclick="openLB(this)">
+                <img class="proof-img" src="https://i.postimg.cc/gcSM66FR/Image1.webp" alt="Store layout" onclick="openLB(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CS 2 -->
+    <div class="cs-card fade-up" id="cs2">
+      <button class="cs-toggle" onclick="toggleCS('cs2')">
+        <div class="cs-head gold">
+          <div>
+            <div class="cs-cat gold">🎯 Paid Advertising &amp; Customer Acquisition</div>
+            <div class="cs-title">Home Goods Brand — Meta &amp; TikTok Ads Scale-Up</div>
+            <div class="cs-meta">Meta Ads · TikTok Ads · Google Shopping &nbsp;·&nbsp; Ongoing since 2023</div>
+            <div class="cs-kpi-row">
+              <div class="kpi-pill"><span class="kv gold">4.7×</span><span class="kl">ROAS Achieved</span></div>
+              <div class="kpi-pill"><span class="kv green">-38%</span><span class="kl">Cost Per Acquisition</span></div>
+              <div class="kpi-pill"><span class="kv blue">+210%</span><span class="kl">Ad Revenue</span></div>
+            </div>
+          </div>
+          <div class="cs-arrow">▾</div>
+        </div>
+      </button>
+      <div class="cs-body">
+        <div class="cs-body-grid">
+          <div>
+            <p class="cs-label">The Challenge</p>
+            <p class="cs-text">A home goods brand was spending $3,500/month on Meta ads with a disappointing 1.8× ROAS — well below break-even. Campaigns were broad, ad creative was stale, and there was zero retargeting infrastructure. A full restructure was needed.</p>
+            <p class="cs-label">Strategy &amp; Execution</p>
+            <ul class="cs-list gold">
+              <li>Rebuilt campaign architecture using a 3-tier funnel — cold (TOF), warm retarget (MOF), cart abandoners (BOF)</li>
+              <li>Developed 8 new ad variants — UGC-style video, carousel, and static formats</li>
+              <li>Launched TikTok Ads targeting 18–34 demographic; allocated 20% of budget to test and scaled winners</li>
+              <li>Deployed Google Shopping campaigns for branded and high-intent product search terms</li>
+              <li>Configured all Pixel events — ViewContent, AddToCart, Checkout, Purchase — enabling algorithmic optimisation</li>
+              <li>Built lookalike audiences from top 5% purchasers to expand reach while maintaining acquisition quality</li>
+            </ul>
+          </div>
+          <div>
+            <p class="cs-label">Campaign Results</p>
+            <div class="res-grid">
+              <div class="res-box"><div class="res-num gold">4.7×</div><div class="res-lbl">ROAS (from 1.8×)</div></div>
+              <div class="res-box"><div class="res-num green">-38%</div><div class="res-lbl">CPA Reduction</div></div>
+              <div class="res-box"><div class="res-num blue">+210%</div><div class="res-lbl">Revenue from Ads</div></div>
+              <div class="res-box"><div class="res-num gold">3.2%</div><div class="res-lbl">Avg. CTR (vs 0.9%)</div></div>
+              <div class="res-box"><div class="res-num green">+65%</div><div class="res-lbl">TikTok New Traffic</div></div>
+              <div class="res-box"><div class="res-num blue">$1,200</div><div class="res-lbl">Monthly Ad Spend</div></div>
+            </div>
+            <div class="proof-gallery">
+              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
+              <div class="proof-grid">
+                <img class="proof-img" src="https://i.postimg.cc/HkjB2WmP/Image1.png" alt="Ad campaign" onclick="openLB(this)">
+                <img class="proof-img" src="https://i.postimg.cc/nV04P83C/Image1.png" alt="Ads manager results" onclick="openLB(this)">
+                <img class="proof-img" src="https://i.postimg.cc/k4wbz8v3/Image1.png" alt="Campaign metrics" onclick="openLB(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CS 3 -->
+    <div class="cs-card fade-up" id="cs3">
+      <button class="cs-toggle" onclick="toggleCS('cs3')">
+        <div class="cs-head green">
+          <div>
+            <div class="cs-cat green">💌 Email Marketing &amp; Customer Retention</div>
+            <div class="cs-title">Beauty Brand — Klaviyo Automation &amp; Lifecycle Strategy</div>
+            <div class="cs-meta">WooCommerce + Klaviyo &nbsp;·&nbsp; 4-month engagement &nbsp;·&nbsp; 2024</div>
+            <div class="cs-kpi-row">
+              <div class="kpi-pill"><span class="kv green">38%</span><span class="kl">Revenue from Email</span></div>
+              <div class="kpi-pill"><span class="kv gold">42%</span><span class="kl">Open Rate</span></div>
+              <div class="kpi-pill"><span class="kv blue">+44%</span><span class="kl">Repeat Purchase Rate</span></div>
+            </div>
+          </div>
+          <div class="cs-arrow">▾</div>
+        </div>
+      </button>
+      <div class="cs-body">
+        <div class="cs-body-grid">
+          <div>
+            <p class="cs-label">The Challenge</p>
+            <p class="cs-text">A beauty brand with a 12,000-subscriber email list was generating less than 6% of revenue from email — far below the industry benchmark of 25–35%. No automated flows existed, campaigns were irregular, and the list had never been segmented.</p>
+            <p class="cs-label">What Was Built</p>
+            <ul class="cs-list green">
+              <li>Designed 5-email Welcome Series — brand story, bestsellers, first purchase incentive, social proof, values</li>
+              <li>Built 3-step Abandoned Cart flow: reminder → social proof → urgency offer, recovering 18% of lost carts</li>
+              <li>Created Browse Abandonment and Post-Purchase flows nurturing customers toward repeat buys</li>
+              <li>Developed Win-Back sequence for customers inactive 60–90 days, recovering 12% of lapsed segment</li>
+              <li>Implemented advanced segmentation — VIPs, one-time buyers, at-risk cohorts, high-LTV customers</li>
+              <li>Rebuilt all campaign templates for mobile-first design, improving CTR by 22%</li>
+            </ul>
+          </div>
+          <div>
+            <p class="cs-label">Email Programme Results</p>
+            <div class="res-grid">
+              <div class="res-box"><div class="res-num green">38%</div><div class="res-lbl">Revenue from Email</div></div>
+              <div class="res-box"><div class="res-num gold">42%</div><div class="res-lbl">Open Rate (from 18%)</div></div>
+              <div class="res-box"><div class="res-num blue">18%</div><div class="res-lbl">Cart Recovery Rate</div></div>
+              <div class="res-box"><div class="res-num green">+44%</div><div class="res-lbl">Repeat Purchase Rate</div></div>
+              <div class="res-box"><div class="res-num gold">12%</div><div class="res-lbl">Win-Back Conversion</div></div>
+              <div class="res-box"><div class="res-num blue">+22%</div><div class="res-lbl">Email CTR</div></div>
+            </div>
+            <div class="proof-gallery">
+              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
+              <div class="proof-grid">
+                <img class="proof-img" src="https://i.postimg.cc/PJGgGpXz/Image1.png" alt="Email campaign" onclick="openLB(this)" style="aspect-ratio:auto;max-height:300px;object-fit:contain;background:#f8fafc">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CS 4 -->
+    <div class="cs-card fade-up" id="cs4">
+      <button class="cs-toggle" onclick="toggleCS('cs4')">
+        <div class="cs-head purple">
+          <div>
+            <div class="cs-cat purple">📊 E-commerce Growth Strategy</div>
+            <div class="cs-title">Consumer Electronics Brand — 6-Month Growth Programme</div>
+            <div class="cs-meta">Magento (Adobe Commerce) &nbsp;·&nbsp; Strategic Consulting &nbsp;·&nbsp; 2024</div>
+            <div class="cs-kpi-row">
+              <div class="kpi-pill"><span class="kv blue">+68%</span><span class="kl">Revenue Growth</span></div>
+              <div class="kpi-pill"><span class="kv green">+40%</span><span class="kl">Customer LTV</span></div>
+              <div class="kpi-pill"><span class="kv gold">+31%</span><span class="kl">Avg. Order Value</span></div>
+            </div>
+          </div>
+          <div class="cs-arrow">▾</div>
+        </div>
+      </button>
+      <div class="cs-body">
+        <div class="cs-body-grid">
+          <div>
+            <p class="cs-label">The Brief</p>
+            <p class="cs-text">A consumer electronics brand had plateaued at the same monthly revenue for 8 consecutive months despite increasing ad spend. They needed a strategic partner to audit the entire business and identify where growth was being suppressed.</p>
+            <p class="cs-label">Strategic Initiatives</p>
+            <ul class="cs-list purple">
+              <li>Full-funnel audit across acquisition, activation, retention, and referral — identifying 11 priority growth levers</li>
+              <li>Redesigned product catalogue architecture — improved category logic, search, and cross-sell placement</li>
+              <li>Implemented a loyalty and rewards programme, increasing repeat purchase frequency by 40%</li>
+              <li>Launched SEO content cluster strategy — 24 optimised buying guides driving 18% of new organic revenue</li>
+              <li>Introduced post-purchase NPS + review automation, growing reviews from 120 to 1,400 in 4 months</li>
+              <li>Restructured pricing tiers and bundle offers, increasing average order value by 31%</li>
+            </ul>
+          </div>
+          <div>
+            <p class="cs-label">Growth Programme Outcomes</p>
+            <div class="res-grid">
+              <div class="res-box"><div class="res-num blue">+68%</div><div class="res-lbl">Revenue Growth (6mo)</div></div>
+              <div class="res-box"><div class="res-num green">+40%</div><div class="res-lbl">Customer LTV</div></div>
+              <div class="res-box"><div class="res-num gold">+31%</div><div class="res-lbl">Avg. Order Value</div></div>
+              <div class="res-box"><div class="res-num blue">1,400</div><div class="res-lbl">Reviews Generated</div></div>
+              <div class="res-box"><div class="res-num green">18%</div><div class="res-lbl">Organic Revenue</div></div>
+              <div class="res-box"><div class="res-num gold">4.8★</div><div class="res-lbl">Avg. Product Rating</div></div>
+            </div>
+            <div class="proof-gallery">
+              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
+              <div class="proof-grid">
+                <img class="proof-img" src="https://i.postimg.cc/9XtTw66X/Image1.avif" alt="Analytics dashboard" onclick="openLB(this)">
+                <img class="proof-img" src="https://i.postimg.cc/WbYdMTXV/Image1.avif" alt="Sales report" onclick="openLB(this)">
+                <img class="proof-img" src="https://i.postimg.cc/Y0nCfzN8/Image1.avif" alt="Growth metrics" onclick="openLB(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section" id="tools">
+  <div class="sec-inner">
+    <p class="eyebrow">Technical Stack</p>
+    <h2 class="sec-title">Platforms &amp; Tools I Work With</h2>
+    <p class="sec-sub">Platform-agnostic expertise across the full e-commerce technology stack — storefronts, analytics, automation, and advertising.</p>
+    <div class="tools-grid">
+      <div class="tool-group fade-up"><div class="tg-title">E-commerce Platforms</div><div class="tool-tags"><span class="ttag">Shopify</span><span class="ttag">Shopify Plus</span><span class="ttag">WooCommerce</span><span class="ttag">Adobe Commerce (Magento)</span><span class="ttag">BigCommerce</span><span class="ttag">PrestaShop</span><span class="ttag">Wix eCommerce</span></div></div>
+      <div class="tool-group fade-up"><div class="tg-title">Email &amp; Automation</div><div class="tool-tags"><span class="ttag">Klaviyo</span><span class="ttag">Mailchimp</span><span class="ttag">Omnisend</span><span class="ttag">Drip</span><span class="ttag">ActiveCampaign</span><span class="ttag">HubSpot</span></div></div>
+      <div class="tool-group fade-up"><div class="tg-title">Paid Advertising</div><div class="tool-tags"><span class="ttag">Meta Ads Manager</span><span class="ttag">TikTok Ads</span><span class="ttag">Google Ads</span><span class="ttag">Google Shopping</span><span class="ttag">Pinterest Ads</span><span class="ttag">Snapchat Ads</span></div></div>
+      <div class="tool-group fade-up"><div class="tg-title">Analytics &amp; CRO</div><div class="tool-tags"><span class="ttag">Google Analytics 4</span><span class="ttag">Google Tag Manager</span><span class="ttag">Hotjar</span><span class="ttag">Lucky Orange</span><span class="ttag">Crazy Egg</span><span class="ttag">Looker Studio</span></div></div>
+      <div class="tool-group fade-up"><div class="tg-title">SEO &amp; Content</div><div class="tool-tags"><span class="ttag">SEMrush</span><span class="ttag">Ahrefs</span><span class="ttag">Surfer SEO</span><span class="ttag">Google Search Console</span><span class="ttag">Screaming Frog</span></div></div>
+      <div class="tool-group fade-up"><div class="tg-title">Design &amp; UX</div><div class="tool-tags"><span class="ttag">Figma</span><span class="ttag">Canva</span><span class="ttag">Adobe XD</span><span class="ttag">PageSpeed Insights</span><span class="ttag">GTmetrix</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach-section" id="approach">
+  <div class="sec-inner">
+    <p class="eyebrow">How I Work</p>
+    <h2 class="sec-title">My Growth Approach</h2>
+    <p class="sec-sub">Every engagement follows a structured, data-led process — no guesswork, no generic advice. Focused strategy and measurable outcomes.</p>
+    <div class="approach-grid">
+      <div class="ap-card fade-up"><div class="ap-num">01</div><h3>Audit &amp; Diagnose</h3><p>Full 360° audit across traffic, funnel, UX, ads, email, and analytics — surfacing exactly where revenue is leaking and why.</p></div>
+      <div class="ap-card fade-up"><div class="ap-num">02</div><h3>Strategy &amp; Prioritisation</h3><p>Findings ranked by impact-to-effort ratio. A focused roadmap built so the highest-impact fixes deliver results fast — not months later.</p></div>
+      <div class="ap-card fade-up"><div class="ap-num">03</div><h3>Execute &amp; Test</h3><p>Changes implemented with A/B testing discipline — nothing assumed, everything measured. Winning variants scaled, losers cut fast.</p></div>
+      <div class="ap-card fade-up"><div class="ap-num">04</div><h3>Report &amp; Iterate</h3><p>Clear weekly reporting with context — not just numbers. Every cycle builds on the last, compounding gains across the full customer lifecycle.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-glow"></div>
+  <div class="contact-inner">
+    <p class="eyebrow">Let's Work Together</p>
+    <h2 class="sec-title">Ready to Grow Your Store?</h2>
+    <p class="sec-sub">Whether you need conversion optimisation, paid ads management, email retention systems, or a full e-commerce growth strategy — I'm available for remote engagements globally.</p>
+    <div class="contact-btns">
+      <a href="mailto:fatai.ajani.online@gmail.com" class="btn-solid">Send an Email</a>
+      <a href="https://wa.me/2349025243381" target="_blank" class="whatsapp-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Me
+      </a>
+      <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+    <div class="contact-details">
+      <div class="cd"><strong>Email</strong><a href="mailto:fatai.ajani.online@gmail.com">fatai.ajani.online@gmail.com</a></div>
+      <div class="cd"><strong>WhatsApp</strong><a href="https://wa.me/2349025243381">+234 902 524 3381</a></div>
+      <div class="cd"><strong>Location</strong><span>Lagos, Nigeria</span></div>
+      <div class="cd"><strong>Availability</strong><span>Remote — Global</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Fatai Ajani · E-commerce Growth Strategist</p>
+  <div class="footer-links">
+    <a href="#about">About</a><a href="#work">Work</a>
+    <a href="#tools">Stack</a><a href="#contact">Contact</a>
+    <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+function toggleCS(id){document.getElementById(id).classList.toggle('open')}
+function openLB(img){document.getElementById('lb-img').src=img.src;document.getElementById('lb').classList.add('active');document.body.style.overflow='hidden'}
+function closeLB(){document.getElementById('lb').classList.remove('active');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+document.getElementById('cs1').classList.add('open');
+function toggleMenu(){const l=document.querySelector('.nav-links');if(l.style.display==='flex'){l.style.display='none'}else{l.style.cssText='display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:#fff;padding:24px 6%;border-bottom:1px solid #e2e8f0;gap:20px;z-index:199;'}}
+</script>
+</body>
+</html>
