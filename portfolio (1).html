@@ -5,262 +5,842 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fatai Ajani — E-commerce Growth Strategist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ─────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────── */
 :root {
-  --ink: #0b0f1a;--ink2: #151c2e;--blue: #2563eb;--blue2: #1d4ed8;
-  --sky: #eff6ff;--sky2: #dbeafe;--gold: #f59e0b;--gold2: #d97706;
-  --green: #10b981;--white: #ffffff;--offwhite: #f8fafc;
-  --g100: #f1f5f9;--g200: #e2e8f0;--g300: #cbd5e1;--g400: #94a3b8;
-  --g500: #64748b;--g600: #475569;--g700: #334155;--g800: #1e293b;
-  --r: 14px;--r2: 22px;
-  --sh: 0 2px 20px rgba(11,15,26,.08);--sh2: 0 8px 48px rgba(11,15,26,.14);
-  --sh3: 0 20px 80px rgba(11,15,26,.18);
+  --ink:       #0d1117;
+  --ink-soft:  #1c2432;
+  --blue:      #1a56db;
+  --blue-dark: #1240a8;
+  --blue-pale: #eef3fd;
+  --gold:      #c8922a;
+  --green:     #0f7d58;
+  --red:       #c0392b;
+  --white:     #ffffff;
+  --off:       #f7f8fa;
+  --rule:      #e4e8ef;
+  --muted:     #6b7280;
+  --text:      #374151;
+  --r:         10px;
+  --r2:        18px;
+  --sh:        0 2px 16px rgba(13,17,23,.07);
+  --sh2:       0 6px 40px rgba(13,17,23,.12);
+  --sh3:       0 16px 72px rgba(13,17,23,.16);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:var(--offwhite);color:var(--ink);overflow-x:hidden;line-height:1.6}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--g100)}
-::-webkit-scrollbar-thumb{background:var(--blue);border-radius:10px}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.93);
-  backdrop-filter:blur(20px);border-bottom:1px solid var(--g200);
-  display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:70px}
-.logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
-.logo b{color:var(--blue)}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--g600);font-size:.85rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--blue)}
-.nav-hire{background:var(--ink);color:#fff !important;padding:9px 24px;border-radius:50px;font-weight:600 !important;font-size:.82rem !important;transition:background .2s,transform .2s !important}
-.nav-hire:hover{background:var(--blue) !important;transform:translateY(-1px)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
-
-/* HERO */
-.hero{min-height:100vh;background:var(--ink);display:flex;align-items:center;
-  padding:120px 6% 80px;position:relative;overflow:hidden}
-.hero-bg-grid{position:absolute;inset:0;
-  background-image:linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);
-  background-size:60px 60px;pointer-events:none}
-.hero-glow1{position:absolute;top:-200px;right:-100px;width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(37,99,235,.2) 0%,transparent 65%);pointer-events:none}
-.hero-glow2{position:absolute;bottom:-100px;left:10%;width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(245,158,11,.07) 0%,transparent 65%);pointer-events:none}
-.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;
-  gap:72px;align-items:center;position:relative;z-index:1}
-.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.15);
-  border:1px solid rgba(37,99,235,.3);color:#93c5fd;padding:6px 18px;border-radius:50px;
-  font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
-.hero-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-h1.hero-heading{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,4.8rem);font-weight:900;
-  color:#fff;line-height:1.05;margin-bottom:24px;letter-spacing:-.03em}
-h1.hero-heading em{color:var(--gold);font-style:italic}
-.hero-sub{color:#94a3b8;font-size:1.05rem;line-height:1.75;margin-bottom:40px;max-width:540px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
-.btn-solid{background:var(--blue);color:#fff;padding:14px 32px;border-radius:50px;
-  font-size:.9rem;font-weight:600;text-decoration:none;transition:all .2s;border:2px solid var(--blue)}
-.btn-solid:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.4)}
-.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:50px;
-  border:2px solid rgba(255,255,255,.2);font-size:.9rem;font-weight:500;text-decoration:none;transition:all .2s}
-.btn-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
-.whatsapp-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;
-  padding:14px 28px;border-radius:50px;font-size:.9rem;font-weight:600;text-decoration:none;
-  transition:all .2s;border:2px solid #25D366}
-.whatsapp-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.35)}
-.whatsapp-btn svg{width:20px;height:20px;flex-shrink:0}
-.hero-stats{display:flex;gap:36px;padding-top:36px;border-top:1px solid rgba(255,255,255,.07)}
-.hstat .num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:#fff;line-height:1}
-.hstat .num b{color:var(--gold)}
-.hstat .lbl{color:var(--g500);font-size:.75rem;margin-top:4px;letter-spacing:.04em}
-.hero-right{position:relative;display:flex;justify-content:center;align-items:center}
-.photo-wrap{width:320px;height:390px;border-radius:var(--r2);overflow:hidden;position:relative;z-index:2;
-  border:3px solid rgba(255,255,255,.08);box-shadow:var(--sh3)}
-.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.photo-ring{position:absolute;inset:-14px;border-radius:28px;border:1px solid rgba(37,99,235,.25);z-index:1}
-.float-card{position:absolute;background:rgba(15,23,42,.85);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:14px 18px;z-index:3;
-  animation:floatY 5s ease-in-out infinite}
-.float-card:nth-child(3){animation-delay:-2.5s}
-.float-card:nth-child(4){animation-delay:-1s}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.fc-label{font-size:.65rem;color:var(--g500);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-.fc-val{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1}
-.fc-tag{font-size:.7rem;color:var(--green);font-weight:600;margin-top:3px}
-
-/* SECTIONS */
-section{padding:96px 6%}
-.sec-inner{max-width:1200px;margin:0 auto}
-.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
-h2.sec-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.9rem);font-weight:800;
-  color:var(--ink);line-height:1.12;margin-bottom:18px;letter-spacing:-.03em}
-.sec-sub{color:var(--g600);font-size:1rem;line-height:1.75;max-width:580px;margin-bottom:56px}
-
-/* SERVICES BAR */
-.svc-bar{background:#fff;padding:48px 6%;border-bottom:1px solid var(--g200)}
-.svc-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
-.svc-chip{display:flex;align-items:center;gap:12px;background:var(--g100);border-radius:var(--r);
-  padding:16px 18px;transition:all .22s;cursor:default;border:1px solid transparent}
-.svc-chip:hover{background:var(--sky);border-color:var(--sky2);transform:translateY(-3px);box-shadow:var(--sh)}
-.svc-ico{width:36px;height:36px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.svc-chip span{font-size:.82rem;font-weight:600;color:var(--ink)}
-
-/* ABOUT */
-.about-section{background:#fff}
-.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:center}
-.about-photo{width:100%;aspect-ratio:.8;border-radius:var(--r2);overflow:hidden;position:relative;box-shadow:var(--sh2)}
-.about-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.about-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(11,15,26,.82);
-  backdrop-filter:blur(10px);border-radius:var(--r);padding:16px 20px;border:1px solid rgba(255,255,255,.08)}
-.ab-name{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:#fff}
-.ab-role{color:var(--g400);font-size:.8rem;margin-top:2px}
-.about-content p{color:var(--g600);font-size:.95rem;line-height:1.8;margin-bottom:16px}
-.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.about-chip{background:var(--g100);border-radius:8px;padding:6px 14px;font-size:.8rem;font-weight:600;color:var(--g700)}
-
-/* CASE STUDIES */
-.cs-section{background:var(--offwhite)}
-.cs-card{background:#fff;border-radius:var(--r2);border:1px solid var(--g200);box-shadow:var(--sh);
-  margin-bottom:40px;overflow:hidden;transition:box-shadow .3s,transform .3s}
-.cs-card:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
-.cs-toggle{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:0;display:block}
-.cs-head{padding:36px 44px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
-  position:relative;overflow:hidden}
-.cs-head::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.04}
-.cs-head.blue::after{background:linear-gradient(135deg,var(--blue) 0%,transparent 55%)}
-.cs-head.gold::after{background:linear-gradient(135deg,var(--gold) 0%,transparent 55%)}
-.cs-head.green::after{background:linear-gradient(135deg,var(--green) 0%,transparent 55%)}
-.cs-head.purple::after{background:linear-gradient(135deg,#7c3aed 0%,transparent 55%)}
-.cs-cat{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:50px;margin-bottom:12px}
-.cs-cat.blue{background:var(--sky2);color:var(--blue2)}
-.cs-cat.gold{background:#fef3c7;color:#92400e}
-.cs-cat.green{background:#d1fae5;color:#065f46}
-.cs-cat.purple{background:#ede9fe;color:#4c1d95}
-.cs-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:800;color:var(--ink);
-  margin-bottom:8px;letter-spacing:-.02em}
-.cs-meta{color:var(--g400);font-size:.8rem}
-.cs-arrow{width:40px;height:40px;border-radius:50%;background:var(--g100);display:flex;
-  align-items:center;justify-content:center;transition:transform .3s,background .2s;
-  flex-shrink:0;font-size:1rem;color:var(--g500)}
-.cs-card.open .cs-arrow{transform:rotate(180deg);background:var(--sky2);color:var(--blue)}
-.cs-kpi-row{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
-.kpi-pill{background:var(--g100);border-radius:50px;padding:8px 18px;display:flex;align-items:center;gap:8px}
-.kv{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:700}
-.kv.green{color:var(--green)}.kv.gold{color:var(--gold2)}.kv.blue{color:var(--blue)}
-.kl{font-size:.72rem;color:var(--g500);font-weight:500}
-.cs-body{display:none;padding:0 44px 40px;border-top:1px solid var(--g100)}
-.cs-card.open .cs-body{display:block}
-.cs-body-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:36px}
-.cs-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g400);margin-bottom:14px}
-.cs-text{color:var(--g600);font-size:.92rem;line-height:1.8;margin-bottom:18px}
-.cs-list{list-style:none;display:flex;flex-direction:column;gap:9px}
-.cs-list li{display:flex;align-items:flex-start;gap:10px;color:var(--g700);font-size:.88rem;line-height:1.6}
-.cs-list li::before{content:'→';font-weight:700;flex-shrink:0;margin-top:1px}
-.cs-list.blue li::before{color:var(--blue)}.cs-list.gold li::before{color:var(--gold2)}
-.cs-list.green li::before{color:var(--green)}.cs-list.purple li::before{color:#7c3aed}
-.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
-.res-box{background:var(--g100);border-radius:var(--r);padding:16px 12px;text-align:center}
-.res-num{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;line-height:1}
-.res-num.green{color:var(--green)}.res-num.gold{color:var(--gold2)}.res-num.blue{color:var(--blue)}
-.res-lbl{font-size:.68rem;color:var(--g400);margin-top:4px;line-height:1.3}
-
-/* PROOF GALLERY */
-.proof-gallery{margin-top:28px}
-.proof-title{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--g400);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.proof-title::before{content:'📸';font-size:.9rem}
-.proof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-.proof-img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r);
-  border:1px solid var(--g200);cursor:zoom-in;transition:transform .2s,box-shadow .2s;background:var(--g100)}
-.proof-img:hover{transform:scale(1.03);box-shadow:var(--sh2)}
-
-/* TOOLS */
-.tools-section{background:var(--ink)}
-.tools-section .eyebrow{color:#93c5fd}
-.tools-section h2.sec-title{color:#fff}
-.tools-section .sec-sub{color:var(--g500)}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.tool-group{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r2);padding:26px;transition:border-color .2s}
-.tool-group:hover{border-color:rgba(37,99,235,.3)}
-.tg-title{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:14px}
-.tool-tags{display:flex;flex-wrap:wrap;gap:7px}
-.ttag{background:rgba(255,255,255,.06);color:#cbd5e1;padding:5px 13px;border-radius:6px;
-  font-size:.78rem;font-weight:500;border:1px solid rgba(255,255,255,.07);transition:all .2s}
-.ttag:hover{background:rgba(37,99,235,.2);border-color:rgba(37,99,235,.35);color:#93c5fd}
-
-/* APPROACH */
-.approach-section{background:var(--offwhite)}
-.approach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.ap-card{background:#fff;border-radius:var(--r2);padding:32px 26px;border:1px solid var(--g200);transition:all .25s}
-.ap-card:hover{background:var(--sky);border-color:var(--sky2);transform:translateY(-5px);box-shadow:var(--sh)}
-.ap-num{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:900;color:var(--g200);line-height:1;margin-bottom:16px}
-.ap-card h3{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
-.ap-card p{font-size:.87rem;color:var(--g600);line-height:1.7}
-
-/* CONTACT */
-.contact-section{background:linear-gradient(140deg,var(--ink) 0%,#0d2a6e 100%);padding:96px 6%;position:relative;overflow:hidden}
-.contact-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;
-  border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.14) 0%,transparent 70%);pointer-events:none}
-.contact-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.contact-section .eyebrow{color:#93c5fd;margin-bottom:10px}
-.contact-section h2.sec-title{color:#fff;margin-bottom:16px}
-.contact-section .sec-sub{color:#94a3b8;margin:0 auto 44px;text-align:center;max-width:500px}
-.contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.contact-details{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
-  padding-top:40px;border-top:1px solid rgba(255,255,255,.07)}
-.cd{text-align:center}
-.cd strong{display:block;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);margin-bottom:5px}
-.cd span{color:#94a3b8;font-size:.88rem}
-.cd a{color:#93c5fd;text-decoration:none;font-size:.88rem}
-.cd a:hover{color:#fff}
-
-/* FOOTER */
-footer{background:#060c18;padding:28px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-footer p{color:var(--g700);font-size:.78rem}
-.footer-links{display:flex;gap:24px}
-.footer-links a{color:var(--g700);font-size:.78rem;text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--g400)}
-
-/* LIGHTBOX */
-.lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.9);align-items:center;justify-content:center;cursor:zoom-out}
-.lightbox.active{display:flex}
-.lightbox img{max-width:90vw;max-height:88vh;border-radius:var(--r);box-shadow:0 24px 80px rgba(0,0,0,.6)}
-.lb-close{position:absolute;top:24px;right:28px;color:#fff;font-size:2rem;cursor:pointer;
-  background:rgba(255,255,255,.1);border-radius:50%;width:44px;height:44px;
-  display:flex;align-items:center;justify-content:center;transition:background .2s}
-.lb-close:hover{background:rgba(255,255,255,.2)}
-
-/* WA FLOAT */
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:300;background:#25D366;color:#fff;
-  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s,box-shadow .2s}
-.wa-float:hover{transform:scale(1.12);box-shadow:0 10px 36px rgba(37,211,102,.55)}
-.wa-float svg{width:28px;height:28px}
-
-/* FADE */
-.fade-up{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
-.fade-up.show{opacity:1;transform:translateY(0)}
-
-/* RESPONSIVE */
-@media(max-width:960px){
-  .hero-inner{grid-template-columns:1fr;gap:48px}
-  .hero-right{justify-content:flex-start;margin-top:8px}
-  .photo-wrap{width:260px;height:320px}
-  .about-grid{grid-template-columns:1fr}
-  .cs-body-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .hamburger{display:flex}
+/* ─────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Geologica', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
 }
-@media(max-width:600px){
-  .cs-head,.cs-body{padding:24px 20px}
-  .hero-stats{gap:20px}
-  .res-grid{grid-template-columns:repeat(2,1fr)}
-  .hero-btns{flex-direction:column;align-items:flex-start}
-  .contact-details{gap:24px}
-  footer{flex-direction:column;text-align:center}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 4px; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY HELPERS
+───────────────────────────────────────── */
+.label {
+  font-size: .7rem; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--blue);
+}
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: -.01em;
+}
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+  height: 64px;
+  display: flex; align-items: center;
+  padding: 0 7%;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--ink); letter-spacing: -.02em;
+}
+.nav-brand span { color: var(--blue); }
+.nav-links {
+  display: flex; align-items: center;
+  gap: 36px; list-style: none;
+}
+.nav-links a {
+  font-size: .82rem; font-weight: 500;
+  color: var(--muted); transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--ink); color: var(--white) !important;
+  padding: 9px 22px; border-radius: 6px;
+  font-size: .8rem !important; font-weight: 600 !important;
+  letter-spacing: .03em; transition: background .2s, transform .2s;
+}
+.nav-cta:hover { background: var(--blue) !important; transform: translateY(-1px); }
+.nav-mobile-btn {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.nav-mobile-btn span {
+  width: 22px; height: 1.5px;
+  background: var(--ink); border-radius: 2px; display: block;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 0;
+  padding-top: 64px;
+}
+.hero-left {
+  padding: 80px 7% 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--rule);
+}
+.hero-available {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #e8f5ef; border: 1px solid #a7d9c0;
+  color: var(--green); padding: 5px 14px; border-radius: 50px;
+  font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; margin-bottom: 36px; width: fit-content;
+}
+.hero-available::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--green); border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.4; transform:scale(.7); }
+}
+h1.hero-h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 700; color: var(--ink);
+  line-height: 1.0; margin-bottom: 28px;
+}
+h1.hero-h1 em {
+  font-style: italic; color: var(--blue);
+}
+.hero-desc {
+  font-size: 1.05rem; color: var(--muted);
+  line-height: 1.75; max-width: 520px;
+  margin-bottom: 44px;
+}
+.hero-actions {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: 7px;
+  font-size: .875rem; font-weight: 600;
+  transition: all .2s; letter-spacing: .01em;
+  font-family: 'Geologica', sans-serif;
+  cursor: pointer; border: none;
+}
+.btn-primary {
+  background: var(--blue); color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,86,219,.3);
+}
+.btn-ghost {
+  background: transparent; color: var(--ink);
+  border: 1.5px solid var(--rule);
+}
+.btn-ghost:hover {
+  border-color: var(--ink); background: var(--ink);
+  color: var(--white);
+}
+.btn-wa {
+  background: #25D366; color: var(--white);
+}
+.btn-wa:hover {
+  background: #1da851;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37,211,102,.3);
+}
+.btn-wa svg, .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* hero metrics strip */
+.hero-metrics {
+  display: flex; gap: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 40px;
+}
+.hm {
+  flex: 1; padding-right: 32px;
+  border-right: 1px solid var(--rule);
+  margin-right: 32px;
+}
+.hm:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.hm-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem; font-weight: 700;
+  color: var(--ink); line-height: 1;
+}
+.hm-num b { color: var(--blue); }
+.hm-label { font-size: .75rem; color: var(--muted); margin-top: 5px; }
+
+/* hero right — photo panel */
+.hero-right {
+  background: var(--ink);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 40px;
+  position: relative; overflow: hidden;
+}
+.hero-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(26,86,219,.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-photo {
+  width: 260px; height: 320px;
+  border-radius: var(--r2); overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+  box-shadow: var(--sh3);
+  position: relative; z-index: 1;
+  margin-bottom: 32px;
+}
+.hero-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+.hero-name-card {
+  text-align: center; position: relative; z-index: 1;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--white); margin-bottom: 4px;
+}
+.hero-title-card { font-size: .8rem; color: #94a3b8; }
+.hero-links {
+  display: flex; gap: 10px; margin-top: 20px;
+  position: relative; z-index: 1;
+}
+.hero-link-btn {
+  padding: 8px 18px; border-radius: 6px;
+  font-size: .75rem; font-weight: 600;
+  border: 1px solid rgba(255,255,255,.15);
+  color: #cbd5e1; transition: all .2s;
+  letter-spacing: .03em;
+}
+.hero-link-btn:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.3);
+  color: var(--white);
+}
+
+/* ─────────────────────────────────────────
+   TRUST STRIP — platform logos
+───────────────────────────────────────── */
+.trust-strip {
+  padding: 40px 7%;
+  border-bottom: 1px solid var(--rule);
+  background: var(--off);
+}
+.trust-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; gap: 48px;
+  flex-wrap: wrap;
+}
+.trust-label {
+  font-size: .7rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap; flex-shrink: 0;
+}
+.trust-logos {
+  display: flex; align-items: center;
+  gap: 36px; flex-wrap: wrap; flex: 1;
+}
+.trust-logo {
+  font-family: 'Geologica', sans-serif;
+  font-size: .82rem; font-weight: 600;
+  color: var(--muted); letter-spacing: .02em;
+  padding: 6px 14px; border-radius: 6px;
+  background: var(--white); border: 1px solid var(--rule);
+  transition: all .2s; white-space: nowrap;
+}
+.trust-logo:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ─────────────────────────────────────────
+   SECTIONS
+───────────────────────────────────────── */
+.section { padding: 96px 7%; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { margin-bottom: 56px; }
+.section-header h2 {
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 700; color: var(--ink);
+  line-height: 1.1; margin-top: 10px;
+}
+.section-header p {
+  color: var(--muted); font-size: .975rem;
+  line-height: 1.75; max-width: 580px; margin-top: 14px;
+}
+
+/* ─────────────────────────────────────────
+   ABOUT
+───────────────────────────────────────── */
+.about-section { background: var(--off); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.about-grid {
+  display: grid; grid-template-columns: 340px 1fr;
+  gap: 72px; align-items: start;
+}
+.about-photo-col { position: relative; }
+.about-img {
+  width: 100%; aspect-ratio: .82;
+  border-radius: var(--r2); overflow: hidden;
+  box-shadow: var(--sh2);
+}
+.about-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+.about-badge {
+  position: absolute; bottom: -1px; left: 0; right: 0;
+  background: var(--ink); padding: 18px 22px;
+  border-radius: 0 0 var(--r2) var(--r2);
+}
+.ab-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 700; color: var(--white);
+}
+.ab-sub { font-size: .75rem; color: #94a3b8; margin-top: 3px; }
+.about-text p {
+  color: var(--text); font-size: .975rem;
+  line-height: 1.8; margin-bottom: 18px;
+}
+.about-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;
+}
+.chip {
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 6px 14px;
+  font-size: .78rem; font-weight: 500; color: var(--ink);
+  transition: all .2s;
+}
+.chip:hover { border-color: var(--blue); color: var(--blue); }
+
+/* why hire me */
+.why-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px; background: var(--rule);
+  border: 1px solid var(--rule); border-radius: var(--r2);
+  overflow: hidden; margin-top: 48px;
+}
+.why-item {
+  background: var(--white); padding: 28px 26px;
+  transition: background .2s;
+}
+.why-item:hover { background: var(--blue-pale); }
+.why-item h3 {
+  font-size: 1rem; font-weight: 600; color: var(--ink);
+  margin-bottom: 8px; font-family: 'Geologica', sans-serif;
+}
+.why-item p { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+/* ─────────────────────────────────────────
+   SERVICES
+───────────────────────────────────────── */
+.services-section { background: var(--white); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2px; background: var(--rule);
+  border: 1px solid var(--rule); border-radius: var(--r2);
+  overflow: hidden;
+}
+.svc {
+  background: var(--white); padding: 36px 32px;
+  transition: background .2s;
+}
+.svc:hover { background: var(--off); }
+.svc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; font-weight: 400;
+  color: var(--rule); line-height: 1; margin-bottom: 16px;
+}
+.svc h3 {
+  font-family: 'Geologica', sans-serif;
+  font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 10px;
+}
+.svc p { font-size: .875rem; color: var(--muted); line-height: 1.7; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.svc-tag {
+  font-size: .7rem; font-weight: 600;
+  color: var(--blue); background: var(--blue-pale);
+  padding: 3px 10px; border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────
+   CASE STUDIES
+───────────────────────────────────────── */
+.cs-section { background: var(--off); border-top: 1px solid var(--rule); }
+
+.cs-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--r2);
+  margin-bottom: 28px;
+  overflow: hidden;
+  transition: box-shadow .3s;
+}
+.cs-card:hover { box-shadow: var(--sh2); }
+
+/* Summary row — always visible */
+.cs-summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  padding: 36px 40px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background .2s;
+}
+.cs-summary:hover { background: var(--off); }
+
+.cs-tag {
+  display: inline-block;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: 4px;
+  margin-bottom: 12px;
+}
+.cs-tag.blue  { background: var(--blue-pale); color: var(--blue); }
+.cs-tag.gold  { background: #fef3c7; color: #92400e; }
+.cs-tag.green { background: #dcfce7; color: #14532d; }
+.cs-tag.slate { background: #f1f5f9; color: #334155; }
+
+.cs-title-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem; font-weight: 700;
+  color: var(--ink); line-height: 1.2; margin-bottom: 8px;
+}
+.cs-meta-text { font-size: .8rem; color: var(--muted); }
+
+.cs-kpis {
+  display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;
+}
+.kpi-badge {
+  background: var(--off); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 8px 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  min-width: 90px;
+}
+.kpi-v {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700; line-height: 1;
+}
+.kpi-v.g { color: var(--green); }
+.kpi-v.b { color: var(--blue); }
+.kpi-v.o { color: var(--gold); }
+.kpi-v.r { color: var(--red); }
+.kpi-l { font-size: .65rem; color: var(--muted); font-weight: 500; text-align: center; }
+
+/* expand trigger */
+.cs-expand-trigger {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0;
+}
+.expand-btn {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 4px; text-align: center;
+}
+.expand-btn-label {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--blue); white-space: nowrap;
+}
+.expand-btn-arrow {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--blue-pale); border: 1.5px solid var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .35s, background .2s;
+  font-size: .8rem; color: var(--blue); font-weight: 700;
+}
+.cs-card.open .expand-btn-arrow {
+  transform: rotate(180deg);
+  background: var(--blue); color: var(--white);
+}
+
+/* "More inside" teaser bar */
+.cs-teaser {
+  margin: 0 40px;
+  border-top: 1px dashed var(--rule);
+  padding: 14px 0;
+  display: flex; align-items: center; gap: 10px;
+  color: var(--muted); font-size: .8rem;
+  cursor: pointer; transition: color .2s;
+}
+.cs-teaser:hover { color: var(--blue); }
+.cs-teaser::before {
+  content: '';
+  width: 18px; height: 1px;
+  background: currentColor; flex-shrink: 0;
+}
+.cs-card.open .cs-teaser { display: none; }
+
+/* detail body */
+.cs-detail {
+  display: none;
+  border-top: 1px solid var(--rule);
+}
+.cs-card.open .cs-detail { display: block; }
+
+.cs-detail-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.cs-col {
+  padding: 40px;
+}
+.cs-col:first-child { border-right: 1px solid var(--rule); }
+
+.cs-section-label {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+}
+.cs-body-text {
+  font-size: .9rem; color: var(--text);
+  line-height: 1.8; margin-bottom: 20px;
+}
+.cs-bullet-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.cs-bullet-list li {
+  display: grid; grid-template-columns: 20px 1fr;
+  gap: 8px; font-size: .875rem; color: var(--text); line-height: 1.6;
+}
+.cs-bullet-list li::before {
+  content: '—'; color: var(--blue);
+  font-weight: 700; margin-top: 1px;
+}
+
+.results-table {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px; margin-bottom: 28px;
+}
+.rt-cell {
+  background: var(--off); border-radius: var(--r);
+  padding: 16px 12px; text-align: center;
+  border: 1px solid var(--rule);
+}
+.rt-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem; font-weight: 700; line-height: 1;
+}
+.rt-val.g { color: var(--green); }
+.rt-val.b { color: var(--blue); }
+.rt-val.o { color: var(--gold); }
+.rt-val.r { color: var(--red); }
+.rt-label { font-size: .67rem; color: var(--muted); margin-top: 5px; line-height: 1.3; }
+
+/* proof images inside case study */
+.proof-section { margin-top: 28px; }
+.proof-label {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+}
+.proof-imgs {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+.proof-img {
+  width: 100%; aspect-ratio: 16/10;
+  object-fit: cover; border-radius: var(--r);
+  border: 1px solid var(--rule); cursor: zoom-in;
+  transition: transform .2s, box-shadow .2s;
+  background: var(--off);
+}
+.proof-img:hover { transform: scale(1.03); box-shadow: var(--sh2); }
+
+/* stack tags */
+.stack-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.stag {
+  font-size: .72rem; font-weight: 500;
+  color: var(--text); background: var(--white);
+  border: 1px solid var(--rule); border-radius: 5px;
+  padding: 4px 10px; transition: all .2s;
+}
+.stag:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ─────────────────────────────────────────
+   TESTIMONIALS
+───────────────────────────────────────── */
+.testimonial-section { background: var(--white); border-top: 1px solid var(--rule); }
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.tcard {
+  background: var(--off); border: 1px solid var(--rule);
+  border-radius: var(--r2); padding: 32px 28px;
+  transition: box-shadow .25s;
+}
+.tcard:hover { box-shadow: var(--sh); }
+.tcard-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-style: italic;
+  color: var(--ink); line-height: 1.7;
+  margin-bottom: 24px;
+}
+.tcard-author { display: flex; align-items: center; gap: 14px; }
+.tcard-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--ink); display: flex; align-items: center;
+  justify-content: center; font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--white);
+  flex-shrink: 0;
+}
+.tcard-name { font-size: .875rem; font-weight: 600; color: var(--ink); }
+.tcard-role { font-size: .75rem; color: var(--muted); }
+.tcard-stars { color: #f59e0b; font-size: .8rem; margin-bottom: 4px; }
+
+/* ─────────────────────────────────────────
+   TOOLS / STACK
+───────────────────────────────────────── */
+.tools-section {
+  background: var(--ink);
+  border-top: 1px solid #1c2432;
+}
+.tools-section .label { color: #60a5fa; }
+.tools-section h2 { color: var(--white); }
+.tools-section .section-header p { color: #6b7280; }
+
+.tools-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+.tool-group {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r2); padding: 24px;
+  transition: border-color .2s;
+}
+.tool-group:hover { border-color: rgba(26,86,219,.4); }
+.tg-label {
+  font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: #4b5563;
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.ttag {
+  font-size: .75rem; font-weight: 500;
+  background: rgba(255,255,255,.05);
+  color: #9ca3af; border: 1px solid rgba(255,255,255,.07);
+  padding: 4px 12px; border-radius: 5px; transition: all .2s;
+}
+.ttag:hover { background: rgba(26,86,219,.2); border-color: rgba(26,86,219,.4); color: #93c5fd; }
+
+/* ─────────────────────────────────────────
+   APPROACH
+───────────────────────────────────────── */
+.approach-section { background: var(--off); border-top: 1px solid var(--rule); }
+.approach-steps {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px; background: var(--rule);
+  border: 1px solid var(--rule); border-radius: var(--r2);
+  overflow: hidden;
+}
+.step {
+  background: var(--white); padding: 36px 28px;
+  transition: background .2s;
+}
+.step:hover { background: var(--blue-pale); }
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem; font-weight: 400;
+  color: var(--rule); line-height: 1; margin-bottom: 18px;
+}
+.step h3 {
+  font-family: 'Geologica', sans-serif;
+  font-size: .95rem; font-weight: 600; color: var(--ink); margin-bottom: 10px;
+}
+.step p { font-size: .86rem; color: var(--muted); line-height: 1.7; }
+
+/* ─────────────────────────────────────────
+   CONTACT
+───────────────────────────────────────── */
+.contact-section {
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 80px; align-items: start;
+}
+.contact-left h2 { margin-bottom: 18px; }
+.contact-left p {
+  font-size: .975rem; color: var(--muted);
+  line-height: 1.75; max-width: 460px; margin-bottom: 36px;
+}
+.contact-actions { display: flex; flex-direction: column; gap: 12px; }
+.contact-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 20px; border-radius: var(--r);
+  border: 1px solid var(--rule); background: var(--off);
+  transition: all .2s; text-decoration: none;
+}
+.contact-item:hover { border-color: var(--blue); background: var(--blue-pale); }
+.ci-icon {
+  width: 38px; height: 38px; border-radius: 8px;
+  background: var(--ink); display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+  font-size: .85rem; color: var(--white);
+}
+.ci-text strong {
+  display: block; font-size: .875rem;
+  font-weight: 600; color: var(--ink);
+}
+.ci-text span { font-size: .78rem; color: var(--muted); }
+
+/* contact right — availability card */
+.contact-card {
+  background: var(--ink); border-radius: var(--r2);
+  padding: 40px 36px; color: var(--white);
+}
+.cc-status {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 28px;
+}
+.cc-dot {
+  width: 8px; height: 8px; background: #22c55e;
+  border-radius: 50%; animation: pulse 2s infinite;
+}
+.cc-status span { font-size: .75rem; color: #22c55e; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.contact-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--white);
+  line-height: 1.2; margin-bottom: 16px;
+}
+.contact-card p { font-size: .875rem; color: #9ca3af; line-height: 1.7; margin-bottom: 28px; }
+.cc-items { display: flex; flex-direction: column; gap: 10px; }
+.cc-item {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  font-size: .82rem;
+}
+.cc-item:last-child { border-bottom: none; }
+.cc-key { color: #6b7280; }
+.cc-val { color: #e5e7eb; font-weight: 500; }
+.cc-val.green { color: #4ade80; }
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer {
+  background: var(--ink);
+  padding: 28px 7%;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 14px;
+  border-top: 1px solid #1c2432;
+}
+footer p { font-size: .78rem; color: #4b5563; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: .78rem; color: #4b5563; transition: color .2s; }
+.footer-links a:hover { color: #9ca3af; }
+
+/* ─────────────────────────────────────────
+   WA FLOAT
+───────────────────────────────────────── */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 300;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #25D366; color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.4);
+  text-decoration: none; transition: transform .2s, box-shadow .2s;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+.wa-float svg { width: 24px; height: 24px; }
+
+/* ─────────────────────────────────────────
+   LIGHTBOX
+───────────────────────────────────────── */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,.92);
+  align-items: center; justify-content: center; cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw; max-height: 88vh;
+  border-radius: var(--r);
+  box-shadow: 0 24px 80px rgba(0,0,0,.6);
+}
+.lb-x {
+  position: absolute; top: 20px; right: 24px;
+  color: var(--white); font-size: 1.5rem; cursor: pointer;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.1); display: flex;
+  align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.lb-x:hover { background: rgba(255,255,255,.2); }
+
+/* ─────────────────────────────────────────
+   SCROLL FADE
+───────────────────────────────────────── */
+.fade { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.fade.in { opacity: 1; transform: translateY(0); }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 72px 6% 60px; }
+  .hero-right { padding: 48px 6%; flex-direction: row; gap: 32px; justify-content: flex-start; min-height: auto; }
+  .hero-photo { width: 180px; height: 220px; margin-bottom: 0; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-col { max-width: 340px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .cs-detail-inner { grid-template-columns: 1fr; }
+  .cs-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+@media(max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: flex; }
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-metrics { flex-direction: column; gap: 20px; }
+  .hm { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 20px; }
+  .hm:last-child { border-bottom: none; padding-bottom: 0; }
+  .cs-summary { grid-template-columns: 1fr; gap: 16px; }
+  .results-table { grid-template-columns: repeat(2, 1fr); }
+  .hero-right { flex-direction: column; }
+  footer { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
@@ -268,104 +848,195 @@ footer p{color:var(--g700);font-size:.78rem}
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lb" onclick="closeLB()">
-  <div class="lb-close">✕</div>
+  <div class="lb-x">✕</div>
   <img id="lb-img" src="" alt="">
 </div>
 
 <!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/2349025243381" target="_blank" title="Chat on WhatsApp">
+<a class="wa-float" href="https://wa.me/2349025243381" target="_blank" title="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <!-- NAV -->
 <nav>
-  <a class="logo" href="#"><b>F</b>atai Ajani</a>
+  <a class="nav-brand" href="#"><span>F</span>atai Ajani</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#work">Case Studies</a></li>
     <li><a href="#tools">Stack</a></li>
-    <li><a href="#approach">Approach</a></li>
-    <li><a href="#contact" class="nav-hire">Hire Me</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <button class="nav-mobile-btn" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-grid"></div><div class="hero-glow1"></div><div class="hero-glow2"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-pill"><div class="hero-dot"></div>Open to Remote Opportunities</div>
-      <h1 class="hero-heading">E-commerce<br><em>Growth</em> &amp;<br>Conversion Expert</h1>
-      <p class="hero-sub">I help online brands and e-commerce stores increase revenue, reduce drop-offs, and build customer experiences that convert — across Shopify, WooCommerce, Magento, PrestaShop, and beyond.</p>
-      <div class="hero-btns">
-        <a href="#work" class="btn-solid">View Case Studies</a>
-        <a href="https://wa.me/2349025243381" target="_blank" class="whatsapp-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp Me
-        </a>
-        <a href="#contact" class="btn-outline">Contact Me</a>
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-available">Available for remote work</div>
+    <h1 class="hero-h1">
+      E-commerce<br>
+      <em>Growth</em><br>
+      Strategist
+    </h1>
+    <p class="hero-desc">
+      I help online brands increase revenue, reduce cart abandonment, and build customer experiences that convert — across Shopify, WooCommerce, Magento, PrestaShop, and beyond.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="btn btn-primary">View Case Studies</a>
+      <a href="https://wa.me/2349025243381" target="_blank" class="btn btn-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+    </div>
+    <div class="hero-metrics">
+      <div class="hm">
+        <div class="hm-num">30<b>%+</b></div>
+        <div class="hm-label">Average conversion lift</div>
       </div>
-      <div class="hero-stats">
-        <div class="hstat"><div class="num">30<b>%+</b></div><div class="lbl">Avg. Conversion Lift</div></div>
-        <div class="hstat"><div class="num">50<b>+</b></div><div class="lbl">Stores Optimised</div></div>
-        <div class="hstat"><div class="num">6<b>+</b></div><div class="lbl">Platforms Mastered</div></div>
+      <div class="hm">
+        <div class="hm-num">50<b>+</b></div>
+        <div class="hm-label">Stores optimised</div>
+      </div>
+      <div class="hm">
+        <div class="hm-num">6<b>+</b></div>
+        <div class="hm-label">Platforms mastered</div>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="photo-ring"></div>
-      <div class="photo-wrap"><img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani — E-commerce Growth Strategist"></div>
-      <div class="float-card" style="right:-20px;top:30px">
-        <div class="fc-label">ROAS — Ads Campaign</div>
-        <div class="fc-val">4.7×</div>
-        <div class="fc-tag">↑ from 1.8× baseline</div>
-      </div>
-      <div class="float-card" style="left:-30px;bottom:60px">
-        <div class="fc-label">Email Revenue Share</div>
-        <div class="fc-val">38%</div>
-        <div class="fc-tag">↑ Klaviyo automation</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo">
+      <img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani">
+    </div>
+    <div class="hero-name-card">
+      <div class="hero-name">Fatai Ajani</div>
+      <div class="hero-title-card">E-commerce Growth Strategist · Lagos, Nigeria</div>
+      <div class="hero-links">
+        <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="hero-link-btn">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank" class="hero-link-btn">Upwork</a>
+        <a href="mailto:fatai.ajani.online@gmail.com" class="hero-link-btn">Email</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES BAR -->
-<div class="svc-bar">
-  <div class="svc-grid">
-    <div class="svc-chip"><div class="svc-ico">🛒</div><span>Store Optimisation</span></div>
-    <div class="svc-chip"><div class="svc-ico">📈</div><span>CRO Strategy</span></div>
-    <div class="svc-chip"><div class="svc-ico">💌</div><span>Email Marketing</span></div>
-    <div class="svc-chip"><div class="svc-ico">🎯</div><span>Paid Advertising</span></div>
-    <div class="svc-chip"><div class="svc-ico">🔍</div><span>SEO &amp; Growth</span></div>
-    <div class="svc-chip"><div class="svc-ico">📊</div><span>Analytics &amp; Data</span></div>
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <span class="trust-label">Platforms &amp; tools worked with</span>
+    <div class="trust-logos">
+      <span class="trust-logo">Shopify</span>
+      <span class="trust-logo">WooCommerce</span>
+      <span class="trust-logo">Magento</span>
+      <span class="trust-logo">Klaviyo</span>
+      <span class="trust-logo">Meta Ads</span>
+      <span class="trust-logo">Google Analytics</span>
+      <span class="trust-logo">PrestaShop</span>
+    </div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="sec-inner">
+<section class="section about-section" id="about">
+  <div class="section-inner">
     <div class="about-grid">
-      <div class="about-photo">
-        <img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani">
+      <div class="about-photo-col fade">
+        <div class="about-img">
+          <img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani">
+        </div>
         <div class="about-badge">
           <div class="ab-name">Fatai Ajani</div>
-          <div class="ab-role">E-commerce Growth Strategist · Lagos, Nigeria</div>
+          <div class="ab-sub">E-commerce Growth Strategist · Remote</div>
         </div>
       </div>
-      <div class="about-content fade-up">
-        <p class="eyebrow">About Me</p>
-        <h2 class="sec-title">Turning Clicks Into Customers — At Scale</h2>
-        <p>I'm an e-commerce growth strategist with deep expertise across the full online retail stack — from store architecture and UX to paid advertising, email retention, and conversion optimisation.</p>
-        <p>I've worked with brands across fashion, beauty, consumer electronics, and home goods, helping them identify where revenue is leaking and implementing strategies that deliver measurable, compounding results.</p>
-        <p>My approach is simple: diagnose with data, prioritise by impact, execute with discipline. Every decision is backed by analytics, customer behaviour insights, and tested frameworks.</p>
-        <p>Whether you need a full growth audit, a paid ads overhaul, a Klaviyo retention system, or a store UX transformation — I deliver outcomes, not just deliverables.</p>
+      <div class="about-text fade">
+        <p class="label">About</p>
+        <h2 class="serif" style="font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 24px;">
+          Turning traffic into revenue — with strategy, not guesswork
+        </h2>
+        <p>I'm an e-commerce growth strategist with deep expertise across the full online retail stack. From store architecture and UX to paid advertising, email retention, and conversion optimisation — I work across all major platforms and help brands identify exactly where revenue is leaking.</p>
+        <p>I've worked with brands across fashion, beauty, consumer electronics, and home goods, delivering strategies that produce measurable, compounding results. My approach is data-led: diagnose first, prioritise by impact, then execute with precision.</p>
+        <p>I'm available for remote engagements with US companies, global agencies, and direct brands. Whether you need a full growth audit, a paid ads overhaul, a Klaviyo retention system, or a store UX transformation — I deliver outcomes, not just recommendations.</p>
         <div class="about-chips">
-          <span class="about-chip">Shopify &amp; WooCommerce</span>
-          <span class="about-chip">Klaviyo Expert</span>
-          <span class="about-chip">Meta &amp; TikTok Ads</span>
-          <span class="about-chip">CRO Specialist</span>
-          <span class="about-chip">Remote-Ready</span>
-          <span class="about-chip">US &amp; Global Clients</span>
+          <span class="chip">Shopify &amp; Shopify Plus</span>
+          <span class="chip">WooCommerce</span>
+          <span class="chip">Magento</span>
+          <span class="chip">PrestaShop</span>
+          <span class="chip">Klaviyo</span>
+          <span class="chip">Meta &amp; TikTok Ads</span>
+          <span class="chip">CRO Specialist</span>
+          <span class="chip">Remote-ready</span>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <h3>Platform-agnostic expertise</h3>
+            <p>I work across all major e-commerce platforms — not just Shopify. Shopify, WooCommerce, Magento, BigCommerce, PrestaShop, Wix.</p>
+          </div>
+          <div class="why-item">
+            <h3>Full-funnel thinking</h3>
+            <p>From traffic acquisition through to post-purchase retention — I optimise every stage of the customer lifecycle, not just one layer.</p>
+          </div>
+          <div class="why-item">
+            <h3>Results, not reports</h3>
+            <p>I measure success by revenue, conversion rate, and customer LTV — not vanity metrics. Every engagement is tied to business outcomes.</p>
+          </div>
+          <div class="why-item">
+            <h3>Remote &amp; async ready</h3>
+            <p>I work comfortably with US and global teams across time zones. Clear communication, structured reporting, and zero hand-holding required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="section-inner">
+    <div class="section-header fade">
+      <p class="label">What I do</p>
+      <h2>Services</h2>
+      <p>A focused set of services that cover the highest-leverage areas of e-commerce growth. I work in whichever way suits you — end-to-end management or supporting your existing team.</p>
+    </div>
+    <div class="services-grid fade">
+      <div class="svc">
+        <div class="svc-num">01</div>
+        <h3>Store UX &amp; Conversion Optimisation</h3>
+        <p>Full UX audits, A/B testing, checkout flow redesign, mobile optimisation, and trust signal implementation — focused on measurable conversion rate improvement.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Shopify</span><span class="svc-tag">WooCommerce</span>
+          <span class="svc-tag">Hotjar</span><span class="svc-tag">A/B Testing</span>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc-num">02</div>
+        <h3>Paid Advertising &amp; Customer Acquisition</h3>
+        <p>Multi-channel paid ad management across Meta, TikTok, and Google — structured campaign architecture, creative strategy, audience segmentation, and ROAS optimisation.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Meta Ads</span><span class="svc-tag">TikTok Ads</span>
+          <span class="svc-tag">Google Ads</span><span class="svc-tag">ROAS</span>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc-num">03</div>
+        <h3>Email Marketing &amp; Retention</h3>
+        <p>Klaviyo lifecycle strategy — welcome series, abandoned cart flows, post-purchase sequences, win-back campaigns, and advanced list segmentation that drives repeat revenue.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Klaviyo</span><span class="svc-tag">Mailchimp</span>
+          <span class="svc-tag">Omnisend</span><span class="svc-tag">Automation</span>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc-num">04</div>
+        <h3>E-commerce Growth Strategy</h3>
+        <p>Full-funnel growth audits, revenue forecasting, pricing strategy, loyalty programme design, SEO content strategy, and multi-channel growth roadmaps for scaling brands.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Magento</span><span class="svc-tag">BigCommerce</span>
+          <span class="svc-tag">SEO</span><span class="svc-tag">Analytics</span>
         </div>
       </div>
     </div>
@@ -373,57 +1044,71 @@ footer p{color:var(--g700);font-size:.78rem}
 </section>
 
 <!-- CASE STUDIES -->
-<section class="cs-section" id="work">
-  <div class="sec-inner">
-    <p class="eyebrow">Selected Work</p>
-    <h2 class="sec-title">Project Screenshots &amp; Campaign Results</h2>
-    <p class="sec-sub">Four in-depth case studies showing real strategy, execution, and results — across store optimisation, paid ads, email marketing, and full-funnel growth.</p>
+<section class="section cs-section" id="work">
+  <div class="section-inner">
+    <div class="section-header fade">
+      <p class="label">Selected work</p>
+      <h2>Case Studies &amp; Campaign Results</h2>
+      <p>Four engagements across different e-commerce verticals — each showing a distinct challenge, strategy, and outcome. Click any case study to read the full breakdown.</p>
+    </div>
 
-    <!-- CS 1 -->
-    <div class="cs-card fade-up" id="cs1">
-      <button class="cs-toggle" onclick="toggleCS('cs1')">
-        <div class="cs-head blue">
-          <div>
-            <div class="cs-cat blue">🛒 Store UX &amp; Conversion Optimisation</div>
-            <div class="cs-title">Fashion E-commerce — Full Store Overhaul</div>
-            <div class="cs-meta">Shopify Plus &nbsp;·&nbsp; 3-month engagement &nbsp;·&nbsp; 2023</div>
-            <div class="cs-kpi-row">
-              <div class="kpi-pill"><span class="kv green">+34%</span><span class="kl">Conversion Rate</span></div>
-              <div class="kpi-pill"><span class="kv gold">-41%</span><span class="kl">Cart Abandonment</span></div>
-              <div class="kpi-pill"><span class="kv blue">+22%</span><span class="kl">Avg. Order Value</span></div>
-            </div>
+    <!-- CS 1 — Store UX -->
+    <div class="cs-card fade" id="cs1">
+      <div class="cs-summary" onclick="toggleCS('cs1')">
+        <div>
+          <div class="cs-tag blue">Store UX &amp; Conversion Optimisation</div>
+          <div class="cs-title-text">Fashion E-commerce — Full Store Overhaul</div>
+          <div class="cs-meta-text">Shopify Plus &nbsp;·&nbsp; 3-month engagement &nbsp;·&nbsp; 2023</div>
+          <div class="cs-kpis">
+            <div class="kpi-badge"><span class="kpi-v g">+34%</span><span class="kpi-l">Conversion Rate</span></div>
+            <div class="kpi-badge"><span class="kpi-v r">-41%</span><span class="kpi-l">Cart Abandonment</span></div>
+            <div class="kpi-badge"><span class="kpi-v b">+22%</span><span class="kpi-l">Avg. Order Value</span></div>
+            <div class="kpi-badge"><span class="kpi-v g">+55%</span><span class="kpi-l">Mobile Conv.</span></div>
           </div>
-          <div class="cs-arrow">▾</div>
         </div>
-      </button>
-      <div class="cs-body">
-        <div class="cs-body-grid">
-          <div>
-            <p class="cs-label">The Challenge</p>
-            <p class="cs-text">A fashion brand with strong social traffic was seeing a 78% cart abandonment rate and conversion stuck below 1.2%. Despite healthy Instagram follower counts, the store wasn't turning attention into sales. A full UX audit was commissioned to diagnose and fix root causes.</p>
-            <p class="cs-label">What I Did</p>
-            <ul class="cs-list blue">
-              <li>Full UX audit — heatmaps, session recordings, and customer journey mapping to identify friction points</li>
-              <li>Redesigned product pages with stronger trust signals — reviews, size guides, returns policy placed prominently</li>
-              <li>Simplified checkout from 4 steps to 2, adding one-click upsells at cart stage</li>
-              <li>Rebuilt mobile experience — 74% of traffic was mobile yet the store was desktop-first</li>
-              <li>A/B tested 3 hero variants and 2 CTA formats, deploying the highest-converting combination</li>
+        <div class="cs-expand-trigger">
+          <div class="expand-btn">
+            <span class="expand-btn-label">Full case study</span>
+            <span class="expand-btn-arrow">▾</span>
+          </div>
+        </div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs1')">
+        Challenge breakdown, full strategy, tools used, and visual proof inside
+      </div>
+      <div class="cs-detail">
+        <div class="cs-detail-inner">
+          <div class="cs-col">
+            <p class="cs-section-label">The Challenge</p>
+            <p class="cs-body-text">A fashion brand with strong social media traffic was seeing a 78% cart abandonment rate and conversion stuck below 1.2%. Despite healthy follower counts, the store wasn't turning attention into sales. A full UX audit was commissioned to diagnose and fix root causes.</p>
+            <p class="cs-section-label">Strategy &amp; Execution</p>
+            <ul class="cs-bullet-list">
+              <li>Full UX audit using heatmaps, session recordings, and customer journey mapping to isolate friction points</li>
+              <li>Redesigned product pages with stronger trust signals — reviews, size guides, and returns policy placed above the fold</li>
+              <li>Simplified checkout from 4 steps to 2, with one-click upsells added at cart stage</li>
+              <li>Rebuilt mobile experience from scratch — 74% of traffic was mobile but the store was desktop-first</li>
+              <li>A/B tested 3 hero banner variants and 2 CTA formats, deploying the highest-converting combination</li>
               <li>Implemented sticky add-to-cart bar, low-stock indicators, and delivery countdown urgency signals</li>
             </ul>
-          </div>
-          <div>
-            <p class="cs-label">Results</p>
-            <div class="res-grid">
-              <div class="res-box"><div class="res-num green">+34%</div><div class="res-lbl">Conversion Rate</div></div>
-              <div class="res-box"><div class="res-num gold">-41%</div><div class="res-lbl">Cart Abandonment</div></div>
-              <div class="res-box"><div class="res-num blue">+22%</div><div class="res-lbl">Avg. Order Value</div></div>
-              <div class="res-box"><div class="res-num green">+55%</div><div class="res-lbl">Mobile Conv. Rate</div></div>
-              <div class="res-box"><div class="res-num gold">-28%</div><div class="res-lbl">Bounce Rate</div></div>
-              <div class="res-box"><div class="res-num blue">2.1s</div><div class="res-lbl">Page Load Time</div></div>
+            <div class="stack-row" style="margin-top:20px">
+              <span class="stag">Shopify Plus</span><span class="stag">Hotjar</span>
+              <span class="stag">Google Analytics 4</span><span class="stag">Lucky Orange</span>
+              <span class="stag">PageSpeed Insights</span>
             </div>
-            <div class="proof-gallery">
-              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
-              <div class="proof-grid">
+          </div>
+          <div class="cs-col">
+            <p class="cs-section-label">Results</p>
+            <div class="results-table">
+              <div class="rt-cell"><div class="rt-val g">+34%</div><div class="rt-label">Conversion Rate</div></div>
+              <div class="rt-cell"><div class="rt-val r">-41%</div><div class="rt-label">Cart Abandonment</div></div>
+              <div class="rt-cell"><div class="rt-val b">+22%</div><div class="rt-label">Avg. Order Value</div></div>
+              <div class="rt-cell"><div class="rt-val g">+55%</div><div class="rt-label">Mobile Conv. Rate</div></div>
+              <div class="rt-cell"><div class="rt-val o">-28%</div><div class="rt-label">Bounce Rate</div></div>
+              <div class="rt-cell"><div class="rt-val b">2.1s</div><div class="rt-label">Page Load Time</div></div>
+            </div>
+            <div class="proof-section">
+              <p class="proof-label">Project screenshots &amp; campaign results</p>
+              <div class="proof-imgs">
                 <img class="proof-img" src="https://i.postimg.cc/ydfDvKs5/Image1.webp" alt="Store design" onclick="openLB(this)">
                 <img class="proof-img" src="https://i.postimg.cc/XYwXtdnG/Image1.webp" alt="Store UX" onclick="openLB(this)">
                 <img class="proof-img" src="https://i.postimg.cc/gcSM66FR/Image1.webp" alt="Store layout" onclick="openLB(this)">
@@ -434,53 +1119,65 @@ footer p{color:var(--g700);font-size:.78rem}
       </div>
     </div>
 
-    <!-- CS 2 -->
-    <div class="cs-card fade-up" id="cs2">
-      <button class="cs-toggle" onclick="toggleCS('cs2')">
-        <div class="cs-head gold">
-          <div>
-            <div class="cs-cat gold">🎯 Paid Advertising &amp; Customer Acquisition</div>
-            <div class="cs-title">Home Goods Brand — Meta &amp; TikTok Ads Scale-Up</div>
-            <div class="cs-meta">Meta Ads · TikTok Ads · Google Shopping &nbsp;·&nbsp; Ongoing since 2023</div>
-            <div class="cs-kpi-row">
-              <div class="kpi-pill"><span class="kv gold">4.7×</span><span class="kl">ROAS Achieved</span></div>
-              <div class="kpi-pill"><span class="kv green">-38%</span><span class="kl">Cost Per Acquisition</span></div>
-              <div class="kpi-pill"><span class="kv blue">+210%</span><span class="kl">Ad Revenue</span></div>
-            </div>
+    <!-- CS 2 — Paid Ads -->
+    <div class="cs-card fade" id="cs2">
+      <div class="cs-summary" onclick="toggleCS('cs2')">
+        <div>
+          <div class="cs-tag gold">Paid Advertising &amp; Customer Acquisition</div>
+          <div class="cs-title-text">Home Goods Brand — Meta &amp; TikTok Ads Scale-Up</div>
+          <div class="cs-meta-text">Meta Ads · TikTok Ads · Google Shopping &nbsp;·&nbsp; Ongoing since 2023</div>
+          <div class="cs-kpis">
+            <div class="kpi-badge"><span class="kpi-v o">4.7×</span><span class="kpi-l">ROAS</span></div>
+            <div class="kpi-badge"><span class="kpi-v r">-38%</span><span class="kpi-l">Cost Per Acquisition</span></div>
+            <div class="kpi-badge"><span class="kpi-v g">+210%</span><span class="kpi-l">Ad Revenue</span></div>
+            <div class="kpi-badge"><span class="kpi-v b">3.2%</span><span class="kpi-l">Avg. CTR</span></div>
           </div>
-          <div class="cs-arrow">▾</div>
         </div>
-      </button>
-      <div class="cs-body">
-        <div class="cs-body-grid">
-          <div>
-            <p class="cs-label">The Challenge</p>
-            <p class="cs-text">A home goods brand was spending $3,500/month on Meta ads with a disappointing 1.8× ROAS — well below break-even. Campaigns were broad, ad creative was stale, and there was zero retargeting infrastructure. A full restructure was needed.</p>
-            <p class="cs-label">Strategy &amp; Execution</p>
-            <ul class="cs-list gold">
-              <li>Rebuilt campaign architecture using a 3-tier funnel — cold (TOF), warm retarget (MOF), cart abandoners (BOF)</li>
-              <li>Developed 8 new ad variants — UGC-style video, carousel, and static formats</li>
-              <li>Launched TikTok Ads targeting 18–34 demographic; allocated 20% of budget to test and scaled winners</li>
-              <li>Deployed Google Shopping campaigns for branded and high-intent product search terms</li>
-              <li>Configured all Pixel events — ViewContent, AddToCart, Checkout, Purchase — enabling algorithmic optimisation</li>
-              <li>Built lookalike audiences from top 5% purchasers to expand reach while maintaining acquisition quality</li>
-            </ul>
+        <div class="cs-expand-trigger">
+          <div class="expand-btn">
+            <span class="expand-btn-label">Full case study</span>
+            <span class="expand-btn-arrow">▾</span>
           </div>
-          <div>
-            <p class="cs-label">Campaign Results</p>
-            <div class="res-grid">
-              <div class="res-box"><div class="res-num gold">4.7×</div><div class="res-lbl">ROAS (from 1.8×)</div></div>
-              <div class="res-box"><div class="res-num green">-38%</div><div class="res-lbl">CPA Reduction</div></div>
-              <div class="res-box"><div class="res-num blue">+210%</div><div class="res-lbl">Revenue from Ads</div></div>
-              <div class="res-box"><div class="res-num gold">3.2%</div><div class="res-lbl">Avg. CTR (vs 0.9%)</div></div>
-              <div class="res-box"><div class="res-num green">+65%</div><div class="res-lbl">TikTok New Traffic</div></div>
-              <div class="res-box"><div class="res-num blue">$1,200</div><div class="res-lbl">Monthly Ad Spend</div></div>
+        </div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs2')">
+        Full campaign structure, creative strategy, audience segmentation, and results inside
+      </div>
+      <div class="cs-detail">
+        <div class="cs-detail-inner">
+          <div class="cs-col">
+            <p class="cs-section-label">The Challenge</p>
+            <p class="cs-body-text">A home goods brand was spending $3,500/month on Meta ads with a 1.8× ROAS — well below break-even. Campaigns were broad, creative was stale, and there was no retargeting infrastructure. A full campaign restructure was required.</p>
+            <p class="cs-section-label">Strategy &amp; Execution</p>
+            <ul class="cs-bullet-list">
+              <li>Rebuilt campaign architecture using a 3-tier funnel — cold (TOF), warm retarget (MOF), cart abandoners + high-intent (BOF)</li>
+              <li>Developed 8 new ad variants — UGC-style video, carousel, and static formats with new creative briefs</li>
+              <li>Launched TikTok Ads targeting 18–34 demographic; allocated 20% of budget to testing and scaled winners</li>
+              <li>Deployed Google Shopping campaigns for branded and high-intent product search terms</li>
+              <li>Configured all Pixel events correctly — ViewContent, AddToCart, Checkout, Purchase — enabling algorithmic optimisation</li>
+              <li>Built lookalike audiences from the top 5% of purchasers to expand reach while maintaining quality</li>
+            </ul>
+            <div class="stack-row" style="margin-top:20px">
+              <span class="stag">Meta Ads Manager</span><span class="stag">TikTok Ads</span>
+              <span class="stag">Google Shopping</span><span class="stag">GA4</span>
+              <span class="stag">Meta Pixel</span>
             </div>
-            <div class="proof-gallery">
-              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
-              <div class="proof-grid">
+          </div>
+          <div class="cs-col">
+            <p class="cs-section-label">Results</p>
+            <div class="results-table">
+              <div class="rt-cell"><div class="rt-val o">4.7×</div><div class="rt-label">ROAS (from 1.8×)</div></div>
+              <div class="rt-cell"><div class="rt-val r">-38%</div><div class="rt-label">CPA Reduction</div></div>
+              <div class="rt-cell"><div class="rt-val g">+210%</div><div class="rt-label">Revenue from Ads</div></div>
+              <div class="rt-cell"><div class="rt-val b">3.2%</div><div class="rt-label">CTR (from 0.9%)</div></div>
+              <div class="rt-cell"><div class="rt-val g">+65%</div><div class="rt-label">TikTok Traffic</div></div>
+              <div class="rt-cell"><div class="rt-val o">$1,200</div><div class="rt-label">Monthly Spend</div></div>
+            </div>
+            <div class="proof-section">
+              <p class="proof-label">Project screenshots &amp; campaign results</p>
+              <div class="proof-imgs">
                 <img class="proof-img" src="https://i.postimg.cc/HkjB2WmP/Image1.png" alt="Ad campaign" onclick="openLB(this)">
-                <img class="proof-img" src="https://i.postimg.cc/nV04P83C/Image1.png" alt="Ads manager results" onclick="openLB(this)">
+                <img class="proof-img" src="https://i.postimg.cc/nV04P83C/Image1.png" alt="Ads manager" onclick="openLB(this)">
                 <img class="proof-img" src="https://i.postimg.cc/k4wbz8v3/Image1.png" alt="Campaign metrics" onclick="openLB(this)">
               </div>
             </div>
@@ -489,52 +1186,63 @@ footer p{color:var(--g700);font-size:.78rem}
       </div>
     </div>
 
-    <!-- CS 3 -->
-    <div class="cs-card fade-up" id="cs3">
-      <button class="cs-toggle" onclick="toggleCS('cs3')">
-        <div class="cs-head green">
-          <div>
-            <div class="cs-cat green">💌 Email Marketing &amp; Customer Retention</div>
-            <div class="cs-title">Beauty Brand — Klaviyo Automation &amp; Lifecycle Strategy</div>
-            <div class="cs-meta">WooCommerce + Klaviyo &nbsp;·&nbsp; 4-month engagement &nbsp;·&nbsp; 2024</div>
-            <div class="cs-kpi-row">
-              <div class="kpi-pill"><span class="kv green">38%</span><span class="kl">Revenue from Email</span></div>
-              <div class="kpi-pill"><span class="kv gold">42%</span><span class="kl">Open Rate</span></div>
-              <div class="kpi-pill"><span class="kv blue">+44%</span><span class="kl">Repeat Purchase Rate</span></div>
-            </div>
+    <!-- CS 3 — Email -->
+    <div class="cs-card fade" id="cs3">
+      <div class="cs-summary" onclick="toggleCS('cs3')">
+        <div>
+          <div class="cs-tag green">Email Marketing &amp; Customer Retention</div>
+          <div class="cs-title-text">Beauty Brand — Klaviyo Automation &amp; Lifecycle Strategy</div>
+          <div class="cs-meta-text">WooCommerce + Klaviyo &nbsp;·&nbsp; 4-month engagement &nbsp;·&nbsp; 2024</div>
+          <div class="cs-kpis">
+            <div class="kpi-badge"><span class="kpi-v g">38%</span><span class="kpi-l">Revenue from Email</span></div>
+            <div class="kpi-badge"><span class="kpi-v b">42%</span><span class="kpi-l">Open Rate</span></div>
+            <div class="kpi-badge"><span class="kpi-v g">+44%</span><span class="kpi-l">Repeat Purchases</span></div>
+            <div class="kpi-badge"><span class="kpi-v o">18%</span><span class="kpi-l">Cart Recovery</span></div>
           </div>
-          <div class="cs-arrow">▾</div>
         </div>
-      </button>
-      <div class="cs-body">
-        <div class="cs-body-grid">
-          <div>
-            <p class="cs-label">The Challenge</p>
-            <p class="cs-text">A beauty brand with a 12,000-subscriber email list was generating less than 6% of revenue from email — far below the industry benchmark of 25–35%. No automated flows existed, campaigns were irregular, and the list had never been segmented.</p>
-            <p class="cs-label">What Was Built</p>
-            <ul class="cs-list green">
-              <li>Designed 5-email Welcome Series — brand story, bestsellers, first purchase incentive, social proof, values</li>
-              <li>Built 3-step Abandoned Cart flow: reminder → social proof → urgency offer, recovering 18% of lost carts</li>
-              <li>Created Browse Abandonment and Post-Purchase flows nurturing customers toward repeat buys</li>
-              <li>Developed Win-Back sequence for customers inactive 60–90 days, recovering 12% of lapsed segment</li>
-              <li>Implemented advanced segmentation — VIPs, one-time buyers, at-risk cohorts, high-LTV customers</li>
-              <li>Rebuilt all campaign templates for mobile-first design, improving CTR by 22%</li>
-            </ul>
+        <div class="cs-expand-trigger">
+          <div class="expand-btn">
+            <span class="expand-btn-label">Full case study</span>
+            <span class="expand-btn-arrow">▾</span>
           </div>
-          <div>
-            <p class="cs-label">Email Programme Results</p>
-            <div class="res-grid">
-              <div class="res-box"><div class="res-num green">38%</div><div class="res-lbl">Revenue from Email</div></div>
-              <div class="res-box"><div class="res-num gold">42%</div><div class="res-lbl">Open Rate (from 18%)</div></div>
-              <div class="res-box"><div class="res-num blue">18%</div><div class="res-lbl">Cart Recovery Rate</div></div>
-              <div class="res-box"><div class="res-num green">+44%</div><div class="res-lbl">Repeat Purchase Rate</div></div>
-              <div class="res-box"><div class="res-num gold">12%</div><div class="res-lbl">Win-Back Conversion</div></div>
-              <div class="res-box"><div class="res-num blue">+22%</div><div class="res-lbl">Email CTR</div></div>
+        </div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs3')">
+        Full flow architecture, segmentation strategy, copy approach, and results inside
+      </div>
+      <div class="cs-detail">
+        <div class="cs-detail-inner">
+          <div class="cs-col">
+            <p class="cs-section-label">The Challenge</p>
+            <p class="cs-body-text">A beauty brand with a 12,000-subscriber email list was generating less than 6% of revenue from email — far below the industry benchmark of 25–35%. No automated flows existed, campaigns were irregular, and the list had never been segmented.</p>
+            <p class="cs-section-label">What Was Built</p>
+            <ul class="cs-bullet-list">
+              <li>5-email Welcome Series — brand story, bestsellers, first purchase incentive, social proof, brand values</li>
+              <li>3-step Abandoned Cart flow: soft reminder → social proof → urgency offer, recovering 18% of abandoned carts</li>
+              <li>Browse Abandonment and Post-Purchase flows nurturing customers toward repeat buys</li>
+              <li>Win-Back sequence for customers inactive 60–90 days, recovering 12% of the lapsed segment</li>
+              <li>Advanced segmentation by purchase history, LTV, and engagement — VIPs, one-time buyers, at-risk cohorts</li>
+              <li>Full campaign template redesign for mobile-first rendering, improving CTR by 22%</li>
+            </ul>
+            <div class="stack-row" style="margin-top:20px">
+              <span class="stag">Klaviyo</span><span class="stag">WooCommerce</span>
+              <span class="stag">Canva</span><span class="stag">GA4</span>
             </div>
-            <div class="proof-gallery">
-              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
-              <div class="proof-grid">
-                <img class="proof-img" src="https://i.postimg.cc/PJGgGpXz/Image1.png" alt="Email campaign" onclick="openLB(this)" style="aspect-ratio:auto;max-height:300px;object-fit:contain;background:#f8fafc">
+          </div>
+          <div class="cs-col">
+            <p class="cs-section-label">Results</p>
+            <div class="results-table">
+              <div class="rt-cell"><div class="rt-val g">38%</div><div class="rt-label">Revenue from Email</div></div>
+              <div class="rt-cell"><div class="rt-val b">42%</div><div class="rt-label">Open Rate (from 18%)</div></div>
+              <div class="rt-cell"><div class="rt-val o">18%</div><div class="rt-label">Cart Recovery Rate</div></div>
+              <div class="rt-cell"><div class="rt-val g">+44%</div><div class="rt-label">Repeat Purchases</div></div>
+              <div class="rt-cell"><div class="rt-val b">12%</div><div class="rt-label">Win-Back Rate</div></div>
+              <div class="rt-cell"><div class="rt-val o">+22%</div><div class="rt-label">Email CTR</div></div>
+            </div>
+            <div class="proof-section">
+              <p class="proof-label">Project screenshots &amp; campaign results</p>
+              <div class="proof-imgs">
+                <img class="proof-img" src="https://i.postimg.cc/PJGgGpXz/Image1.png" alt="Email campaign" onclick="openLB(this)" style="aspect-ratio:auto;max-height:280px;object-fit:contain;background:#f7f8fa">
               </div>
             </div>
           </div>
@@ -542,51 +1250,63 @@ footer p{color:var(--g700);font-size:.78rem}
       </div>
     </div>
 
-    <!-- CS 4 -->
-    <div class="cs-card fade-up" id="cs4">
-      <button class="cs-toggle" onclick="toggleCS('cs4')">
-        <div class="cs-head purple">
-          <div>
-            <div class="cs-cat purple">📊 E-commerce Growth Strategy</div>
-            <div class="cs-title">Consumer Electronics Brand — 6-Month Growth Programme</div>
-            <div class="cs-meta">Magento (Adobe Commerce) &nbsp;·&nbsp; Strategic Consulting &nbsp;·&nbsp; 2024</div>
-            <div class="cs-kpi-row">
-              <div class="kpi-pill"><span class="kv blue">+68%</span><span class="kl">Revenue Growth</span></div>
-              <div class="kpi-pill"><span class="kv green">+40%</span><span class="kl">Customer LTV</span></div>
-              <div class="kpi-pill"><span class="kv gold">+31%</span><span class="kl">Avg. Order Value</span></div>
-            </div>
+    <!-- CS 4 — Growth Strategy -->
+    <div class="cs-card fade" id="cs4">
+      <div class="cs-summary" onclick="toggleCS('cs4')">
+        <div>
+          <div class="cs-tag slate">E-commerce Growth Strategy</div>
+          <div class="cs-title-text">Consumer Electronics Brand — 6-Month Growth Programme</div>
+          <div class="cs-meta-text">Magento (Adobe Commerce) &nbsp;·&nbsp; Strategic consulting &nbsp;·&nbsp; 2024</div>
+          <div class="cs-kpis">
+            <div class="kpi-badge"><span class="kpi-v g">+68%</span><span class="kpi-l">Revenue Growth</span></div>
+            <div class="kpi-badge"><span class="kpi-v b">+40%</span><span class="kpi-l">Customer LTV</span></div>
+            <div class="kpi-badge"><span class="kpi-v o">+31%</span><span class="kpi-l">Avg. Order Value</span></div>
+            <div class="kpi-badge"><span class="kpi-v g">1,400</span><span class="kpi-l">Reviews Generated</span></div>
           </div>
-          <div class="cs-arrow">▾</div>
         </div>
-      </button>
-      <div class="cs-body">
-        <div class="cs-body-grid">
-          <div>
-            <p class="cs-label">The Brief</p>
-            <p class="cs-text">A consumer electronics brand had plateaued at the same monthly revenue for 8 consecutive months despite increasing ad spend. They needed a strategic partner to audit the entire business and identify where growth was being suppressed.</p>
-            <p class="cs-label">Strategic Initiatives</p>
-            <ul class="cs-list purple">
-              <li>Full-funnel audit across acquisition, activation, retention, and referral — identifying 11 priority growth levers</li>
-              <li>Redesigned product catalogue architecture — improved category logic, search, and cross-sell placement</li>
-              <li>Implemented a loyalty and rewards programme, increasing repeat purchase frequency by 40%</li>
-              <li>Launched SEO content cluster strategy — 24 optimised buying guides driving 18% of new organic revenue</li>
-              <li>Introduced post-purchase NPS + review automation, growing reviews from 120 to 1,400 in 4 months</li>
-              <li>Restructured pricing tiers and bundle offers, increasing average order value by 31%</li>
-            </ul>
+        <div class="cs-expand-trigger">
+          <div class="expand-btn">
+            <span class="expand-btn-label">Full case study</span>
+            <span class="expand-btn-arrow">▾</span>
           </div>
-          <div>
-            <p class="cs-label">Growth Programme Outcomes</p>
-            <div class="res-grid">
-              <div class="res-box"><div class="res-num blue">+68%</div><div class="res-lbl">Revenue Growth (6mo)</div></div>
-              <div class="res-box"><div class="res-num green">+40%</div><div class="res-lbl">Customer LTV</div></div>
-              <div class="res-box"><div class="res-num gold">+31%</div><div class="res-lbl">Avg. Order Value</div></div>
-              <div class="res-box"><div class="res-num blue">1,400</div><div class="res-lbl">Reviews Generated</div></div>
-              <div class="res-box"><div class="res-num green">18%</div><div class="res-lbl">Organic Revenue</div></div>
-              <div class="res-box"><div class="res-num gold">4.8★</div><div class="res-lbl">Avg. Product Rating</div></div>
+        </div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs4')">
+        Full growth audit, 11 priority levers identified, implementation roadmap, and outcomes inside
+      </div>
+      <div class="cs-detail">
+        <div class="cs-detail-inner">
+          <div class="cs-col">
+            <p class="cs-section-label">The Brief</p>
+            <p class="cs-body-text">A consumer electronics brand had plateaued at the same monthly revenue for 8 consecutive months despite increasing ad spend. They needed a strategic partner to audit the entire business and identify where growth was being suppressed across every channel.</p>
+            <p class="cs-section-label">Strategic Initiatives</p>
+            <ul class="cs-bullet-list">
+              <li>Full-funnel audit across acquisition, activation, retention, and referral — identified 11 high-priority growth levers</li>
+              <li>Redesigned product catalogue architecture — improved category logic, on-site search, and cross-sell placement</li>
+              <li>Implemented loyalty and rewards programme, increasing repeat purchase frequency by 40%</li>
+              <li>Launched SEO content cluster strategy — 24 optimised buying guides generating 18% of new organic revenue</li>
+              <li>Post-purchase NPS and review automation grew the review count from 120 to 1,400 in four months</li>
+              <li>Restructured pricing tiers and introduced bundle offers, increasing average order value by 31%</li>
+            </ul>
+            <div class="stack-row" style="margin-top:20px">
+              <span class="stag">Magento</span><span class="stag">Klaviyo</span>
+              <span class="stag">SEMrush</span><span class="stag">GA4</span>
+              <span class="stag">Looker Studio</span>
             </div>
-            <div class="proof-gallery">
-              <div class="proof-title">Project Screenshots &amp; Campaign Results</div>
-              <div class="proof-grid">
+          </div>
+          <div class="cs-col">
+            <p class="cs-section-label">Results</p>
+            <div class="results-table">
+              <div class="rt-cell"><div class="rt-val g">+68%</div><div class="rt-label">Revenue (6 months)</div></div>
+              <div class="rt-cell"><div class="rt-val b">+40%</div><div class="rt-label">Customer LTV</div></div>
+              <div class="rt-cell"><div class="rt-val o">+31%</div><div class="rt-label">Avg. Order Value</div></div>
+              <div class="rt-cell"><div class="rt-val g">1,400</div><div class="rt-label">Reviews Generated</div></div>
+              <div class="rt-cell"><div class="rt-val b">18%</div><div class="rt-label">Organic Revenue</div></div>
+              <div class="rt-cell"><div class="rt-val o">4.8★</div><div class="rt-label">Avg. Product Rating</div></div>
+            </div>
+            <div class="proof-section">
+              <p class="proof-label">Project screenshots &amp; campaign results</p>
+              <div class="proof-imgs">
                 <img class="proof-img" src="https://i.postimg.cc/9XtTw66X/Image1.avif" alt="Analytics dashboard" onclick="openLB(this)">
                 <img class="proof-img" src="https://i.postimg.cc/WbYdMTXV/Image1.avif" alt="Sales report" onclick="openLB(this)">
                 <img class="proof-img" src="https://i.postimg.cc/Y0nCfzN8/Image1.avif" alt="Growth metrics" onclick="openLB(this)">
@@ -600,80 +1320,277 @@ footer p{color:var(--g700);font-size:.78rem}
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="section testimonial-section" id="testimonials">
+  <div class="section-inner">
+    <div class="section-header fade">
+      <p class="label">Client feedback</p>
+      <h2>What clients say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="tcard fade">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-quote">"Fatai didn't just fix our conversion rate — he changed how we think about our entire store. The UX audit alone identified problems we'd been ignoring for two years. Results came fast and the reporting was clear throughout."</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">M</div>
+          <div>
+            <div class="tcard-name">Marcus T.</div>
+            <div class="tcard-role">Founder, Fashion E-commerce Brand</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-quote">"Our Meta ads were haemorrhaging money before Fatai restructured everything. Within 6 weeks we were at a 4x ROAS and the TikTok campaigns he built became our biggest source of new customers. Exceptional work."</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">S</div>
+          <div>
+            <div class="tcard-name">Sarah K.</div>
+            <div class="tcard-role">Head of Marketing, Home Goods Brand</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade">
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-quote">"The Klaviyo flows Fatai built now generate over a third of our monthly revenue on autopilot. The abandoned cart sequence alone paid for the entire engagement within the first month. Highly recommended."</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">A</div>
+          <div>
+            <div class="tcard-name">Amira J.</div>
+            <div class="tcard-role">CEO, Beauty E-commerce Brand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TOOLS -->
-<section class="tools-section" id="tools">
-  <div class="sec-inner">
-    <p class="eyebrow">Technical Stack</p>
-    <h2 class="sec-title">Platforms &amp; Tools I Work With</h2>
-    <p class="sec-sub">Platform-agnostic expertise across the full e-commerce technology stack — storefronts, analytics, automation, and advertising.</p>
+<section class="section tools-section" id="tools">
+  <div class="section-inner">
+    <div class="section-header fade">
+      <p class="label">Technical stack</p>
+      <h2>Platforms &amp; tools</h2>
+      <p>Platform-agnostic expertise across the full e-commerce technology stack — from storefronts to analytics, advertising, and automation.</p>
+    </div>
     <div class="tools-grid">
-      <div class="tool-group fade-up"><div class="tg-title">E-commerce Platforms</div><div class="tool-tags"><span class="ttag">Shopify</span><span class="ttag">Shopify Plus</span><span class="ttag">WooCommerce</span><span class="ttag">Adobe Commerce (Magento)</span><span class="ttag">BigCommerce</span><span class="ttag">PrestaShop</span><span class="ttag">Wix eCommerce</span></div></div>
-      <div class="tool-group fade-up"><div class="tg-title">Email &amp; Automation</div><div class="tool-tags"><span class="ttag">Klaviyo</span><span class="ttag">Mailchimp</span><span class="ttag">Omnisend</span><span class="ttag">Drip</span><span class="ttag">ActiveCampaign</span><span class="ttag">HubSpot</span></div></div>
-      <div class="tool-group fade-up"><div class="tg-title">Paid Advertising</div><div class="tool-tags"><span class="ttag">Meta Ads Manager</span><span class="ttag">TikTok Ads</span><span class="ttag">Google Ads</span><span class="ttag">Google Shopping</span><span class="ttag">Pinterest Ads</span><span class="ttag">Snapchat Ads</span></div></div>
-      <div class="tool-group fade-up"><div class="tg-title">Analytics &amp; CRO</div><div class="tool-tags"><span class="ttag">Google Analytics 4</span><span class="ttag">Google Tag Manager</span><span class="ttag">Hotjar</span><span class="ttag">Lucky Orange</span><span class="ttag">Crazy Egg</span><span class="ttag">Looker Studio</span></div></div>
-      <div class="tool-group fade-up"><div class="tg-title">SEO &amp; Content</div><div class="tool-tags"><span class="ttag">SEMrush</span><span class="ttag">Ahrefs</span><span class="ttag">Surfer SEO</span><span class="ttag">Google Search Console</span><span class="ttag">Screaming Frog</span></div></div>
-      <div class="tool-group fade-up"><div class="tg-title">Design &amp; UX</div><div class="tool-tags"><span class="ttag">Figma</span><span class="ttag">Canva</span><span class="ttag">Adobe XD</span><span class="ttag">PageSpeed Insights</span><span class="ttag">GTmetrix</span></div></div>
+      <div class="tool-group fade">
+        <div class="tg-label">E-commerce platforms</div>
+        <div class="tag-list">
+          <span class="ttag">Shopify</span><span class="ttag">Shopify Plus</span>
+          <span class="ttag">WooCommerce</span><span class="ttag">Adobe Commerce (Magento)</span>
+          <span class="ttag">BigCommerce</span><span class="ttag">PrestaShop</span>
+          <span class="ttag">Wix eCommerce</span>
+        </div>
+      </div>
+      <div class="tool-group fade">
+        <div class="tg-label">Email &amp; automation</div>
+        <div class="tag-list">
+          <span class="ttag">Klaviyo</span><span class="ttag">Mailchimp</span>
+          <span class="ttag">Omnisend</span><span class="ttag">Drip</span>
+          <span class="ttag">ActiveCampaign</span><span class="ttag">HubSpot</span>
+        </div>
+      </div>
+      <div class="tool-group fade">
+        <div class="tg-label">Paid advertising</div>
+        <div class="tag-list">
+          <span class="ttag">Meta Ads Manager</span><span class="ttag">TikTok Ads</span>
+          <span class="ttag">Google Ads</span><span class="ttag">Google Shopping</span>
+          <span class="ttag">Pinterest Ads</span>
+        </div>
+      </div>
+      <div class="tool-group fade">
+        <div class="tg-label">Analytics &amp; CRO</div>
+        <div class="tag-list">
+          <span class="ttag">Google Analytics 4</span><span class="ttag">Google Tag Manager</span>
+          <span class="ttag">Hotjar</span><span class="ttag">Lucky Orange</span>
+          <span class="ttag">Looker Studio</span><span class="ttag">Crazy Egg</span>
+        </div>
+      </div>
+      <div class="tool-group fade">
+        <div class="tg-label">SEO &amp; content</div>
+        <div class="tag-list">
+          <span class="ttag">SEMrush</span><span class="ttag">Ahrefs</span>
+          <span class="ttag">Surfer SEO</span><span class="ttag">Google Search Console</span>
+          <span class="ttag">Screaming Frog</span>
+        </div>
+      </div>
+      <div class="tool-group fade">
+        <div class="tg-label">Design &amp; UX</div>
+        <div class="tag-list">
+          <span class="ttag">Figma</span><span class="ttag">Canva</span>
+          <span class="ttag">Adobe XD</span><span class="ttag">PageSpeed Insights</span>
+          <span class="ttag">GTmetrix</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- APPROACH -->
-<section class="approach-section" id="approach">
-  <div class="sec-inner">
-    <p class="eyebrow">How I Work</p>
-    <h2 class="sec-title">My Growth Approach</h2>
-    <p class="sec-sub">Every engagement follows a structured, data-led process — no guesswork, no generic advice. Focused strategy and measurable outcomes.</p>
-    <div class="approach-grid">
-      <div class="ap-card fade-up"><div class="ap-num">01</div><h3>Audit &amp; Diagnose</h3><p>Full 360° audit across traffic, funnel, UX, ads, email, and analytics — surfacing exactly where revenue is leaking and why.</p></div>
-      <div class="ap-card fade-up"><div class="ap-num">02</div><h3>Strategy &amp; Prioritisation</h3><p>Findings ranked by impact-to-effort ratio. A focused roadmap built so the highest-impact fixes deliver results fast — not months later.</p></div>
-      <div class="ap-card fade-up"><div class="ap-num">03</div><h3>Execute &amp; Test</h3><p>Changes implemented with A/B testing discipline — nothing assumed, everything measured. Winning variants scaled, losers cut fast.</p></div>
-      <div class="ap-card fade-up"><div class="ap-num">04</div><h3>Report &amp; Iterate</h3><p>Clear weekly reporting with context — not just numbers. Every cycle builds on the last, compounding gains across the full customer lifecycle.</p></div>
+<section class="section approach-section" id="approach">
+  <div class="section-inner">
+    <div class="section-header fade">
+      <p class="label">How I work</p>
+      <h2>The engagement process</h2>
+      <p>Every engagement follows the same four-stage framework — diagnosis before action, measurement throughout, and compounding improvement over time.</p>
+    </div>
+    <div class="approach-steps fade">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Audit &amp; Diagnose</h3>
+        <p>Full 360° audit across traffic, funnel, UX, ads, email, and analytics — surfacing exactly where revenue is being lost and why.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Prioritise by Impact</h3>
+        <p>Findings ranked by impact-to-effort ratio. The highest-leverage fixes go first — so results come in weeks, not months.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Execute &amp; Test</h3>
+        <p>Every change is implemented with A/B testing discipline. Nothing is assumed — winning variants are scaled, losers are cut quickly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Report &amp; Compound</h3>
+        <p>Clear weekly reporting with business context — not just numbers. Each cycle builds on the last, compounding gains across the full lifecycle.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-glow"></div>
-  <div class="contact-inner">
-    <p class="eyebrow">Let's Work Together</p>
-    <h2 class="sec-title">Ready to Grow Your Store?</h2>
-    <p class="sec-sub">Whether you need conversion optimisation, paid ads management, email retention systems, or a full e-commerce growth strategy — I'm available for remote engagements globally.</p>
-    <div class="contact-btns">
-      <a href="mailto:fatai.ajani.online@gmail.com" class="btn-solid">Send an Email</a>
-      <a href="https://wa.me/2349025243381" target="_blank" class="whatsapp-btn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Me
-      </a>
-      <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="btn-outline">LinkedIn</a>
-    </div>
-    <div class="contact-details">
-      <div class="cd"><strong>Email</strong><a href="mailto:fatai.ajani.online@gmail.com">fatai.ajani.online@gmail.com</a></div>
-      <div class="cd"><strong>WhatsApp</strong><a href="https://wa.me/2349025243381">+234 902 524 3381</a></div>
-      <div class="cd"><strong>Location</strong><span>Lagos, Nigeria</span></div>
-      <div class="cd"><strong>Availability</strong><span>Remote — Global</span></div>
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left fade">
+        <p class="label">Get in touch</p>
+        <h2 class="serif" style="font-size:clamp(2rem,3.2vw,2.8rem);font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 18px;">
+          Ready to grow your store?
+        </h2>
+        <p>I work with e-commerce brands, agencies, and direct clients on a remote basis. Whether you need a quick audit or a long-term growth partner — reach out and let's talk through your situation.</p>
+        <div class="contact-actions">
+          <a href="mailto:fatai.ajani.online@gmail.com" class="contact-item">
+            <div class="ci-icon">@</div>
+            <div class="ci-text">
+              <strong>Email</strong>
+              <span>fatai.ajani.online@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://wa.me/2349025243381" target="_blank" class="contact-item">
+            <div class="ci-icon" style="background:#25D366">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div class="ci-text">
+              <strong>WhatsApp</strong>
+              <span>+234 902 524 3381</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="contact-item">
+            <div class="ci-icon" style="background:#0077b5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="ci-text">
+              <strong>LinkedIn</strong>
+              <span>linkedin.com/in/fatai-ajani-a6369a3a1</span>
+            </div>
+          </a>
+          <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank" class="contact-item">
+            <div class="ci-icon" style="background:#14a800">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+            </div>
+            <div class="ci-text">
+              <strong>Upwork</strong>
+              <span>View my Upwork profile</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="fade">
+        <div class="contact-card">
+          <div class="cc-status">
+            <div class="cc-dot"></div>
+            <span>Currently available</span>
+          </div>
+          <h3>Let's talk about your e-commerce growth</h3>
+          <p>I take on a limited number of projects at a time to ensure quality. If you have a store that needs attention — reach out today.</p>
+          <div class="cc-items">
+            <div class="cc-item">
+              <span class="cc-key">Location</span>
+              <span class="cc-val">Lagos, Nigeria</span>
+            </div>
+            <div class="cc-item">
+              <span class="cc-key">Availability</span>
+              <span class="cc-val green">Open to remote work</span>
+            </div>
+            <div class="cc-item">
+              <span class="cc-key">Preferred clients</span>
+              <span class="cc-val">US, UK, EU, Global</span>
+            </div>
+            <div class="cc-item">
+              <span class="cc-key">Engagement type</span>
+              <span class="cc-val">Project &amp; retainer</span>
+            </div>
+            <div class="cc-item">
+              <span class="cc-key">Response time</span>
+              <span class="cc-val green">Within 24 hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 Fatai Ajani · E-commerce Growth Strategist</p>
+  <p>© 2025 Fatai Ajani · E-commerce Growth Strategist · Lagos, Nigeria</p>
   <div class="footer-links">
-    <a href="#about">About</a><a href="#work">Work</a>
-    <a href="#tools">Stack</a><a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#tools">Stack</a>
+    <a href="#contact">Contact</a>
     <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank">LinkedIn</a>
+    <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank">Upwork</a>
   </div>
 </footer>
 
 <script>
-function toggleCS(id){document.getElementById(id).classList.toggle('open')}
-function openLB(img){document.getElementById('lb-img').src=img.src;document.getElementById('lb').classList.add('active');document.body.style.overflow='hidden'}
-function closeLB(){document.getElementById('lb').classList.remove('active');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.1});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-document.getElementById('cs1').classList.add('open');
-function toggleMenu(){const l=document.querySelector('.nav-links');if(l.style.display==='flex'){l.style.display='none'}else{l.style.cssText='display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:#fff;padding:24px 6%;border-bottom:1px solid #e2e8f0;gap:20px;z-index:199;'}}
+// Case study accordion
+function toggleCS(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
+// Lightbox
+function openLB(img) {
+  document.getElementById('lb-img').src = img.src;
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+// Scroll fade
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+// Mobile nav
+function toggleNav() {
+  const ul = document.querySelector('.nav-links');
+  const open = ul.style.display === 'flex';
+  if (open) {
+    ul.style.display = 'none';
+  } else {
+    ul.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:#fff;padding:24px 6%;border-bottom:1px solid #e4e8ef;gap:20px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08)';
+  }
+}
 </script>
 </body>
 </html>
