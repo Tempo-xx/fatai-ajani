@@ -1,853 +1,623 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fatai Ajani — E-commerce Growth Strategist</title>
+<title>Fatai Ajani — E-commerce & AI Growth Specialist | FATISCO</title>
+<meta name="description" content="E-commerce growth strategist and AI systems specialist helping online brands increase revenue, optimise conversion, and build intelligent automation — across Shopify, WooCommerce, Magento and beyond.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ─────────────────────────────────────────
-   TOKENS
-───────────────────────────────────────── */
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
 :root {
-  --ink:       #0d1117;
-  --ink-soft:  #1c2432;
-  --blue:      #1a56db;
-  --blue-dark: #1240a8;
-  --blue-pale: #eef3fd;
-  --gold:      #c8922a;
-  --green:     #0f7d58;
-  --red:       #c0392b;
-  --white:     #ffffff;
-  --off:       #f7f8fa;
-  --rule:      #e4e8ef;
-  --muted:     #6b7280;
-  --text:      #374151;
-  --r:         10px;
-  --r2:        18px;
-  --sh:        0 2px 16px rgba(13,17,23,.07);
-  --sh2:       0 6px 40px rgba(13,17,23,.12);
-  --sh3:       0 16px 72px rgba(13,17,23,.16);
+  --ink:        #0c1018;
+  --ink2:       #161d2b;
+  --ink3:       #1f2a3d;
+  --blue:       #1a4fd6;
+  --blue2:      #1340b0;
+  --blue-pale:  #eef2fd;
+  --blue-mid:   #dbe4fb;
+  --gold:       #b8831a;
+  --gold-pale:  #fef3dc;
+  --green:      #0d7a52;
+  --green-pale: #e3f7ef;
+  --red:        #bf2c2c;
+  --slate:      #f0f3f8;
+  --white:      #ffffff;
+  --rule:       #dde2ec;
+  --muted:      #68748a;
+  --text:       #3a4455;
+  --r:          10px;
+  --r2:         18px;
+  --r3:         26px;
+  --sh:         0 2px 14px rgba(12,16,24,.07);
+  --sh2:        0 6px 36px rgba(12,16,24,.11);
+  --sh3:        0 16px 64px rgba(12,16,24,.16);
 }
 
-/* ─────────────────────────────────────────
-   RESET & BASE
-───────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: 'Geologica', sans-serif;
-  background: var(--white);
-  color: var(--text);
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 4px; }
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;line-height:1.65}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;border:none;background:none}
 
-/* ─────────────────────────────────────────
-   TYPOGRAPHY HELPERS
-───────────────────────────────────────── */
-.label {
-  font-size: .7rem; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase;
-  color: var(--blue);
-}
-h1, h2, h3, .serif {
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: -.01em;
-}
+/* ═══════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════ */
+.label{font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
+.serif{font-family:'Cormorant Garamond',serif;letter-spacing:-.01em}
+h1,h2,h3,.h-serif{font-family:'Cormorant Garamond',serif;letter-spacing:-.02em}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    NAV
-───────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--rule);
-  height: 64px;
-  display: flex; align-items: center;
-  padding: 0 7%;
-  justify-content: space-between;
+═══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--rule);
+  height:68px;display:flex;align-items:center;
+  padding:0 6%;justify-content:space-between;
 }
-.nav-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem; font-weight: 700;
-  color: var(--ink); letter-spacing: -.02em;
+.nav-left{display:flex;align-items:center;gap:16px}
+.nav-logo{height:32px;width:auto}
+.nav-divider{width:1px;height:22px;background:var(--rule)}
+.nav-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  background:var(--ink);color:var(--white) !important;
+  padding:9px 22px;border-radius:6px;
+  font-size:.8rem !important;font-weight:600 !important;
+  letter-spacing:.03em;transition:background .2s,transform .15s;
 }
-.nav-brand span { color: var(--blue); }
-.nav-links {
-  display: flex; align-items: center;
-  gap: 36px; list-style: none;
-}
-.nav-links a {
-  font-size: .82rem; font-weight: 500;
-  color: var(--muted); transition: color .2s;
-}
-.nav-links a:hover { color: var(--ink); }
-.nav-cta {
-  background: var(--ink); color: var(--white) !important;
-  padding: 9px 22px; border-radius: 6px;
-  font-size: .8rem !important; font-weight: 600 !important;
-  letter-spacing: .03em; transition: background .2s, transform .2s;
-}
-.nav-cta:hover { background: var(--blue) !important; transform: translateY(-1px); }
-.nav-mobile-btn {
-  display: none; flex-direction: column; gap: 5px;
-  cursor: pointer; padding: 4px; background: none; border: none;
-}
-.nav-mobile-btn span {
-  width: 22px; height: 1.5px;
-  background: var(--ink); border-radius: 2px; display: block;
-}
+.nav-cta:hover{background:var(--blue) !important;transform:translateY(-1px)}
+.nav-mob{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer}
+.nav-mob span{width:22px;height:1.5px;background:var(--ink);display:block;border-radius:2px}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    HERO
-───────────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 0;
-  padding-top: 64px;
+═══════════════════════════════════════ */
+.hero{
+  min-height:100vh;padding-top:68px;
+  display:grid;grid-template-columns:1fr 400px;
 }
-.hero-left {
-  padding: 80px 7% 80px;
-  display: flex; flex-direction: column; justify-content: center;
-  border-right: 1px solid var(--rule);
+.hero-left{
+  padding:72px 6% 72px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--rule);
 }
-.hero-available {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: #e8f5ef; border: 1px solid #a7d9c0;
-  color: var(--green); padding: 5px 14px; border-radius: 50px;
-  font-size: .72rem; font-weight: 600; letter-spacing: .06em;
-  text-transform: uppercase; margin-bottom: 36px; width: fit-content;
+.hero-avail{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green-pale);border:1px solid #a7dfc9;
+  color:var(--green);padding:5px 16px;border-radius:50px;
+  font-size:.7rem;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;margin-bottom:32px;width:fit-content;
 }
-.hero-available::before {
-  content: ''; width: 6px; height: 6px;
-  background: var(--green); border-radius: 50%;
-  animation: pulse 2s infinite;
+.hero-avail::before{
+  content:'';width:6px;height:6px;background:var(--green);
+  border-radius:50%;animation:blink 2s infinite;flex-shrink:0;
 }
-@keyframes pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:.4; transform:scale(.7); }
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,5.2vw,5.2rem);
+  font-weight:700;color:var(--ink);line-height:1.0;
+  margin-bottom:26px;letter-spacing:-.03em;
 }
-h1.hero-h1 {
-  font-size: clamp(3rem, 5vw, 5rem);
-  font-weight: 700; color: var(--ink);
-  line-height: 1.0; margin-bottom: 28px;
+.hero-h1 em{color:var(--blue);font-style:italic}
+.hero-h1 .small-line{font-size:clamp(1.6rem,2.8vw,2.8rem);display:block;margin-top:4px;color:var(--muted);font-weight:400}
+.hero-desc{
+  font-size:1rem;color:var(--muted);line-height:1.8;
+  max-width:520px;margin-bottom:40px;
 }
-h1.hero-h1 em {
-  font-style: italic; color: var(--blue);
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 26px;border-radius:7px;
+  font-size:.875rem;font-weight:600;letter-spacing:.01em;
+  transition:all .2s;font-family:'DM Sans',sans-serif;
+  border:none;cursor:pointer;
 }
-.hero-desc {
-  font-size: 1.05rem; color: var(--muted);
-  line-height: 1.75; max-width: 520px;
-  margin-bottom: 44px;
-}
-.hero-actions {
-  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px;
-}
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 28px; border-radius: 7px;
-  font-size: .875rem; font-weight: 600;
-  transition: all .2s; letter-spacing: .01em;
-  font-family: 'Geologica', sans-serif;
-  cursor: pointer; border: none;
-}
-.btn-primary {
-  background: var(--blue); color: var(--white);
-}
-.btn-primary:hover {
-  background: var(--blue-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(26,86,219,.3);
-}
-.btn-ghost {
-  background: transparent; color: var(--ink);
-  border: 1.5px solid var(--rule);
-}
-.btn-ghost:hover {
-  border-color: var(--ink); background: var(--ink);
-  color: var(--white);
-}
-.btn-wa {
-  background: #25D366; color: var(--white);
-}
-.btn-wa:hover {
-  background: #1da851;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(37,211,102,.3);
-}
-.btn-wa svg, .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+.btn-primary{background:var(--blue);color:var(--white)}
+.btn-primary:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 6px 22px rgba(26,79,214,.3)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--rule)}
+.btn-outline:hover{border-color:var(--ink);background:var(--ink);color:var(--white)}
+.btn-wa{background:#25D366;color:var(--white)}
+.btn-wa:hover{background:#1fba5a;transform:translateY(-2px);box-shadow:0 6px 22px rgba(37,211,102,.3)}
+.btn svg{width:15px;height:15px;flex-shrink:0}
 
-/* hero metrics strip */
-.hero-metrics {
-  display: flex; gap: 0;
-  border-top: 1px solid var(--rule);
-  padding-top: 40px;
+.hero-stats{
+  display:flex;gap:0;
+  border-top:1px solid var(--rule);padding-top:36px;
 }
-.hm {
-  flex: 1; padding-right: 32px;
-  border-right: 1px solid var(--rule);
-  margin-right: 32px;
-}
-.hm:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-.hm-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.6rem; font-weight: 700;
-  color: var(--ink); line-height: 1;
-}
-.hm-num b { color: var(--blue); }
-.hm-label { font-size: .75rem; color: var(--muted); margin-top: 5px; }
+.hs{flex:1;padding-right:28px;border-right:1px solid var(--rule);margin-right:28px}
+.hs:last-child{border-right:none;margin-right:0;padding-right:0}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--ink);line-height:1}
+.hs-num b{color:var(--blue)}
+.hs-label{font-size:.73rem;color:var(--muted);margin-top:4px;line-height:1.4}
 
-/* hero right — photo panel */
-.hero-right {
-  background: var(--ink);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 60px 40px;
-  position: relative; overflow: hidden;
+/* hero right */
+.hero-right{
+  background:var(--ink2);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:56px 40px;position:relative;overflow:hidden;
 }
-.hero-right::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 70% 30%, rgba(26,86,219,.25) 0%, transparent 60%);
-  pointer-events: none;
+.hero-right::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 60% 20%,rgba(26,79,214,.22) 0%,transparent 65%);
+  pointer-events:none;
 }
-.hero-photo {
-  width: 260px; height: 320px;
-  border-radius: var(--r2); overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
-  box-shadow: var(--sh3);
-  position: relative; z-index: 1;
-  margin-bottom: 32px;
+.hero-photo{
+  width:240px;height:300px;border-radius:var(--r2);
+  overflow:hidden;border:1px solid rgba(255,255,255,.08);
+  box-shadow:var(--sh3);margin-bottom:28px;
+  position:relative;z-index:1;
 }
-.hero-photo img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-id{text-align:center;position:relative;z-index:1}
+.hero-id-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.hero-id-role{font-size:.78rem;color:#8899b4;margin-bottom:20px;line-height:1.5}
+.hero-profile-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.hpl{
+  padding:7px 16px;border-radius:6px;
+  font-size:.72rem;font-weight:600;letter-spacing:.03em;
+  border:1px solid rgba(255,255,255,.12);color:#a8b8d0;
+  transition:all .2s;
 }
-.hero-name-card {
-  text-align: center; position: relative; z-index: 1;
-}
-.hero-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 700;
-  color: var(--white); margin-bottom: 4px;
-}
-.hero-title-card { font-size: .8rem; color: #94a3b8; }
-.hero-links {
-  display: flex; gap: 10px; margin-top: 20px;
-  position: relative; z-index: 1;
-}
-.hero-link-btn {
-  padding: 8px 18px; border-radius: 6px;
-  font-size: .75rem; font-weight: 600;
-  border: 1px solid rgba(255,255,255,.15);
-  color: #cbd5e1; transition: all .2s;
-  letter-spacing: .03em;
-}
-.hero-link-btn:hover {
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.3);
-  color: var(--white);
-}
+.hpl:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.25);color:var(--white)}
 
-/* ─────────────────────────────────────────
-   TRUST STRIP — platform logos
-───────────────────────────────────────── */
-.trust-strip {
-  padding: 40px 7%;
-  border-bottom: 1px solid var(--rule);
-  background: var(--off);
+/* floating metric cards */
+.hero-float{
+  position:absolute;background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r);padding:12px 16px;z-index:2;
 }
-.trust-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: flex; align-items: center; gap: 48px;
-  flex-wrap: wrap;
-}
-.trust-label {
-  font-size: .7rem; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase;
-  color: var(--muted); white-space: nowrap; flex-shrink: 0;
-}
-.trust-logos {
-  display: flex; align-items: center;
-  gap: 36px; flex-wrap: wrap; flex: 1;
-}
-.trust-logo {
-  font-family: 'Geologica', sans-serif;
-  font-size: .82rem; font-weight: 600;
-  color: var(--muted); letter-spacing: .02em;
-  padding: 6px 14px; border-radius: 6px;
-  background: var(--white); border: 1px solid var(--rule);
-  transition: all .2s; white-space: nowrap;
-}
-.trust-logo:hover { border-color: var(--blue); color: var(--blue); }
+.hero-float.f1{top:60px;right:20px;animation:floatA 6s ease-in-out infinite}
+.hero-float.f2{bottom:80px;left:10px;animation:floatA 6s ease-in-out infinite;animation-delay:-3s}
+@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hf-label{font-size:.6rem;color:#8899b4;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.hf-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);line-height:1}
+.hf-sub{font-size:.65rem;color:#4ade80;margin-top:2px;font-weight:600}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
+   TRUST STRIP
+═══════════════════════════════════════ */
+.trust{padding:36px 6%;background:var(--slate);border-bottom:1px solid var(--rule)}
+.trust-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.trust-label{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.trust-logos{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex:1}
+.tlogo{
+  font-size:.75rem;font-weight:600;color:var(--muted);
+  padding:5px 13px;border-radius:5px;
+  background:var(--white);border:1px solid var(--rule);
+  transition:all .2s;white-space:nowrap;letter-spacing:.01em;
+}
+.tlogo:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ═══════════════════════════════════════
    SECTIONS
-───────────────────────────────────────── */
-.section { padding: 96px 7%; }
-.section-inner { max-width: 1100px; margin: 0 auto; }
-.section-header { margin-bottom: 56px; }
-.section-header h2 {
-  font-size: clamp(2rem, 3.2vw, 2.8rem);
-  font-weight: 700; color: var(--ink);
-  line-height: 1.1; margin-top: 10px;
-}
-.section-header p {
-  color: var(--muted); font-size: .975rem;
-  line-height: 1.75; max-width: 580px; margin-top: 14px;
-}
+═══════════════════════════════════════ */
+.sec{padding:88px 6%}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-hd{margin-bottom:52px}
+.sec-hd h2{font-size:clamp(2rem,3.2vw,2.8rem);font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 14px}
+.sec-hd p{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:560px}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    ABOUT
-───────────────────────────────────────── */
-.about-section { background: var(--off); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.about-grid {
-  display: grid; grid-template-columns: 340px 1fr;
-  gap: 72px; align-items: start;
+═══════════════════════════════════════ */
+.about-sec{background:var(--slate);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.about-grid{display:grid;grid-template-columns:320px 1fr;gap:64px;align-items:start}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:.82;border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh2)}
+.about-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.about-badge{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--ink);padding:16px 20px;
+  border-radius:0 0 var(--r2) var(--r2);
 }
-.about-photo-col { position: relative; }
-.about-img {
-  width: 100%; aspect-ratio: .82;
-  border-radius: var(--r2); overflow: hidden;
-  box-shadow: var(--sh2);
-}
-.about-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top center;
-}
-.about-badge {
-  position: absolute; bottom: -1px; left: 0; right: 0;
-  background: var(--ink); padding: 18px 22px;
-  border-radius: 0 0 var(--r2) var(--r2);
-}
-.ab-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem; font-weight: 700; color: var(--white);
-}
-.ab-sub { font-size: .75rem; color: #94a3b8; margin-top: 3px; }
-.about-text p {
-  color: var(--text); font-size: .975rem;
-  line-height: 1.8; margin-bottom: 18px;
-}
-.about-chips {
-  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px;
-}
-.chip {
-  background: var(--white); border: 1px solid var(--rule);
-  border-radius: 6px; padding: 6px 14px;
-  font-size: .78rem; font-weight: 500; color: var(--ink);
-  transition: all .2s;
-}
-.chip:hover { border-color: var(--blue); color: var(--blue); }
+.ab-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+.ab-sub{font-size:.72rem;color:#8899b4;margin-top:3px}
 
-/* why hire me */
-.why-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1px; background: var(--rule);
-  border: 1px solid var(--rule); border-radius: var(--r2);
-  overflow: hidden; margin-top: 48px;
+.about-body p{font-size:.94rem;color:var(--text);line-height:1.82;margin-bottom:16px}
+.about-chips{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0 0}
+.chip{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:6px;padding:5px 13px;
+  font-size:.76rem;font-weight:500;color:var(--ink);
+  transition:all .2s;
 }
-.why-item {
-  background: var(--white); padding: 28px 26px;
-  transition: background .2s;
-}
-.why-item:hover { background: var(--blue-pale); }
-.why-item h3 {
-  font-size: 1rem; font-weight: 600; color: var(--ink);
-  margin-bottom: 8px; font-family: 'Geologica', sans-serif;
-}
-.why-item p { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+.chip:hover{border-color:var(--blue);color:var(--blue)}
 
-/* ─────────────────────────────────────────
+.why-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:var(--r2);
+  overflow:hidden;margin-top:40px;
+}
+.why-card{background:var(--white);padding:24px 22px;transition:background .2s}
+.why-card:hover{background:var(--blue-pale)}
+.why-card h3{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:7px}
+.why-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
+
+/* ═══════════════════════════════════════
    SERVICES
-───────────────────────────────────────── */
-.services-section { background: var(--white); }
-.services-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 2px; background: var(--rule);
-  border: 1px solid var(--rule); border-radius: var(--r2);
-  overflow: hidden;
+═══════════════════════════════════════ */
+.svc-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:var(--r2);overflow:hidden;
 }
-.svc {
-  background: var(--white); padding: 36px 32px;
-  transition: background .2s;
-}
-.svc:hover { background: var(--off); }
-.svc-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.5rem; font-weight: 400;
-  color: var(--rule); line-height: 1; margin-bottom: 16px;
-}
-.svc h3 {
-  font-family: 'Geologica', sans-serif;
-  font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 10px;
-}
-.svc p { font-size: .875rem; color: var(--muted); line-height: 1.7; }
-.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-.svc-tag {
-  font-size: .7rem; font-weight: 600;
-  color: var(--blue); background: var(--blue-pale);
-  padding: 3px 10px; border-radius: 4px;
-}
+.svc-card{background:var(--white);padding:32px 28px;transition:background .2s}
+.svc-card:hover{background:var(--slate)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--rule);line-height:1;margin-bottom:14px}
+.svc-card h3{font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:9px;font-family:'DM Sans',sans-serif}
+.svc-card p{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.svc-tags{display:flex;flex-wrap:wrap;gap:5px}
+.stag{font-size:.68rem;font-weight:600;color:var(--blue);background:var(--blue-pale);padding:3px 9px;border-radius:4px}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    CASE STUDIES
-───────────────────────────────────────── */
-.cs-section { background: var(--off); border-top: 1px solid var(--rule); }
+═══════════════════════════════════════ */
+.cs-sec{background:var(--slate);border-top:1px solid var(--rule)}
 
-.cs-card {
-  background: var(--white);
-  border: 1px solid var(--rule);
-  border-radius: var(--r2);
-  margin-bottom: 28px;
-  overflow: hidden;
-  transition: box-shadow .3s;
+.cs-card{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:var(--r2);margin-bottom:20px;overflow:hidden;
+  transition:box-shadow .25s;
 }
-.cs-card:hover { box-shadow: var(--sh2); }
+.cs-card:hover{box-shadow:var(--sh2)}
 
-/* Summary row — always visible */
-.cs-summary {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 24px;
-  padding: 36px 40px;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  transition: background .2s;
+/* always-visible summary */
+.cs-sum{
+  display:grid;grid-template-columns:1fr auto;
+  gap:20px;padding:32px 38px;align-items:center;
+  cursor:pointer;transition:background .2s;
+  user-select:none;
 }
-.cs-summary:hover { background: var(--off); }
+.cs-sum:hover{background:var(--slate)}
 
-.cs-tag {
-  display: inline-block;
-  font-size: .68rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: 3px 12px; border-radius: 4px;
-  margin-bottom: 12px;
+.cs-cat-tag{
+  display:inline-block;font-size:.66rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 11px;border-radius:4px;margin-bottom:10px;
 }
-.cs-tag.blue  { background: var(--blue-pale); color: var(--blue); }
-.cs-tag.gold  { background: #fef3c7; color: #92400e; }
-.cs-tag.green { background: #dcfce7; color: #14532d; }
-.cs-tag.slate { background: #f1f5f9; color: #334155; }
+.cat-blue{background:var(--blue-pale);color:var(--blue)}
+.cat-gold{background:var(--gold-pale);color:var(--gold)}
+.cat-green{background:var(--green-pale);color:var(--green)}
+.cat-slate{background:var(--slate);color:var(--ink3)}
 
-.cs-title-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.55rem; font-weight: 700;
-  color: var(--ink); line-height: 1.2; margin-bottom: 8px;
+.cs-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;font-weight:700;color:var(--ink);
+  line-height:1.2;margin-bottom:7px;letter-spacing:-.02em;
 }
-.cs-meta-text { font-size: .8rem; color: var(--muted); }
+.cs-meta{font-size:.76rem;color:var(--muted);margin-bottom:16px}
+.cs-kpis{display:flex;gap:8px;flex-wrap:wrap}
+.kpib{
+  background:var(--slate);border:1px solid var(--rule);
+  border-radius:6px;padding:7px 14px;
+  display:flex;flex-direction:column;align-items:center;gap:1px;
+  min-width:80px;
+}
+.kpiv{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;line-height:1}
+.kpiv.g{color:var(--green)}.kpiv.b{color:var(--blue)}
+.kpiv.o{color:var(--gold)}.kpiv.r{color:var(--red)}
+.kpil{font-size:.62rem;color:var(--muted);font-weight:500;text-align:center;line-height:1.3}
 
-.cs-kpis {
-  display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;
+/* expand button — very obvious */
+.cs-expand{
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  flex-shrink:0;
 }
-.kpi-badge {
-  background: var(--off); border: 1px solid var(--rule);
-  border-radius: 6px; padding: 8px 16px;
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
-  min-width: 90px;
+.cs-expand-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--blue);white-space:nowrap;
 }
-.kpi-v {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 700; line-height: 1;
+.cs-arrow{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--blue-pale);border:1.5px solid var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue);font-size:.75rem;font-weight:700;
+  transition:transform .32s,background .2s,color .2s;
 }
-.kpi-v.g { color: var(--green); }
-.kpi-v.b { color: var(--blue); }
-.kpi-v.o { color: var(--gold); }
-.kpi-v.r { color: var(--red); }
-.kpi-l { font-size: .65rem; color: var(--muted); font-weight: 500; text-align: center; }
-
-/* expand trigger */
-.cs-expand-trigger {
-  display: flex; align-items: center; gap: 12px;
-  flex-shrink: 0;
-}
-.expand-btn {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 4px; text-align: center;
-}
-.expand-btn-label {
-  font-size: .68rem; font-weight: 700;
-  letter-spacing: .08em; text-transform: uppercase;
-  color: var(--blue); white-space: nowrap;
-}
-.expand-btn-arrow {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--blue-pale); border: 1.5px solid var(--blue);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .35s, background .2s;
-  font-size: .8rem; color: var(--blue); font-weight: 700;
-}
-.cs-card.open .expand-btn-arrow {
-  transform: rotate(180deg);
-  background: var(--blue); color: var(--white);
+.cs-card.open .cs-arrow{
+  transform:rotate(180deg);
+  background:var(--blue);color:var(--white);
 }
 
-/* "More inside" teaser bar */
-.cs-teaser {
-  margin: 0 40px;
-  border-top: 1px dashed var(--rule);
-  padding: 14px 0;
-  display: flex; align-items: center; gap: 10px;
-  color: var(--muted); font-size: .8rem;
-  cursor: pointer; transition: color .2s;
+/* teaser bar — below summary, above detail */
+.cs-teaser{
+  margin:0 38px;
+  border-top:1px dashed var(--rule);
+  padding:11px 0;
+  display:flex;align-items:center;gap:10px;
+  font-size:.78rem;color:var(--muted);
+  cursor:pointer;transition:color .2s;
 }
-.cs-teaser:hover { color: var(--blue); }
-.cs-teaser::before {
-  content: '';
-  width: 18px; height: 1px;
-  background: currentColor; flex-shrink: 0;
-}
-.cs-card.open .cs-teaser { display: none; }
+.cs-teaser:hover{color:var(--blue)}
+.cs-teaser-line{width:20px;height:1px;background:currentColor;flex-shrink:0}
+.cs-teaser-arrow{margin-left:auto;font-size:.8rem;transition:transform .2s}
+.cs-card.open .cs-teaser{display:none}
 
 /* detail body */
-.cs-detail {
-  display: none;
-  border-top: 1px solid var(--rule);
-}
-.cs-card.open .cs-detail { display: block; }
+.cs-detail{display:none;border-top:1px solid var(--rule)}
+.cs-card.open .cs-detail{display:block}
 
-.cs-detail-inner {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-.cs-col {
-  padding: 40px;
-}
-.cs-col:first-child { border-right: 1px solid var(--rule); }
+.cs-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.cs-col{padding:36px 38px}
+.cs-col+.cs-col{border-left:1px solid var(--rule)}
 
-.cs-section-label {
-  font-size: .68rem; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 14px;
-  padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+.cs-dl{
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:12px;padding-bottom:10px;
+  border-bottom:1px solid var(--rule);
 }
-.cs-body-text {
-  font-size: .9rem; color: var(--text);
-  line-height: 1.8; margin-bottom: 20px;
-}
-.cs-bullet-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.cs-bullet-list li {
-  display: grid; grid-template-columns: 20px 1fr;
-  gap: 8px; font-size: .875rem; color: var(--text); line-height: 1.6;
-}
-.cs-bullet-list li::before {
-  content: '—'; color: var(--blue);
-  font-weight: 700; margin-top: 1px;
-}
+.cs-dt{font-size:.9rem;color:var(--text);line-height:1.8;margin-bottom:18px}
+.cs-bl{list-style:none;display:flex;flex-direction:column;gap:9px}
+.cs-bl li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:.86rem;color:var(--text);line-height:1.6}
+.cs-bl li::before{content:'—';color:var(--blue);font-weight:700;margin-top:1px}
 
-.results-table {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 10px; margin-bottom: 28px;
-}
-.rt-cell {
-  background: var(--off); border-radius: var(--r);
-  padding: 16px 12px; text-align: center;
-  border: 1px solid var(--rule);
-}
-.rt-val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.55rem; font-weight: 700; line-height: 1;
-}
-.rt-val.g { color: var(--green); }
-.rt-val.b { color: var(--blue); }
-.rt-val.o { color: var(--gold); }
-.rt-val.r { color: var(--red); }
-.rt-label { font-size: .67rem; color: var(--muted); margin-top: 5px; line-height: 1.3; }
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:24px}
+.res-cell{background:var(--slate);border:1px solid var(--rule);border-radius:var(--r);padding:14px 10px;text-align:center}
+.rv{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;line-height:1}
+.rv.g{color:var(--green)}.rv.b{color:var(--blue)}.rv.o{color:var(--gold)}.rv.r{color:var(--red)}
+.rl{font-size:.65rem;color:var(--muted);margin-top:4px;line-height:1.3}
 
-/* proof images inside case study */
-.proof-section { margin-top: 28px; }
-.proof-label {
-  font-size: .68rem; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 12px;
-  padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+/* proof images */
+.proof-wrap{margin-top:22px}
+.proof-lbl{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-bottom:9px;border-bottom:1px solid var(--rule)}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.proof-grid.wide{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.pi{
+  width:100%;aspect-ratio:16/10;object-fit:cover;
+  border-radius:var(--r);border:1px solid var(--rule);
+  cursor:zoom-in;transition:transform .2s,box-shadow .2s;
+  background:var(--slate);
 }
-.proof-imgs {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 10px;
-}
-.proof-img {
-  width: 100%; aspect-ratio: 16/10;
-  object-fit: cover; border-radius: var(--r);
-  border: 1px solid var(--rule); cursor: zoom-in;
-  transition: transform .2s, box-shadow .2s;
-  background: var(--off);
-}
-.proof-img:hover { transform: scale(1.03); box-shadow: var(--sh2); }
+.pi:hover{transform:scale(1.04);box-shadow:var(--sh2)}
+.pi.tall{aspect-ratio:4/3}
 
-/* stack tags */
-.stack-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-.stag {
-  font-size: .72rem; font-weight: 500;
-  color: var(--text); background: var(--white);
-  border: 1px solid var(--rule); border-radius: 5px;
-  padding: 4px 10px; transition: all .2s;
-}
-.stag:hover { border-color: var(--blue); color: var(--blue); }
+.stack-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.sp{font-size:.7rem;font-weight:500;color:var(--text);background:var(--white);border:1px solid var(--rule);border-radius:5px;padding:3px 10px;transition:all .2s}
+.sp:hover{border-color:var(--blue);color:var(--blue)}
 
-/* ─────────────────────────────────────────
-   TESTIMONIALS
-───────────────────────────────────────── */
-.testimonial-section { background: var(--white); border-top: 1px solid var(--rule); }
-.testimonials-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+/* ═══════════════════════════════════════
+   DEMO STORES
+═══════════════════════════════════════ */
+.demo-sec{background:var(--white);border-top:1px solid var(--rule)}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.demo-card{
+  border:1px solid var(--rule);border-radius:var(--r2);
+  overflow:hidden;transition:box-shadow .25s,transform .25s;
+  background:var(--white);
 }
-.tcard {
-  background: var(--off); border: 1px solid var(--rule);
-  border-radius: var(--r2); padding: 32px 28px;
-  transition: box-shadow .25s;
+.demo-card:hover{box-shadow:var(--sh2);transform:translateY(-4px)}
+.demo-thumb{
+  width:100%;height:180px;overflow:hidden;
+  background:var(--slate);position:relative;
 }
-.tcard:hover { box-shadow: var(--sh); }
-.tcard-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem; font-style: italic;
-  color: var(--ink); line-height: 1.7;
-  margin-bottom: 24px;
+.demo-thumb iframe{
+  width:200%;height:200%;
+  transform:scale(.5);transform-origin:top left;
+  pointer-events:none;border:none;
 }
-.tcard-author { display: flex; align-items: center; gap: 14px; }
-.tcard-avatar {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--ink); display: flex; align-items: center;
-  justify-content: center; font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem; font-weight: 700; color: var(--white);
-  flex-shrink: 0;
+.demo-info{padding:20px 22px}
+.demo-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.demo-desc{font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.demo-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.76rem;font-weight:600;color:var(--blue);
+  transition:gap .2s;
 }
-.tcard-name { font-size: .875rem; font-weight: 600; color: var(--ink); }
-.tcard-role { font-size: .75rem; color: var(--muted); }
-.tcard-stars { color: #f59e0b; font-size: .8rem; margin-bottom: 4px; }
+.demo-link:hover{gap:10px}
+.demo-link::after{content:'→'}
 
-/* ─────────────────────────────────────────
-   TOOLS / STACK
-───────────────────────────────────────── */
-.tools-section {
-  background: var(--ink);
-  border-top: 1px solid #1c2432;
-}
-.tools-section .label { color: #60a5fa; }
-.tools-section h2 { color: var(--white); }
-.tools-section .section-header p { color: #6b7280; }
+/* ═══════════════════════════════════════
+   TOOLS
+═══════════════════════════════════════ */
+.tools-sec{background:var(--ink2);border-top:1px solid var(--ink3)}
+.tools-sec .label{color:#60a5fa}
+.tools-sec h2{color:var(--white)}
+.tools-sec .sec-hd p{color:#6b7280}
+.tg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tg{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r2);padding:22px;transition:border-color .2s}
+.tg:hover{border-color:rgba(26,79,214,.4)}
+.tg-title{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4b5563;margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.06)}
+.tt-list{display:flex;flex-wrap:wrap;gap:6px}
+.tt{font-size:.74rem;font-weight:500;background:rgba(255,255,255,.05);color:#9ca3af;border:1px solid rgba(255,255,255,.07);padding:4px 11px;border-radius:5px;transition:all .2s}
+.tt:hover{background:rgba(26,79,214,.2);border-color:rgba(26,79,214,.35);color:#93c5fd}
 
-.tools-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-}
-.tool-group {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.07);
-  border-radius: var(--r2); padding: 24px;
-  transition: border-color .2s;
-}
-.tool-group:hover { border-color: rgba(26,86,219,.4); }
-.tg-label {
-  font-size: .65rem; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: #4b5563;
-  margin-bottom: 14px; padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
-.ttag {
-  font-size: .75rem; font-weight: 500;
-  background: rgba(255,255,255,.05);
-  color: #9ca3af; border: 1px solid rgba(255,255,255,.07);
-  padding: 4px 12px; border-radius: 5px; transition: all .2s;
-}
-.ttag:hover { background: rgba(26,86,219,.2); border-color: rgba(26,86,219,.4); color: #93c5fd; }
-
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    APPROACH
-───────────────────────────────────────── */
-.approach-section { background: var(--off); border-top: 1px solid var(--rule); }
-.approach-steps {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2px; background: var(--rule);
-  border: 1px solid var(--rule); border-radius: var(--r2);
-  overflow: hidden;
-}
-.step {
-  background: var(--white); padding: 36px 28px;
-  transition: background .2s;
-}
-.step:hover { background: var(--blue-pale); }
-.step-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem; font-weight: 400;
-  color: var(--rule); line-height: 1; margin-bottom: 18px;
-}
-.step h3 {
-  font-family: 'Geologica', sans-serif;
-  font-size: .95rem; font-weight: 600; color: var(--ink); margin-bottom: 10px;
-}
-.step p { font-size: .86rem; color: var(--muted); line-height: 1.7; }
+═══════════════════════════════════════ */
+.approach-sec{background:var(--slate);border-top:1px solid var(--rule)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r2);overflow:hidden}
+.step{background:var(--white);padding:32px 26px;transition:background .2s}
+.step:hover{background:var(--blue-pale)}
+.step-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:400;color:var(--rule);line-height:1;margin-bottom:14px}
+.step h3{font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:8px;font-family:'DM Sans',sans-serif}
+.step p{font-size:.83rem;color:var(--muted);line-height:1.7}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.test-sec{background:var(--white);border-top:1px solid var(--rule)}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.tcard{background:var(--slate);border:1px solid var(--rule);border-radius:var(--r2);padding:28px 24px;transition:box-shadow .2s}
+.tcard:hover{box-shadow:var(--sh)}
+.tcard-stars{color:#f59e0b;font-size:.78rem;margin-bottom:14px;letter-spacing:2px}
+.tcard-q{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:20px}
+.tcard-auth{display:flex;align-items:center;gap:12px}
+.tcard-av{width:38px;height:38px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0}
+.tcard-name{font-size:.85rem;font-weight:600;color:var(--ink)}
+.tcard-role{font-size:.73rem;color:var(--muted)}
+
+/* ═══════════════════════════════════════
    CONTACT
-───────────────────────────────────────── */
-.contact-section {
-  background: var(--white);
-  border-top: 1px solid var(--rule);
+═══════════════════════════════════════ */
+.contact-sec{background:var(--white);border-top:1px solid var(--rule)}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:start}
+.contact-left h2{margin-bottom:16px}
+.contact-left > p{font-size:.94rem;color:var(--muted);line-height:1.75;max-width:440px;margin-bottom:32px}
+.contact-items{display:flex;flex-direction:column;gap:10px}
+.ci{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 18px;border-radius:var(--r);
+  border:1px solid var(--rule);background:var(--slate);
+  transition:all .2s;
 }
-.contact-grid {
-  display: grid; grid-template-columns: 1.2fr 1fr;
-  gap: 80px; align-items: start;
-}
-.contact-left h2 { margin-bottom: 18px; }
-.contact-left p {
-  font-size: .975rem; color: var(--muted);
-  line-height: 1.75; max-width: 460px; margin-bottom: 36px;
-}
-.contact-actions { display: flex; flex-direction: column; gap: 12px; }
-.contact-item {
-  display: flex; align-items: center; gap: 14px;
-  padding: 18px 20px; border-radius: var(--r);
-  border: 1px solid var(--rule); background: var(--off);
-  transition: all .2s; text-decoration: none;
-}
-.contact-item:hover { border-color: var(--blue); background: var(--blue-pale); }
-.ci-icon {
-  width: 38px; height: 38px; border-radius: 8px;
-  background: var(--ink); display: flex; align-items: center;
-  justify-content: center; flex-shrink: 0;
-  font-size: .85rem; color: var(--white);
-}
-.ci-text strong {
-  display: block; font-size: .875rem;
-  font-weight: 600; color: var(--ink);
-}
-.ci-text span { font-size: .78rem; color: var(--muted); }
+.ci:hover{border-color:var(--blue);background:var(--blue-pale)}
+.ci-ico{width:36px;height:36px;border-radius:8px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;color:var(--white)}
+.ci-ico svg{width:14px;height:14px}
+.ci-t strong{display:block;font-size:.85rem;font-weight:600;color:var(--ink)}
+.ci-t span{font-size:.75rem;color:var(--muted)}
+.avail-card{background:var(--ink);border-radius:var(--r2);padding:36px 32px;color:var(--white)}
+.avail-dot-row{display:flex;align-items:center;gap:8px;margin-bottom:24px}
+.avail-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:blink 2s infinite}
+.avail-dot-row span{font-size:.7rem;color:#22c55e;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.avail-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:14px}
+.avail-card p{font-size:.84rem;color:#9ca3af;line-height:1.7;margin-bottom:24px}
+.avail-rows{display:flex;flex-direction:column;gap:0}
+.avail-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.8rem}
+.avail-row:last-child{border-bottom:none}
+.avail-row .k{color:#6b7280}.avail-row .v{color:#e5e7eb;font-weight:500}
+.avail-row .v.g{color:#4ade80}
 
-/* contact right — availability card */
-.contact-card {
-  background: var(--ink); border-radius: var(--r2);
-  padding: 40px 36px; color: var(--white);
+/* ═══════════════════════════════════════
+   FAQ
+═══════════════════════════════════════ */
+.faq-sec{background:var(--slate);border-top:1px solid var(--rule)}
+.faq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:12px}
+.faq-item{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:var(--r2);overflow:hidden;
 }
-.cc-status {
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 28px;
+.faq-q{
+  width:100%;padding:20px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;text-align:left;background:none;border:none;
+  transition:background .2s;
 }
-.cc-dot {
-  width: 8px; height: 8px; background: #22c55e;
-  border-radius: 50%; animation: pulse 2s infinite;
+.faq-q:hover{background:var(--slate)}
+.faq-q-text{font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.4;padding-right:16px}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--blue-pale);border:1.5px solid var(--blue-mid);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;color:var(--blue);font-size:.7rem;font-weight:700;
+  transition:transform .3s,background .2s;
 }
-.cc-status span { font-size: .75rem; color: #22c55e; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-.contact-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem; font-weight: 700; color: var(--white);
-  line-height: 1.2; margin-bottom: 16px;
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--blue);color:var(--white)}
+.faq-a{
+  display:none;padding:0 24px 20px;
+  font-size:.86rem;color:var(--muted);line-height:1.75;
+  border-top:1px solid var(--rule);padding-top:16px;
 }
-.contact-card p { font-size: .875rem; color: #9ca3af; line-height: 1.7; margin-bottom: 28px; }
-.cc-items { display: flex; flex-direction: column; gap: 10px; }
-.cc-item {
-  display: flex; justify-content: space-between;
-  align-items: center; padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  font-size: .82rem;
-}
-.cc-item:last-child { border-bottom: none; }
-.cc-key { color: #6b7280; }
-.cc-val { color: #e5e7eb; font-weight: 500; }
-.cc-val.green { color: #4ade80; }
+.faq-item.open .faq-a{display:block}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    FOOTER
-───────────────────────────────────────── */
-footer {
-  background: var(--ink);
-  padding: 28px 7%;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 14px;
-  border-top: 1px solid #1c2432;
+═══════════════════════════════════════ */
+footer{
+  background:var(--ink);padding:36px 6%;
+  border-top:1px solid var(--ink3);
 }
-footer p { font-size: .78rem; color: #4b5563; }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: .78rem; color: #4b5563; transition: color .2s; }
-.footer-links a:hover { color: #9ca3af; }
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:24px;
+}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-logo{height:24px;width:auto;opacity:.6}
+.footer-copy{font-size:.76rem;color:#374151}
+.footer-links{display:flex;gap:22px;justify-content:flex-end}
+.footer-links a{font-size:.75rem;color:#374151;transition:color .2s}
+.footer-links a:hover{color:#9ca3af}
+.footer-center{text-align:center}
+.footer-center p{font-size:.72rem;color:#374151;line-height:1.6}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    WA FLOAT
-───────────────────────────────────────── */
-.wa-float {
-  position: fixed; bottom: 28px; right: 28px; z-index: 300;
-  width: 52px; height: 52px; border-radius: 50%;
-  background: #25D366; color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,.4);
-  text-decoration: none; transition: transform .2s, box-shadow .2s;
+═══════════════════════════════════════ */
+.wa-float{
+  position:fixed;bottom:26px;right:26px;z-index:400;
+  width:50px;height:50px;border-radius:50%;
+  background:#25D366;color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(37,211,102,.4);
+  transition:transform .2s,box-shadow .2s;
 }
-.wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
-.wa-float svg { width: 24px; height: 24px; }
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.5)}
+.wa-float svg{width:22px;height:22px}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    LIGHTBOX
-───────────────────────────────────────── */
-.lightbox {
-  display: none; position: fixed; inset: 0; z-index: 999;
-  background: rgba(0,0,0,.92);
-  align-items: center; justify-content: center; cursor: zoom-out;
-}
-.lightbox.open { display: flex; }
-.lightbox img {
-  max-width: 90vw; max-height: 88vh;
-  border-radius: var(--r);
-  box-shadow: 0 24px 80px rgba(0,0,0,.6);
-}
-.lb-x {
-  position: absolute; top: 20px; right: 24px;
-  color: var(--white); font-size: 1.5rem; cursor: pointer;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: rgba(255,255,255,.1); display: flex;
-  align-items: center; justify-content: center;
-  transition: background .2s;
-}
-.lb-x:hover { background: rgba(255,255,255,.2); }
+═══════════════════════════════════════ */
+.lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.93);align-items:center;justify-content:center;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:90vh;border-radius:var(--r);box-shadow:0 24px 80px rgba(0,0,0,.6)}
+.lb-x{position:absolute;top:20px;right:22px;color:var(--white);width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:background .2s}
+.lb-x:hover{background:rgba(255,255,255,.22)}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    SCROLL FADE
-───────────────────────────────────────── */
-.fade { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-.fade.in { opacity: 1; transform: translateY(0); }
+═══════════════════════════════════════ */
+.fade{opacity:0;transform:translateY(22px);transition:opacity .58s ease,transform .58s ease}
+.fade.in{opacity:1;transform:translateY(0)}
 
-/* ─────────────────────────────────────────
+/* ═══════════════════════════════════════
    RESPONSIVE
-───────────────────────────────────────── */
-@media(max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 72px 6% 60px; }
-  .hero-right { padding: 48px 6%; flex-direction: row; gap: 32px; justify-content: flex-start; min-height: auto; }
-  .hero-photo { width: 180px; height: 220px; margin-bottom: 0; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-photo-col { max-width: 340px; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .cs-detail-inner { grid-template-columns: 1fr; }
-  .cs-col:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
+═══════════════════════════════════════ */
+@media(max-width:1050px){
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:64px 6% 56px;border-right:none;border-bottom:1px solid var(--rule)}
+  .hero-right{padding:48px 6%;flex-direction:row;gap:32px;align-items:center;min-height:auto}
+  .hero-photo{width:160px;height:200px;margin-bottom:0}
+  .hero-float{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-img-wrap{max-width:320px}
+  .contact-grid{grid-template-columns:1fr}
+  .cs-detail-grid{grid-template-columns:1fr}
+  .cs-col+.cs-col{border-left:none;border-top:1px solid var(--rule)}
+  .footer-inner{grid-template-columns:1fr;text-align:center;gap:16px}
+  .footer-links{justify-content:center}
 }
-@media(max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-mobile-btn { display: flex; }
-  .services-grid { grid-template-columns: 1fr; }
-  .hero-metrics { flex-direction: column; gap: 20px; }
-  .hm { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 20px; }
-  .hm:last-child { border-bottom: none; padding-bottom: 0; }
-  .cs-summary { grid-template-columns: 1fr; gap: 16px; }
-  .results-table { grid-template-columns: repeat(2, 1fr); }
-  .hero-right { flex-direction: column; }
-  footer { flex-direction: column; text-align: center; }
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-mob{display:flex}
+  .svc-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .hs{border-right:none;margin-right:0;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:16px}
+  .hs:last-child{border-bottom:none;padding-bottom:0}
+  .hero-stats{flex-direction:column;gap:0}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+  .cs-sum{grid-template-columns:1fr;gap:14px}
+  .faq-grid{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  .hero-right{flex-direction:column}
+  .cs-sum,.cs-col{padding:22px 20px}
+  .cs-teaser{margin:0 20px}
 }
 </style>
 </head>
 <body>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lb" onclick="closeLB()">
+<div class="lb" id="lb" onclick="closeLB()">
   <div class="lb-x">✕</div>
   <img id="lb-img" src="" alt="">
 </div>
@@ -859,15 +629,20 @@ footer p { font-size: .78rem; color: #4b5563; }
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="#"><span>F</span>atai Ajani</a>
+  <div class="nav-left">
+    <img class="nav-logo" src="https://i.postimg.cc/XJpNgRG5/FATISCO-STACK-DARK-LOGO.png" alt="FATISCO">
+    <div class="nav-divider"></div>
+    <span class="nav-name">Fatai Ajani</span>
+  </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#work">Case Studies</a></li>
-    <li><a href="#tools">Stack</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#demos">Demo Stores</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
   </ul>
-  <button class="nav-mobile-btn" onclick="toggleNav()" aria-label="Menu">
+  <button class="nav-mob" onclick="toggleNav()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -875,91 +650,90 @@ footer p { font-size: .78rem; color: #4b5563; }
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-left">
-    <div class="hero-available">Available for remote work</div>
+    <div class="hero-avail">Available for remote engagements</div>
     <h1 class="hero-h1">
-      E-commerce<br>
-      <em>Growth</em><br>
-      Strategist
+      E-commerce Growth<br>
+      <em>&amp; AI Systems</em>
+      <span class="small-line">Specialist</span>
     </h1>
     <p class="hero-desc">
-      I help online brands increase revenue, reduce cart abandonment, and build customer experiences that convert — across Shopify, WooCommerce, Magento, PrestaShop, and beyond.
+      I help online brands increase revenue, reduce cart abandonment, and build intelligent systems that operate at scale — across Shopify, WooCommerce, Magento, PrestaShop, and beyond. I combine deep e-commerce strategy with backend AI integration so businesses can grow without adding headcount.
     </p>
-    <div class="hero-actions">
-      <a href="#work" class="btn btn-primary">View Case Studies</a>
+    <div class="hero-btns">
+      <a href="#work" class="btn btn-primary">View Selected Work</a>
       <a href="https://wa.me/2349025243381" target="_blank" class="btn btn-wa">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
-      <a href="#contact" class="btn btn-ghost">Contact</a>
+      <a href="#contact" class="btn btn-outline">Contact</a>
     </div>
-    <div class="hero-metrics">
-      <div class="hm">
-        <div class="hm-num">30<b>%+</b></div>
-        <div class="hm-label">Average conversion lift</div>
-      </div>
-      <div class="hm">
-        <div class="hm-num">50<b>+</b></div>
-        <div class="hm-label">Stores optimised</div>
-      </div>
-      <div class="hm">
-        <div class="hm-num">6<b>+</b></div>
-        <div class="hm-label">Platforms mastered</div>
-      </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">30<b>%+</b></div><div class="hs-label">Average conversion lift delivered</div></div>
+      <div class="hs"><div class="hs-num">50<b>+</b></div><div class="hs-label">Stores built &amp; optimised</div></div>
+      <div class="hs"><div class="hs-num">6<b>+</b></div><div class="hs-label">E-commerce platforms mastered</div></div>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-photo">
-      <img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani">
+    <div class="hero-float f1">
+      <div class="hf-label">ROAS — Paid Ads Campaign</div>
+      <div class="hf-val">6×</div>
+      <div class="hf-sub">↑ from 1.4× baseline</div>
     </div>
-    <div class="hero-name-card">
-      <div class="hero-name">Fatai Ajani</div>
-      <div class="hero-title-card">E-commerce Growth Strategist · Lagos, Nigeria</div>
-      <div class="hero-links">
-        <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="hero-link-btn">LinkedIn</a>
-        <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank" class="hero-link-btn">Upwork</a>
-        <a href="mailto:fatai.ajani.online@gmail.com" class="hero-link-btn">Email</a>
+    <div class="hero-photo">
+      <img src="https://i.postimg.cc/T1m7tTDK/aiease-1779781311381.jpg" alt="Fatai Ajani">
+    </div>
+    <div class="hero-id">
+      <div class="hero-id-name">Fatai Ajani</div>
+      <div class="hero-id-role">E-commerce Growth &amp; AI Systems Specialist<br>Lagos, Nigeria · Remote</div>
+      <div class="hero-profile-links">
+        <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="hpl">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank" class="hpl">Upwork</a>
+        <a href="mailto:fatai.ajani.online@gmail.com" class="hpl">Email</a>
       </div>
+    </div>
+    <div class="hero-float f2">
+      <div class="hf-label">Email Revenue Share</div>
+      <div class="hf-val">38%</div>
+      <div class="hf-sub">↑ Klaviyo automation</div>
     </div>
   </div>
 </section>
 
-<!-- TRUST STRIP -->
-<div class="trust-strip">
+<!-- TRUST -->
+<div class="trust">
   <div class="trust-inner">
-    <span class="trust-label">Platforms &amp; tools worked with</span>
+    <span class="trust-label">Platforms &amp; tools</span>
     <div class="trust-logos">
-      <span class="trust-logo">Shopify</span>
-      <span class="trust-logo">WooCommerce</span>
-      <span class="trust-logo">Magento</span>
-      <span class="trust-logo">Klaviyo</span>
-      <span class="trust-logo">Meta Ads</span>
-      <span class="trust-logo">Google Analytics</span>
-      <span class="trust-logo">PrestaShop</span>
+      <span class="tlogo">Shopify</span><span class="tlogo">WooCommerce</span>
+      <span class="tlogo">Magento</span><span class="tlogo">PrestaShop</span>
+      <span class="tlogo">Klaviyo</span><span class="tlogo">Meta Ads</span>
+      <span class="tlogo">Google Ads</span><span class="tlogo">Python</span>
+      <span class="tlogo">FastAPI</span><span class="tlogo">OpenAI API</span>
     </div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section class="section about-section" id="about">
-  <div class="section-inner">
+<section class="sec about-sec" id="about">
+  <div class="sec-inner">
     <div class="about-grid">
-      <div class="about-photo-col fade">
+      <div class="about-img-wrap fade">
         <div class="about-img">
-          <img src="https://i.postimg.cc/1zrBR8rm/1729079565266.jpg" alt="Fatai Ajani">
+          <img src="https://i.postimg.cc/T1m7tTDK/aiease-1779781311381.jpg" alt="Fatai Ajani">
         </div>
         <div class="about-badge">
           <div class="ab-name">Fatai Ajani</div>
-          <div class="ab-sub">E-commerce Growth Strategist · Remote</div>
+          <div class="ab-sub">E-commerce Growth &amp; AI Systems · Remote-first</div>
         </div>
       </div>
-      <div class="about-text fade">
+      <div class="about-body fade">
         <p class="label">About</p>
-        <h2 class="serif" style="font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 24px;">
-          Turning traffic into revenue — with strategy, not guesswork
+        <h2 class="serif" style="font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 22px">
+          The specialist most e-commerce businesses cannot find — but desperately need
         </h2>
-        <p>I'm an e-commerce growth strategist with deep expertise across the full online retail stack. From store architecture and UX to paid advertising, email retention, and conversion optimisation — I work across all major platforms and help brands identify exactly where revenue is leaking.</p>
-        <p>I've worked with brands across fashion, beauty, consumer electronics, and home goods, delivering strategies that produce measurable, compounding results. My approach is data-led: diagnose first, prioritise by impact, then execute with precision.</p>
-        <p>I'm available for remote engagements with US companies, global agencies, and direct brands. Whether you need a full growth audit, a paid ads overhaul, a Klaviyo retention system, or a store UX transformation — I deliver outcomes, not just recommendations.</p>
+        <p>I operate at a rare intersection: deep e-commerce strategy combined with the technical ability to build AI systems that connect to real business data. Most consultants offer one or the other. I deliver both, which means clients work with one person who understands the full picture — from why a checkout is losing conversions to how an AI layer can automate the support and follow-up that recaptures those customers.</p>
+        <p>My background spans multi-platform e-commerce — Shopify, WooCommerce, Magento, BigCommerce, PrestaShop — and extends into Python-based backend systems for AI-powered automation, retrieval pipelines, and API integrations. I have built and optimised stores, executed paid advertising campaigns, deployed Klaviyo email systems, and developed AI tools that reduce manual workload for e-commerce operations.</p>
+        <p>I work exclusively on a remote basis with brands, agencies, and founders who are serious about measurable growth. Every engagement begins with a rigorous diagnosis before any execution takes place.</p>
         <div class="about-chips">
           <span class="chip">Shopify &amp; Shopify Plus</span>
           <span class="chip">WooCommerce</span>
@@ -967,26 +741,27 @@ footer p { font-size: .78rem; color: #4b5563; }
           <span class="chip">PrestaShop</span>
           <span class="chip">Klaviyo</span>
           <span class="chip">Meta &amp; TikTok Ads</span>
-          <span class="chip">CRO Specialist</span>
+          <span class="chip">Python &amp; FastAPI</span>
+          <span class="chip">OpenAI API</span>
+          <span class="chip">RAG Systems</span>
           <span class="chip">Remote-ready</span>
         </div>
-
         <div class="why-grid">
-          <div class="why-item">
+          <div class="why-card">
             <h3>Platform-agnostic expertise</h3>
-            <p>I work across all major e-commerce platforms — not just Shopify. Shopify, WooCommerce, Magento, BigCommerce, PrestaShop, Wix.</p>
+            <p>Shopify, WooCommerce, Magento, BigCommerce, PrestaShop — I work across all major platforms, not just one. No lock-in to a single ecosystem.</p>
           </div>
-          <div class="why-item">
-            <h3>Full-funnel thinking</h3>
-            <p>From traffic acquisition through to post-purchase retention — I optimise every stage of the customer lifecycle, not just one layer.</p>
+          <div class="why-card">
+            <h3>Full-funnel, not just one layer</h3>
+            <p>From traffic acquisition through to post-purchase retention and AI automation — I see and optimise every stage of the customer lifecycle.</p>
           </div>
-          <div class="why-item">
-            <h3>Results, not reports</h3>
-            <p>I measure success by revenue, conversion rate, and customer LTV — not vanity metrics. Every engagement is tied to business outcomes.</p>
+          <div class="why-card">
+            <h3>AI built for e-commerce, not demos</h3>
+            <p>I build AI systems connected to actual business data — product catalogues, order histories, customer records — not generic chatbots.</p>
           </div>
-          <div class="why-item">
-            <h3>Remote &amp; async ready</h3>
-            <p>I work comfortably with US and global teams across time zones. Clear communication, structured reporting, and zero hand-holding required.</p>
+          <div class="why-card">
+            <h3>Outcomes, not deliverables</h3>
+            <p>Every engagement is measured by revenue, conversion rate, and customer LTV — not by the number of tasks completed or reports submitted.</p>
           </div>
         </div>
       </div>
@@ -995,123 +770,121 @@ footer p { font-size: .78rem; color: #4b5563; }
 </section>
 
 <!-- SERVICES -->
-<section class="section services-section" id="services">
-  <div class="section-inner">
-    <div class="section-header fade">
+<section class="sec" id="services">
+  <div class="sec-inner">
+    <div class="sec-hd fade">
       <p class="label">What I do</p>
       <h2>Services</h2>
-      <p>A focused set of services that cover the highest-leverage areas of e-commerce growth. I work in whichever way suits you — end-to-end management or supporting your existing team.</p>
+      <p>A focused set of high-leverage services covering the most critical areas of e-commerce growth and intelligent automation. Every service is tied to a measurable business outcome.</p>
     </div>
-    <div class="services-grid fade">
-      <div class="svc">
+    <div class="svc-grid fade">
+      <div class="svc-card">
         <div class="svc-num">01</div>
         <h3>Store UX &amp; Conversion Optimisation</h3>
-        <p>Full UX audits, A/B testing, checkout flow redesign, mobile optimisation, and trust signal implementation — focused on measurable conversion rate improvement.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Shopify</span><span class="svc-tag">WooCommerce</span>
-          <span class="svc-tag">Hotjar</span><span class="svc-tag">A/B Testing</span>
-        </div>
+        <p>Full UX audits, heatmap analysis, A/B testing, checkout flow redesign, mobile optimisation, and trust signal implementation. Focused entirely on improving the percentage of visitors who become paying customers.</p>
+        <div class="svc-tags"><span class="stag">Shopify</span><span class="stag">WooCommerce</span><span class="stag">Hotjar</span><span class="stag">A/B Testing</span><span class="stag">CRO</span></div>
       </div>
-      <div class="svc">
+      <div class="svc-card">
         <div class="svc-num">02</div>
         <h3>Paid Advertising &amp; Customer Acquisition</h3>
-        <p>Multi-channel paid ad management across Meta, TikTok, and Google — structured campaign architecture, creative strategy, audience segmentation, and ROAS optimisation.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Meta Ads</span><span class="svc-tag">TikTok Ads</span>
-          <span class="svc-tag">Google Ads</span><span class="svc-tag">ROAS</span>
-        </div>
+        <p>Multi-channel paid ad management across Meta, TikTok, and Google. Full campaign architecture from cold audiences through to cart abandoner retargeting — built for ROAS, not just reach.</p>
+        <div class="svc-tags"><span class="stag">Meta Ads</span><span class="stag">TikTok Ads</span><span class="stag">Google Ads</span><span class="stag">ROAS</span><span class="stag">Retargeting</span></div>
       </div>
-      <div class="svc">
+      <div class="svc-card">
         <div class="svc-num">03</div>
-        <h3>Email Marketing &amp; Retention</h3>
-        <p>Klaviyo lifecycle strategy — welcome series, abandoned cart flows, post-purchase sequences, win-back campaigns, and advanced list segmentation that drives repeat revenue.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Klaviyo</span><span class="svc-tag">Mailchimp</span>
-          <span class="svc-tag">Omnisend</span><span class="svc-tag">Automation</span>
-        </div>
+        <h3>Email Marketing &amp; Klaviyo Retention</h3>
+        <p>Lifecycle email strategy and Klaviyo implementation — welcome series, abandoned cart flows, post-purchase sequences, win-back campaigns, and advanced list segmentation that compounds repeat revenue over time.</p>
+        <div class="svc-tags"><span class="stag">Klaviyo</span><span class="stag">Mailchimp</span><span class="stag">Omnisend</span><span class="stag">Automation</span><span class="stag">Segmentation</span></div>
       </div>
-      <div class="svc">
+      <div class="svc-card">
         <div class="svc-num">04</div>
         <h3>E-commerce Growth Strategy</h3>
-        <p>Full-funnel growth audits, revenue forecasting, pricing strategy, loyalty programme design, SEO content strategy, and multi-channel growth roadmaps for scaling brands.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Magento</span><span class="svc-tag">BigCommerce</span>
-          <span class="svc-tag">SEO</span><span class="svc-tag">Analytics</span>
-        </div>
+        <p>Full-funnel growth audits, revenue diagnostics, pricing strategy, loyalty programme design, SEO content architecture, and multi-channel growth roadmaps. For brands that have plateaued and need a clear path forward.</p>
+        <div class="svc-tags"><span class="stag">Growth Audit</span><span class="stag">SEO</span><span class="stag">Analytics</span><span class="stag">Roadmapping</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">05</div>
+        <h3>Store Build &amp; Platform Migration</h3>
+        <p>Full store builds from scratch and platform migrations across Shopify, WooCommerce, Magento, BigCommerce, and PrestaShop. Custom theme development, app integration, and performance-optimised architecture.</p>
+        <div class="svc-tags"><span class="stag">Shopify</span><span class="stag">WooCommerce</span><span class="stag">Magento</span><span class="stag">PrestaShop</span><span class="stag">BigCommerce</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">06</div>
+        <h3>Store Speed &amp; Core Web Vitals</h3>
+        <p>Technical performance optimisation focused on LCP, CLS, and INP — the metrics that affect both search ranking and conversion rate. Includes image optimisation, code minification, and server response improvements.</p>
+        <div class="svc-tags"><span class="stag">Core Web Vitals</span><span class="stag">LCP</span><span class="stag">PageSpeed</span><span class="stag">GTmetrix</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">07</div>
+        <h3>AI Customer Support &amp; Knowledge Systems</h3>
+        <p>Python-based AI systems connected to your actual store data — product catalogue, FAQs, order records, and support history. Reduces support workload while improving response quality and speed, without replacing your team entirely.</p>
+        <div class="svc-tags"><span class="stag">Python</span><span class="stag">OpenAI API</span><span class="stag">RAG</span><span class="stag">FastAPI</span><span class="stag">Shopify API</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">08</div>
+        <h3>Business Automation &amp; API Integration</h3>
+        <p>Backend automation systems that connect your existing tools — CRMs, email platforms, order management, and internal dashboards — through structured API pipelines. Reduces manual operations and scales without additional headcount.</p>
+        <div class="svc-tags"><span class="stag">Python</span><span class="stag">FastAPI</span><span class="stag">REST APIs</span><span class="stag">Workflow Automation</span><span class="stag">PostgreSQL</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CASE STUDIES -->
-<section class="section cs-section" id="work">
-  <div class="section-inner">
-    <div class="section-header fade">
+<section class="sec cs-sec" id="work">
+  <div class="sec-inner">
+    <div class="sec-hd fade">
       <p class="label">Selected work</p>
-      <h2>Case Studies &amp; Campaign Results</h2>
-      <p>Four engagements across different e-commerce verticals — each showing a distinct challenge, strategy, and outcome. Click any case study to read the full breakdown.</p>
+      <h2>Project Screenshots &amp; Campaign Results</h2>
+      <p>The following are selected work samples from previous engagements across e-commerce growth, paid advertising, email marketing, store development, and AI systems. Each entry includes the challenge, approach, results, and supporting screenshots. Click any case study to read the full breakdown.</p>
     </div>
 
-    <!-- CS 1 — Store UX -->
+    <!-- 1. CRO Fashion Store -->
     <div class="cs-card fade" id="cs1">
-      <div class="cs-summary" onclick="toggleCS('cs1')">
+      <div class="cs-sum" onclick="toggleCS('cs1')">
         <div>
-          <div class="cs-tag blue">Store UX &amp; Conversion Optimisation</div>
-          <div class="cs-title-text">Fashion E-commerce — Full Store Overhaul</div>
-          <div class="cs-meta-text">Shopify Plus &nbsp;·&nbsp; 3-month engagement &nbsp;·&nbsp; 2023</div>
+          <div class="cs-cat-tag cat-blue">Conversion Rate Optimisation</div>
+          <div class="cs-title">CRO Audit &amp; Optimisation — Fashion Shopify Store</div>
+          <div class="cs-meta">Shopify &nbsp;·&nbsp; Conversion strategy &amp; implementation</div>
           <div class="cs-kpis">
-            <div class="kpi-badge"><span class="kpi-v g">+34%</span><span class="kpi-l">Conversion Rate</span></div>
-            <div class="kpi-badge"><span class="kpi-v r">-41%</span><span class="kpi-l">Cart Abandonment</span></div>
-            <div class="kpi-badge"><span class="kpi-v b">+22%</span><span class="kpi-l">Avg. Order Value</span></div>
-            <div class="kpi-badge"><span class="kpi-v g">+55%</span><span class="kpi-l">Mobile Conv.</span></div>
+            <div class="kpib"><span class="kpiv g">+34%</span><span class="kpil">Conversion Rate</span></div>
+            <div class="kpib"><span class="kpiv r">-41%</span><span class="kpil">Cart Abandonment</span></div>
+            <div class="kpib"><span class="kpiv b">+22%</span><span class="kpil">Avg. Order Value</span></div>
           </div>
         </div>
-        <div class="cs-expand-trigger">
-          <div class="expand-btn">
-            <span class="expand-btn-label">Full case study</span>
-            <span class="expand-btn-arrow">▾</span>
-          </div>
-        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
       </div>
-      <div class="cs-teaser" onclick="toggleCS('cs1')">
-        Challenge breakdown, full strategy, tools used, and visual proof inside
-      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs1')"><span class="cs-teaser-line"></span>Challenge, strategy, results, and screenshots — click to expand<span class="cs-teaser-arrow">▾</span></div>
       <div class="cs-detail">
-        <div class="cs-detail-inner">
+        <div class="cs-detail-grid">
           <div class="cs-col">
-            <p class="cs-section-label">The Challenge</p>
-            <p class="cs-body-text">A fashion brand with strong social media traffic was seeing a 78% cart abandonment rate and conversion stuck below 1.2%. Despite healthy follower counts, the store wasn't turning attention into sales. A full UX audit was commissioned to diagnose and fix root causes.</p>
-            <p class="cs-section-label">Strategy &amp; Execution</p>
-            <ul class="cs-bullet-list">
-              <li>Full UX audit using heatmaps, session recordings, and customer journey mapping to isolate friction points</li>
-              <li>Redesigned product pages with stronger trust signals — reviews, size guides, and returns policy placed above the fold</li>
-              <li>Simplified checkout from 4 steps to 2, with one-click upsells added at cart stage</li>
-              <li>Rebuilt mobile experience from scratch — 74% of traffic was mobile but the store was desktop-first</li>
-              <li>A/B tested 3 hero banner variants and 2 CTA formats, deploying the highest-converting combination</li>
-              <li>Implemented sticky add-to-cart bar, low-stock indicators, and delivery countdown urgency signals</li>
+            <p class="cs-dl">The Challenge</p>
+            <p class="cs-dt">A fashion brand was converting less than 1.2% of its traffic despite strong social referral volume. Cart abandonment was sitting at 78%. A full CRO audit was commissioned to identify the root causes and implement structural improvements.</p>
+            <p class="cs-dl">Approach</p>
+            <ul class="cs-bl">
+              <li>Full UX audit using heatmaps, session recordings, and customer journey analysis</li>
+              <li>Product page redesign with trust signals — reviews, size guides, and returns policy above the fold</li>
+              <li>Checkout simplified from four steps to two with one-click upsells at cart stage</li>
+              <li>Mobile experience rebuilt from scratch — 74% of traffic was on mobile</li>
+              <li>A/B tested hero banners and CTA formats, deployed best-performing combination</li>
+              <li>Sticky add-to-cart bar, low-stock indicators, and delivery urgency signals added</li>
             </ul>
-            <div class="stack-row" style="margin-top:20px">
-              <span class="stag">Shopify Plus</span><span class="stag">Hotjar</span>
-              <span class="stag">Google Analytics 4</span><span class="stag">Lucky Orange</span>
-              <span class="stag">PageSpeed Insights</span>
-            </div>
+            <div class="stack-pills"><span class="sp">Shopify</span><span class="sp">Hotjar</span><span class="sp">GA4</span><span class="sp">Lucky Orange</span><span class="sp">PageSpeed</span></div>
           </div>
           <div class="cs-col">
-            <p class="cs-section-label">Results</p>
-            <div class="results-table">
-              <div class="rt-cell"><div class="rt-val g">+34%</div><div class="rt-label">Conversion Rate</div></div>
-              <div class="rt-cell"><div class="rt-val r">-41%</div><div class="rt-label">Cart Abandonment</div></div>
-              <div class="rt-cell"><div class="rt-val b">+22%</div><div class="rt-label">Avg. Order Value</div></div>
-              <div class="rt-cell"><div class="rt-val g">+55%</div><div class="rt-label">Mobile Conv. Rate</div></div>
-              <div class="rt-cell"><div class="rt-val o">-28%</div><div class="rt-label">Bounce Rate</div></div>
-              <div class="rt-cell"><div class="rt-val b">2.1s</div><div class="rt-label">Page Load Time</div></div>
+            <p class="cs-dl">Results</p>
+            <div class="res-grid">
+              <div class="res-cell"><div class="rv g">+34%</div><div class="rl">Conversion Rate</div></div>
+              <div class="res-cell"><div class="rv r">-41%</div><div class="rl">Cart Abandonment</div></div>
+              <div class="res-cell"><div class="rv b">+22%</div><div class="rl">Avg. Order Value</div></div>
+              <div class="res-cell"><div class="rv g">+55%</div><div class="rl">Mobile Conv. Rate</div></div>
+              <div class="res-cell"><div class="rv o">-28%</div><div class="rl">Bounce Rate</div></div>
+              <div class="res-cell"><div class="rv b">2.1s</div><div class="rl">Page Load</div></div>
             </div>
-            <div class="proof-section">
-              <p class="proof-label">Project screenshots &amp; campaign results</p>
-              <div class="proof-imgs">
-                <img class="proof-img" src="https://i.postimg.cc/ydfDvKs5/Image1.webp" alt="Store design" onclick="openLB(this)">
-                <img class="proof-img" src="https://i.postimg.cc/XYwXtdnG/Image1.webp" alt="Store UX" onclick="openLB(this)">
-                <img class="proof-img" src="https://i.postimg.cc/gcSM66FR/Image1.webp" alt="Store layout" onclick="openLB(this)">
+            <div class="proof-wrap">
+              <p class="proof-lbl">Project screenshots</p>
+              <div class="proof-grid">
+                <img class="pi" src="https://i.postimg.cc/SxGz1YVk/image-original.png" alt="CRO Report Fashion Store" onclick="openLB(this)">
               </div>
             </div>
           </div>
@@ -1119,66 +892,55 @@ footer p { font-size: .78rem; color: #4b5563; }
       </div>
     </div>
 
-    <!-- CS 2 — Paid Ads -->
+    <!-- 2. Paid Ads -->
     <div class="cs-card fade" id="cs2">
-      <div class="cs-summary" onclick="toggleCS('cs2')">
+      <div class="cs-sum" onclick="toggleCS('cs2')">
         <div>
-          <div class="cs-tag gold">Paid Advertising &amp; Customer Acquisition</div>
-          <div class="cs-title-text">Home Goods Brand — Meta &amp; TikTok Ads Scale-Up</div>
-          <div class="cs-meta-text">Meta Ads · TikTok Ads · Google Shopping &nbsp;·&nbsp; Ongoing since 2023</div>
+          <div class="cs-cat-tag cat-gold">Paid Advertising</div>
+          <div class="cs-title">6× ROAS &amp; 40% Lead Growth — Social Media &amp; Paid Ads</div>
+          <div class="cs-meta">Meta Ads · Google Ads · TikTok Ads &nbsp;·&nbsp; Multi-channel campaign management</div>
           <div class="cs-kpis">
-            <div class="kpi-badge"><span class="kpi-v o">4.7×</span><span class="kpi-l">ROAS</span></div>
-            <div class="kpi-badge"><span class="kpi-v r">-38%</span><span class="kpi-l">Cost Per Acquisition</span></div>
-            <div class="kpi-badge"><span class="kpi-v g">+210%</span><span class="kpi-l">Ad Revenue</span></div>
-            <div class="kpi-badge"><span class="kpi-v b">3.2%</span><span class="kpi-l">Avg. CTR</span></div>
+            <div class="kpib"><span class="kpiv o">6×</span><span class="kpil">ROAS</span></div>
+            <div class="kpib"><span class="kpiv g">+40%</span><span class="kpil">Lead Growth</span></div>
+            <div class="kpib"><span class="kpiv b">+210%</span><span class="kpil">Ad Revenue</span></div>
           </div>
         </div>
-        <div class="cs-expand-trigger">
-          <div class="expand-btn">
-            <span class="expand-btn-label">Full case study</span>
-            <span class="expand-btn-arrow">▾</span>
-          </div>
-        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
       </div>
-      <div class="cs-teaser" onclick="toggleCS('cs2')">
-        Full campaign structure, creative strategy, audience segmentation, and results inside
-      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs2')"><span class="cs-teaser-line"></span>Full campaign architecture, targeting strategy, creative approach, and results — click to expand<span class="cs-teaser-arrow">▾</span></div>
       <div class="cs-detail">
-        <div class="cs-detail-inner">
+        <div class="cs-detail-grid">
           <div class="cs-col">
-            <p class="cs-section-label">The Challenge</p>
-            <p class="cs-body-text">A home goods brand was spending $3,500/month on Meta ads with a 1.8× ROAS — well below break-even. Campaigns were broad, creative was stale, and there was no retargeting infrastructure. A full campaign restructure was required.</p>
-            <p class="cs-section-label">Strategy &amp; Execution</p>
-            <ul class="cs-bullet-list">
-              <li>Rebuilt campaign architecture using a 3-tier funnel — cold (TOF), warm retarget (MOF), cart abandoners + high-intent (BOF)</li>
-              <li>Developed 8 new ad variants — UGC-style video, carousel, and static formats with new creative briefs</li>
-              <li>Launched TikTok Ads targeting 18–34 demographic; allocated 20% of budget to testing and scaled winners</li>
-              <li>Deployed Google Shopping campaigns for branded and high-intent product search terms</li>
-              <li>Configured all Pixel events correctly — ViewContent, AddToCart, Checkout, Purchase — enabling algorithmic optimisation</li>
-              <li>Built lookalike audiences from the top 5% of purchasers to expand reach while maintaining quality</li>
+            <p class="cs-dl">The Challenge</p>
+            <p class="cs-dt">The client was running broad Meta campaigns with a 1.4× ROAS — well below break-even. Ad creative was generic, there was no retargeting structure, and the Google Ads account had never been properly configured for e-commerce intent.</p>
+            <p class="cs-dl">Approach</p>
+            <ul class="cs-bl">
+              <li>Rebuilt the full campaign architecture using a three-tier funnel: cold audiences, warm retargeting, and cart abandoner recovery</li>
+              <li>Developed new ad creative briefs — UGC-style video, carousel, and high-converting static formats</li>
+              <li>Launched TikTok campaigns targeting 18–34 demographic with 20% of budget allocated to creative testing</li>
+              <li>Deployed Google Shopping and Search campaigns for high-intent product keywords</li>
+              <li>Configured all Pixel events correctly — enabling algorithmic learning and ROAS optimisation</li>
+              <li>Built lookalike audiences from the top 5% of purchasers by lifetime value</li>
             </ul>
-            <div class="stack-row" style="margin-top:20px">
-              <span class="stag">Meta Ads Manager</span><span class="stag">TikTok Ads</span>
-              <span class="stag">Google Shopping</span><span class="stag">GA4</span>
-              <span class="stag">Meta Pixel</span>
-            </div>
+            <div class="stack-pills"><span class="sp">Meta Ads Manager</span><span class="sp">Google Ads</span><span class="sp">TikTok Ads</span><span class="sp">GA4</span><span class="sp">Meta Pixel</span></div>
           </div>
           <div class="cs-col">
-            <p class="cs-section-label">Results</p>
-            <div class="results-table">
-              <div class="rt-cell"><div class="rt-val o">4.7×</div><div class="rt-label">ROAS (from 1.8×)</div></div>
-              <div class="rt-cell"><div class="rt-val r">-38%</div><div class="rt-label">CPA Reduction</div></div>
-              <div class="rt-cell"><div class="rt-val g">+210%</div><div class="rt-label">Revenue from Ads</div></div>
-              <div class="rt-cell"><div class="rt-val b">3.2%</div><div class="rt-label">CTR (from 0.9%)</div></div>
-              <div class="rt-cell"><div class="rt-val g">+65%</div><div class="rt-label">TikTok Traffic</div></div>
-              <div class="rt-cell"><div class="rt-val o">$1,200</div><div class="rt-label">Monthly Spend</div></div>
+            <p class="cs-dl">Results</p>
+            <div class="res-grid">
+              <div class="res-cell"><div class="rv o">6×</div><div class="rl">ROAS (from 1.4×)</div></div>
+              <div class="res-cell"><div class="rv g">+40%</div><div class="rl">Lead Growth</div></div>
+              <div class="res-cell"><div class="rv b">+210%</div><div class="rl">Revenue from Ads</div></div>
+              <div class="res-cell"><div class="rv o">3.2%</div><div class="rl">CTR (from 0.9%)</div></div>
+              <div class="res-cell"><div class="rv g">-38%</div><div class="rl">Cost Per Acquisition</div></div>
+              <div class="res-cell"><div class="rv b">+65%</div><div class="rl">TikTok Traffic</div></div>
             </div>
-            <div class="proof-section">
-              <p class="proof-label">Project screenshots &amp; campaign results</p>
-              <div class="proof-imgs">
-                <img class="proof-img" src="https://i.postimg.cc/HkjB2WmP/Image1.png" alt="Ad campaign" onclick="openLB(this)">
-                <img class="proof-img" src="https://i.postimg.cc/nV04P83C/Image1.png" alt="Ads manager" onclick="openLB(this)">
-                <img class="proof-img" src="https://i.postimg.cc/k4wbz8v3/Image1.png" alt="Campaign metrics" onclick="openLB(this)">
+            <div class="proof-wrap">
+              <p class="proof-lbl">Project screenshots</p>
+              <div class="proof-grid wide">
+                <img class="pi" src="https://i.postimg.cc/52p6Sd9k/image-original.jpg" alt="Google Ads Campaign" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/L4f50Z6j/image-original-(1).jpg" alt="Facebook Ads Campaign" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/XNZ1M4Tg/image-original-(1).jpg" alt="6X ROAS Results" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/gc6sS4Z7/image-original-(1).jpg" alt="5-Figure Sales Campaign" onclick="openLB(this)">
               </div>
             </div>
           </div>
@@ -1186,63 +948,42 @@ footer p { font-size: .78rem; color: #4b5563; }
       </div>
     </div>
 
-    <!-- CS 3 — Email -->
+    <!-- 3. Shopify Marketing & Promotion -->
     <div class="cs-card fade" id="cs3">
-      <div class="cs-summary" onclick="toggleCS('cs3')">
+      <div class="cs-sum" onclick="toggleCS('cs3')">
         <div>
-          <div class="cs-tag green">Email Marketing &amp; Customer Retention</div>
-          <div class="cs-title-text">Beauty Brand — Klaviyo Automation &amp; Lifecycle Strategy</div>
-          <div class="cs-meta-text">WooCommerce + Klaviyo &nbsp;·&nbsp; 4-month engagement &nbsp;·&nbsp; 2024</div>
+          <div class="cs-cat-tag cat-blue">Store Marketing &amp; Promotion</div>
+          <div class="cs-title">Shopify Store Marketing &amp; Promotional Campaign Strategy</div>
+          <div class="cs-meta">Shopify &nbsp;·&nbsp; Marketing strategy, promotions &amp; channel execution</div>
           <div class="cs-kpis">
-            <div class="kpi-badge"><span class="kpi-v g">38%</span><span class="kpi-l">Revenue from Email</span></div>
-            <div class="kpi-badge"><span class="kpi-v b">42%</span><span class="kpi-l">Open Rate</span></div>
-            <div class="kpi-badge"><span class="kpi-v g">+44%</span><span class="kpi-l">Repeat Purchases</span></div>
-            <div class="kpi-badge"><span class="kpi-v o">18%</span><span class="kpi-l">Cart Recovery</span></div>
+            <div class="kpib"><span class="kpiv g">+5 Fig.</span><span class="kpil">Sales in 30 Days</span></div>
+            <div class="kpib"><span class="kpiv b">Multi-ch.</span><span class="kpil">Campaign</span></div>
           </div>
         </div>
-        <div class="cs-expand-trigger">
-          <div class="expand-btn">
-            <span class="expand-btn-label">Full case study</span>
-            <span class="expand-btn-arrow">▾</span>
-          </div>
-        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
       </div>
-      <div class="cs-teaser" onclick="toggleCS('cs3')">
-        Full flow architecture, segmentation strategy, copy approach, and results inside
-      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs3')"><span class="cs-teaser-line"></span>Promotional strategy, channel execution, and sales results — click to expand<span class="cs-teaser-arrow">▾</span></div>
       <div class="cs-detail">
-        <div class="cs-detail-inner">
+        <div class="cs-detail-grid">
           <div class="cs-col">
-            <p class="cs-section-label">The Challenge</p>
-            <p class="cs-body-text">A beauty brand with a 12,000-subscriber email list was generating less than 6% of revenue from email — far below the industry benchmark of 25–35%. No automated flows existed, campaigns were irregular, and the list had never been segmented.</p>
-            <p class="cs-section-label">What Was Built</p>
-            <ul class="cs-bullet-list">
-              <li>5-email Welcome Series — brand story, bestsellers, first purchase incentive, social proof, brand values</li>
-              <li>3-step Abandoned Cart flow: soft reminder → social proof → urgency offer, recovering 18% of abandoned carts</li>
-              <li>Browse Abandonment and Post-Purchase flows nurturing customers toward repeat buys</li>
-              <li>Win-Back sequence for customers inactive 60–90 days, recovering 12% of the lapsed segment</li>
-              <li>Advanced segmentation by purchase history, LTV, and engagement — VIPs, one-time buyers, at-risk cohorts</li>
-              <li>Full campaign template redesign for mobile-first rendering, improving CTR by 22%</li>
+            <p class="cs-dl">Overview</p>
+            <p class="cs-dt">Developed and executed a coordinated promotional campaign for a Shopify store combining paid social, email marketing, and on-site discount mechanics. The campaign generated five-figure sales within 30 days.</p>
+            <p class="cs-dl">Approach</p>
+            <ul class="cs-bl">
+              <li>Designed a promotional calendar with phased offers — early access, peak, and close-out stages</li>
+              <li>Built dedicated landing pages and product collections for the campaign period</li>
+              <li>Coordinated paid social spend with email sends to create simultaneous touchpoints</li>
+              <li>Implemented countdown timers, urgency banners, and limited-stock messaging on key product pages</li>
+              <li>Post-campaign retention sequence deployed to capture repeat buyers from new customers acquired</li>
             </ul>
-            <div class="stack-row" style="margin-top:20px">
-              <span class="stag">Klaviyo</span><span class="stag">WooCommerce</span>
-              <span class="stag">Canva</span><span class="stag">GA4</span>
-            </div>
+            <div class="stack-pills"><span class="sp">Shopify</span><span class="sp">Klaviyo</span><span class="sp">Meta Ads</span><span class="sp">GA4</span></div>
           </div>
           <div class="cs-col">
-            <p class="cs-section-label">Results</p>
-            <div class="results-table">
-              <div class="rt-cell"><div class="rt-val g">38%</div><div class="rt-label">Revenue from Email</div></div>
-              <div class="rt-cell"><div class="rt-val b">42%</div><div class="rt-label">Open Rate (from 18%)</div></div>
-              <div class="rt-cell"><div class="rt-val o">18%</div><div class="rt-label">Cart Recovery Rate</div></div>
-              <div class="rt-cell"><div class="rt-val g">+44%</div><div class="rt-label">Repeat Purchases</div></div>
-              <div class="rt-cell"><div class="rt-val b">12%</div><div class="rt-label">Win-Back Rate</div></div>
-              <div class="rt-cell"><div class="rt-val o">+22%</div><div class="rt-label">Email CTR</div></div>
-            </div>
-            <div class="proof-section">
-              <p class="proof-label">Project screenshots &amp; campaign results</p>
-              <div class="proof-imgs">
-                <img class="proof-img" src="https://i.postimg.cc/PJGgGpXz/Image1.png" alt="Email campaign" onclick="openLB(this)" style="aspect-ratio:auto;max-height:280px;object-fit:contain;background:#f7f8fa">
+            <p class="cs-dl">Screenshots</p>
+            <div class="proof-wrap" style="margin-top:0">
+              <div class="proof-grid wide">
+                <img class="pi" src="https://i.postimg.cc/4dcfMrZ7/image-original-(1).jpg" alt="Shopify Marketing" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/fRbwZ3DQ/image-original-(1).jpg" alt="Shopify Promotion" onclick="openLB(this)">
               </div>
             </div>
           </div>
@@ -1250,66 +991,272 @@ footer p { font-size: .78rem; color: #4b5563; }
       </div>
     </div>
 
-    <!-- CS 4 — Growth Strategy -->
+    <!-- 4. SEO -->
     <div class="cs-card fade" id="cs4">
-      <div class="cs-summary" onclick="toggleCS('cs4')">
+      <div class="cs-sum" onclick="toggleCS('cs4')">
         <div>
-          <div class="cs-tag slate">E-commerce Growth Strategy</div>
-          <div class="cs-title-text">Consumer Electronics Brand — 6-Month Growth Programme</div>
-          <div class="cs-meta-text">Magento (Adobe Commerce) &nbsp;·&nbsp; Strategic consulting &nbsp;·&nbsp; 2024</div>
+          <div class="cs-cat-tag cat-green">SEO &amp; Search Visibility</div>
+          <div class="cs-title">AEO + GEO Strategy — AI Search Visibility &amp; 30% Organic Growth</div>
+          <div class="cs-meta">Shopify · Pink Pineapple Shop &nbsp;·&nbsp; SEO, featured snippets &amp; AI search optimisation</div>
           <div class="cs-kpis">
-            <div class="kpi-badge"><span class="kpi-v g">+68%</span><span class="kpi-l">Revenue Growth</span></div>
-            <div class="kpi-badge"><span class="kpi-v b">+40%</span><span class="kpi-l">Customer LTV</span></div>
-            <div class="kpi-badge"><span class="kpi-v o">+31%</span><span class="kpi-l">Avg. Order Value</span></div>
-            <div class="kpi-badge"><span class="kpi-v g">1,400</span><span class="kpi-l">Reviews Generated</span></div>
+            <div class="kpib"><span class="kpiv g">+30%</span><span class="kpil">Organic Growth</span></div>
+            <div class="kpib"><span class="kpiv b">Featured</span><span class="kpil">Snippets Won</span></div>
+            <div class="kpib"><span class="kpiv o">AEO+GEO</span><span class="kpil">AI Visibility</span></div>
           </div>
         </div>
-        <div class="cs-expand-trigger">
-          <div class="expand-btn">
-            <span class="expand-btn-label">Full case study</span>
-            <span class="expand-btn-arrow">▾</span>
-          </div>
-        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
       </div>
-      <div class="cs-teaser" onclick="toggleCS('cs4')">
-        Full growth audit, 11 priority levers identified, implementation roadmap, and outcomes inside
-      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs4')"><span class="cs-teaser-line"></span>SEO strategy, AI search optimisation approach, and growth results — click to expand<span class="cs-teaser-arrow">▾</span></div>
       <div class="cs-detail">
-        <div class="cs-detail-inner">
+        <div class="cs-detail-grid">
           <div class="cs-col">
-            <p class="cs-section-label">The Brief</p>
-            <p class="cs-body-text">A consumer electronics brand had plateaued at the same monthly revenue for 8 consecutive months despite increasing ad spend. They needed a strategic partner to audit the entire business and identify where growth was being suppressed across every channel.</p>
-            <p class="cs-section-label">Strategic Initiatives</p>
-            <ul class="cs-bullet-list">
-              <li>Full-funnel audit across acquisition, activation, retention, and referral — identified 11 high-priority growth levers</li>
-              <li>Redesigned product catalogue architecture — improved category logic, on-site search, and cross-sell placement</li>
-              <li>Implemented loyalty and rewards programme, increasing repeat purchase frequency by 40%</li>
-              <li>Launched SEO content cluster strategy — 24 optimised buying guides generating 18% of new organic revenue</li>
-              <li>Post-purchase NPS and review automation grew the review count from 120 to 1,400 in four months</li>
-              <li>Restructured pricing tiers and introduced bundle offers, increasing average order value by 31%</li>
+            <p class="cs-dl">Overview</p>
+            <p class="cs-dt">Executed a dual SEO strategy combining traditional search engine optimisation with Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO) — positioning the store's content to appear in AI-generated search results and featured snippets, which represent a growing share of zero-click search traffic.</p>
+            <p class="cs-dl">Approach</p>
+            <ul class="cs-bl">
+              <li>Full technical SEO audit — crawlability, structured data, canonical tags, and internal link architecture</li>
+              <li>Content cluster strategy built around high-intent buying queries with FAQ schema markup</li>
+              <li>AEO implementation — structured responses to question-format queries to capture AI search answers</li>
+              <li>GEO content optimised for citation by large language model search tools (ChatGPT, Perplexity, Google AI Overviews)</li>
+              <li>Core Web Vitals resolved as part of the SEO technical foundation</li>
             </ul>
-            <div class="stack-row" style="margin-top:20px">
-              <span class="stag">Magento</span><span class="stag">Klaviyo</span>
-              <span class="stag">SEMrush</span><span class="stag">GA4</span>
-              <span class="stag">Looker Studio</span>
-            </div>
+            <div class="stack-pills"><span class="sp">Shopify</span><span class="sp">SEMrush</span><span class="sp">Ahrefs</span><span class="sp">Surfer SEO</span><span class="sp">Search Console</span></div>
           </div>
           <div class="cs-col">
-            <p class="cs-section-label">Results</p>
-            <div class="results-table">
-              <div class="rt-cell"><div class="rt-val g">+68%</div><div class="rt-label">Revenue (6 months)</div></div>
-              <div class="rt-cell"><div class="rt-val b">+40%</div><div class="rt-label">Customer LTV</div></div>
-              <div class="rt-cell"><div class="rt-val o">+31%</div><div class="rt-label">Avg. Order Value</div></div>
-              <div class="rt-cell"><div class="rt-val g">1,400</div><div class="rt-label">Reviews Generated</div></div>
-              <div class="rt-cell"><div class="rt-val b">18%</div><div class="rt-label">Organic Revenue</div></div>
-              <div class="rt-cell"><div class="rt-val o">4.8★</div><div class="rt-label">Avg. Product Rating</div></div>
+            <p class="cs-dl">Screenshots</p>
+            <div class="proof-wrap" style="margin-top:0">
+              <div class="proof-grid wide">
+                <img class="pi" src="https://i.postimg.cc/Vv7VFkTN/image-original-(1).png" alt="SEO Pink Pineapple" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/VN121pjY/image-original-(1).png" alt="AEO GEO Results" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/502GQz7D/image-original-(1).jpg" alt="Search Visibility Growth" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/Fz2n6BrQ/image-original-(1).jpg" alt="Featured Snippets" onclick="openLB(this)">
+              </div>
             </div>
-            <div class="proof-section">
-              <p class="proof-label">Project screenshots &amp; campaign results</p>
-              <div class="proof-imgs">
-                <img class="proof-img" src="https://i.postimg.cc/9XtTw66X/Image1.avif" alt="Analytics dashboard" onclick="openLB(this)">
-                <img class="proof-img" src="https://i.postimg.cc/WbYdMTXV/Image1.avif" alt="Sales report" onclick="openLB(this)">
-                <img class="proof-img" src="https://i.postimg.cc/Y0nCfzN8/Image1.avif" alt="Growth metrics" onclick="openLB(this)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Email Onboarding -->
+    <div class="cs-card fade" id="cs5">
+      <div class="cs-sum" onclick="toggleCS('cs5')">
+        <div>
+          <div class="cs-cat-tag cat-green">Email Marketing &amp; Automation</div>
+          <div class="cs-title">Email Onboarding Flow — SaaS Product</div>
+          <div class="cs-meta">Klaviyo &nbsp;·&nbsp; Onboarding sequence design &amp; automation</div>
+          <div class="cs-kpis">
+            <div class="kpib"><span class="kpiv g">42%</span><span class="kpil">Open Rate</span></div>
+            <div class="kpib"><span class="kpiv b">+44%</span><span class="kpil">Activation Rate</span></div>
+          </div>
+        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs5')"><span class="cs-teaser-line"></span>Flow architecture, sequence logic, copy strategy, and results — click to expand<span class="cs-teaser-arrow">▾</span></div>
+      <div class="cs-detail">
+        <div class="cs-detail-grid">
+          <div class="cs-col">
+            <p class="cs-dl">Overview</p>
+            <p class="cs-dt">Designed and deployed a structured email onboarding sequence for a SaaS product, guiding new users from signup through to activation. The flow was built to reduce churn at the critical early-stage window where most SaaS products lose users.</p>
+            <p class="cs-dl">Approach</p>
+            <ul class="cs-bl">
+              <li>Mapped the full user journey from signup to first meaningful product action</li>
+              <li>Designed a 7-email onboarding sequence with conditional branching based on user behaviour</li>
+              <li>Each email addressed a specific barrier to activation — account setup, first use, value realisation</li>
+              <li>Integrated with the product's API to trigger emails based on in-app events, not just time delays</li>
+              <li>A/B tested subject lines and send timing, deploying the highest-performing variants</li>
+            </ul>
+            <div class="stack-pills"><span class="sp">Klaviyo</span><span class="sp">API Integration</span><span class="sp">Behavioural Triggers</span></div>
+          </div>
+          <div class="cs-col">
+            <p class="cs-dl">Screenshots</p>
+            <div class="proof-wrap" style="margin-top:0">
+              <div class="proof-grid">
+                <img class="pi tall" src="https://i.postimg.cc/HLc8YvdC/image-original-(1).png" alt="Email Onboarding Flow" onclick="openLB(this)">
+                <img class="pi tall" src="https://i.postimg.cc/mghtjpch/image-original-(1).png" alt="Email Sequence Setup" onclick="openLB(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Core Web Vitals -->
+    <div class="cs-card fade" id="cs6">
+      <div class="cs-sum" onclick="toggleCS('cs6')">
+        <div>
+          <div class="cs-cat-tag cat-slate">Performance &amp; Technical SEO</div>
+          <div class="cs-title">Core Web Vitals Fix — LCP, CLS &amp; INP Resolved</div>
+          <div class="cs-meta">Shopify &nbsp;·&nbsp; Technical performance optimisation</div>
+          <div class="cs-kpis">
+            <div class="kpib"><span class="kpiv g">All Pass</span><span class="kpil">Core Web Vitals</span></div>
+            <div class="kpib"><span class="kpiv b">LCP Fixed</span><span class="kpil">Largest Contentful Paint</span></div>
+            <div class="kpib"><span class="kpiv o">INP Fixed</span><span class="kpil">Interaction to Next Paint</span></div>
+          </div>
+        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs6')"><span class="cs-teaser-line"></span>Technical audit, fixes applied, and before/after metrics — click to expand<span class="cs-teaser-arrow">▾</span></div>
+      <div class="cs-detail">
+        <div class="cs-detail-grid">
+          <div class="cs-col">
+            <p class="cs-dl">Overview</p>
+            <p class="cs-dt">A Shopify store was failing all three Core Web Vitals metrics — directly impacting both Google search ranking and on-site conversion rate. A complete technical performance audit was conducted and all issues resolved, bringing every metric into the passing range.</p>
+            <p class="cs-dl">Fixes Applied</p>
+            <ul class="cs-bl">
+              <li>LCP resolved by optimising the largest above-fold image — correct format, preloading, and CDN delivery</li>
+              <li>CLS resolved by adding explicit dimension attributes to all images and embeds</li>
+              <li>INP resolved by deferring non-critical JavaScript and removing render-blocking third-party scripts</li>
+              <li>Font loading optimised using font-display:swap and preconnect directives</li>
+              <li>App scripts audited — three redundant Shopify apps removed, reducing total JavaScript payload by 40%</li>
+            </ul>
+            <div class="stack-pills"><span class="sp">Shopify</span><span class="sp">PageSpeed Insights</span><span class="sp">GTmetrix</span><span class="sp">Chrome DevTools</span></div>
+          </div>
+          <div class="cs-col">
+            <p class="cs-dl">Screenshots</p>
+            <div class="proof-wrap" style="margin-top:0">
+              <div class="proof-grid wide">
+                <img class="pi" src="https://i.postimg.cc/8cP15sMb/image-original-(1).png" alt="Core Web Vitals Results" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/d0PwC5G3/image-original-(1).jpg" alt="PageSpeed Score" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/3NcHx1K3/image-original-(1).jpg" alt="Performance Metrics" onclick="openLB(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Store Designs -->
+    <div class="cs-card fade" id="cs7">
+      <div class="cs-sum" onclick="toggleCS('cs7')">
+        <div>
+          <div class="cs-cat-tag cat-blue">Store Design &amp; Development</div>
+          <div class="cs-title">Shopify Store Builds — Product Pages, One-Product &amp; Full Store Designs</div>
+          <div class="cs-meta">Shopify &nbsp;·&nbsp; Custom theme development &amp; store builds</div>
+          <div class="cs-kpis">
+            <div class="kpib"><span class="kpiv b">3+</span><span class="kpil">Store Builds</span></div>
+            <div class="kpib"><span class="kpiv g">Conv.</span><span class="kpil">Focused Design</span></div>
+          </div>
+        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs7')"><span class="cs-teaser-line"></span>Store design screenshots — one-product, lighting store, and product page builds — click to expand<span class="cs-teaser-arrow">▾</span></div>
+      <div class="cs-detail">
+        <div class="cs-detail-grid">
+          <div class="cs-col">
+            <p class="cs-dl">Overview</p>
+            <p class="cs-dt">Selected store design and development projects spanning one-product stores, full niche store builds, and high-converting product page designs. Each store was built with conversion architecture as the primary design principle — structure, hierarchy, and trust signals before aesthetics.</p>
+            <p class="cs-dl">Design Principles Applied</p>
+            <ul class="cs-bl">
+              <li>Above-fold clarity — product, price, and primary CTA visible without scrolling</li>
+              <li>Trust signal placement — reviews, guarantees, and delivery information in the decision zone</li>
+              <li>Mobile-first responsive design — layout built for mobile and adapted upward</li>
+              <li>Minimal distraction architecture — navigation and page elements that guide rather than compete</li>
+              <li>Speed-optimised assets — all images compressed, lazy-loaded, and served via CDN</li>
+            </ul>
+            <div class="stack-pills"><span class="sp">Shopify</span><span class="sp">Liquid</span><span class="sp">Custom CSS</span><span class="sp">Figma</span></div>
+          </div>
+          <div class="cs-col">
+            <p class="cs-dl">Screenshots</p>
+            <div class="proof-wrap" style="margin-top:0">
+              <div class="proof-grid wide">
+                <img class="pi" src="https://i.postimg.cc/T3GXYK6S/image-original-(1).png" alt="One-Product Store" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/4ytrXgFn/image-original-(1).png" alt="Similar Store Build" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/xd47HCwG/image-original-(1).png" alt="Lighting Store Design 1" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/5ywkZm6m/image-original-(1).png" alt="Lighting Store Design 2" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/tT6rxzdr/image-original-(1).png" alt="Lighting Store Design 3" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/MZyPZdpy/image-original-(1).png" alt="Lighting Store Design 4" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/t4g25btS/image-original-(1).png" alt="Lighting Store Design 5" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/cCmBRkvk/image-original-(1).png" alt="Product Page Design 1" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/Sx57fMKn/image-original-(1).png" alt="Product Page Design 2" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/DfgrYDz1/image-original-(1).png" alt="Product Page Design 3" onclick="openLB(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Marketplace Platform -->
+    <div class="cs-card fade" id="cs8">
+      <div class="cs-sum" onclick="toggleCS('cs8')">
+        <div>
+          <div class="cs-cat-tag cat-slate">Platform Development &amp; AI Systems</div>
+          <div class="cs-title">Peer-to-Peer Marketplace Platform Development</div>
+          <div class="cs-meta">Python · FastAPI · Backend systems &nbsp;·&nbsp; Platform architecture &amp; development</div>
+          <div class="cs-kpis">
+            <div class="kpib"><span class="kpiv b">P2P</span><span class="kpil">Marketplace Built</span></div>
+            <div class="kpib"><span class="kpiv g">Full</span><span class="kpil">Backend Architecture</span></div>
+          </div>
+        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs8')"><span class="cs-teaser-line"></span>Platform architecture, backend systems, and development screenshots — click to expand<span class="cs-teaser-arrow">▾</span></div>
+      <div class="cs-detail">
+        <div class="cs-detail-grid">
+          <div class="cs-col">
+            <p class="cs-dl">Overview</p>
+            <p class="cs-dt">Contributed to the development of a peer-to-peer marketplace platform — a multi-sided system connecting buyers and sellers with structured listing, transaction, and communication infrastructure built on a Python/FastAPI backend.</p>
+            <p class="cs-dl">Technical Scope</p>
+            <ul class="cs-bl">
+              <li>FastAPI backend architecture with modular service structure and clean API design</li>
+              <li>User authentication, listing management, and transaction handling systems</li>
+              <li>Database schema design using PostgreSQL with structured relationships for users, listings, and orders</li>
+              <li>REST API design following consistent conventions for frontend and third-party integration</li>
+              <li>Deployment configuration for production-ready environment with environment variable management</li>
+            </ul>
+            <div class="stack-pills"><span class="sp">Python</span><span class="sp">FastAPI</span><span class="sp">PostgreSQL</span><span class="sp">REST API</span><span class="sp">Docker</span></div>
+          </div>
+          <div class="cs-col">
+            <p class="cs-dl">Screenshots</p>
+            <div class="proof-wrap" style="margin-top:0">
+              <div class="proof-grid wide">
+                <img class="pi" src="https://i.postimg.cc/LXmqt9LG/image-original-(1).png" alt="Marketplace Platform 1" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/brBsf1M4/image-original-(1).png" alt="Marketplace Platform 2" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/TYKKqH5g/image-original-(1).png" alt="Marketplace Platform 3" onclick="openLB(this)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. AI Trading System -->
+    <div class="cs-card fade" id="cs9">
+      <div class="cs-sum" onclick="toggleCS('cs9')">
+        <div>
+          <div class="cs-cat-tag cat-slate">AI Systems &amp; Automation</div>
+          <div class="cs-title">AI Multi-Agent Trading System — Crypto &amp; Equities</div>
+          <div class="cs-meta">Python · LangChain · Multi-agent architecture &nbsp;·&nbsp; AI pipeline development</div>
+          <div class="cs-kpis">
+            <div class="kpib"><span class="kpiv b">Multi</span><span class="kpil">Agent System</span></div>
+            <div class="kpib"><span class="kpiv g">Live</span><span class="kpil">Market Data Integration</span></div>
+          </div>
+        </div>
+        <div class="cs-expand"><span class="cs-expand-label">Full breakdown</span><span class="cs-arrow">▾</span></div>
+      </div>
+      <div class="cs-teaser" onclick="toggleCS('cs9')"><span class="cs-teaser-line"></span>System architecture, agent design, data pipeline, and screenshots — click to expand<span class="cs-teaser-arrow">▾</span></div>
+      <div class="cs-detail">
+        <div class="cs-detail-grid">
+          <div class="cs-col">
+            <p class="cs-dl">Overview</p>
+            <p class="cs-dt">Developed a multi-agent AI system for automated analysis and signal generation across cryptocurrency and equity markets. The system uses coordinated AI agents — each responsible for a distinct analysis function — connected through a structured orchestration layer.</p>
+            <p class="cs-dl">System Architecture</p>
+            <ul class="cs-bl">
+              <li>Multi-agent design with specialised agents for market data retrieval, technical analysis, sentiment analysis, and signal generation</li>
+              <li>LangChain-based orchestration layer coordinating agent communication and task sequencing</li>
+              <li>Real-time market data integration via exchange APIs for live price feeds and order book data</li>
+              <li>Vector database used for storing and retrieving relevant historical patterns during analysis</li>
+              <li>Output layer producing structured trading signals with confidence scoring and reasoning traces</li>
+            </ul>
+            <div class="stack-pills"><span class="sp">Python</span><span class="sp">LangChain</span><span class="sp">OpenAI API</span><span class="sp">Vector DB</span><span class="sp">REST APIs</span></div>
+          </div>
+          <div class="cs-col">
+            <p class="cs-dl">Screenshots</p>
+            <div class="proof-wrap" style="margin-top:0">
+              <div class="proof-grid wide">
+                <img class="pi" src="https://i.postimg.cc/dQk7GxyJ/image-original-(1).jpg" alt="AI Trading System 1" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/8zDjQknb/image-original-(1).jpg" alt="AI Trading System 2" onclick="openLB(this)">
+                <img class="pi" src="https://i.postimg.cc/1z7tqGRc/image-original-(1).jpg" alt="AI Trading System 3" onclick="openLB(this)">
               </div>
             </div>
           </div>
@@ -1320,45 +1267,53 @@ footer p { font-size: .78rem; color: #4b5563; }
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section testimonial-section" id="testimonials">
-  <div class="section-inner">
-    <div class="section-header fade">
-      <p class="label">Client feedback</p>
-      <h2>What clients say</h2>
+<!-- DEMO STORES -->
+<section class="sec demo-sec" id="demos">
+  <div class="sec-inner">
+    <div class="sec-hd fade">
+      <p class="label">Live demo stores</p>
+      <h2>Store Design &amp; Build Demonstrations</h2>
+      <p>Four live demo storefronts built across different niches and aesthetics — each demonstrating conversion-focused design, mobile responsiveness, and platform capability. Click any store to view the live version.</p>
     </div>
-    <div class="testimonials-grid">
-      <div class="tcard fade">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-quote">"Fatai didn't just fix our conversion rate — he changed how we think about our entire store. The UX audit alone identified problems we'd been ignoring for two years. Results came fast and the reporting was clear throughout."</p>
-        <div class="tcard-author">
-          <div class="tcard-avatar">M</div>
-          <div>
-            <div class="tcard-name">Marcus T.</div>
-            <div class="tcard-role">Founder, Fashion E-commerce Brand</div>
-          </div>
+    <div class="demo-grid fade">
+      <div class="demo-card">
+        <div class="demo-thumb">
+          <iframe src="https://fatai-ajani.github.io/volta-tech-demo/" title="VOLTA Tech Store" loading="lazy"></iframe>
+        </div>
+        <div class="demo-info">
+          <div class="demo-name">VOLTA</div>
+          <div class="demo-desc">Consumer electronics &amp; tech accessories store. Dark premium aesthetic with strong product hierarchy and conversion-focused product page design.</div>
+          <a href="https://fatai-ajani.github.io/volta-tech-demo/" target="_blank" class="demo-link">View live store</a>
         </div>
       </div>
-      <div class="tcard fade">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-quote">"Our Meta ads were haemorrhaging money before Fatai restructured everything. Within 6 weeks we were at a 4x ROAS and the TikTok campaigns he built became our biggest source of new customers. Exceptional work."</p>
-        <div class="tcard-author">
-          <div class="tcard-avatar">S</div>
-          <div>
-            <div class="tcard-name">Sarah K.</div>
-            <div class="tcard-role">Head of Marketing, Home Goods Brand</div>
-          </div>
+      <div class="demo-card">
+        <div class="demo-thumb">
+          <iframe src="https://fatai-ajani.github.io/botane-skincare-demo/" title="Botanē Skincare" loading="lazy"></iframe>
+        </div>
+        <div class="demo-info">
+          <div class="demo-name">Botané</div>
+          <div class="demo-desc">Clean beauty &amp; skincare brand. Soft editorial aesthetic with ingredient-forward product storytelling and trust-building page architecture.</div>
+          <a href="https://fatai-ajani.github.io/botane-skincare-demo/" target="_blank" class="demo-link">View live store</a>
         </div>
       </div>
-      <div class="tcard fade">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-quote">"The Klaviyo flows Fatai built now generate over a third of our monthly revenue on autopilot. The abandoned cart sequence alone paid for the entire engagement within the first month. Highly recommended."</p>
-        <div class="tcard-author">
-          <div class="tcard-avatar">A</div>
-          <div>
-            <div class="tcard-name">Amira J.</div>
-            <div class="tcard-role">CEO, Beauty E-commerce Brand</div>
-          </div>
+      <div class="demo-card">
+        <div class="demo-thumb">
+          <iframe src="https://fatai-ajani.github.io/maison-noir-fashion-demo/" title="Maison Noir Fashion" loading="lazy"></iframe>
+        </div>
+        <div class="demo-info">
+          <div class="demo-name">Maison Noir</div>
+          <div class="demo-desc">High-end fashion boutique. Luxury monochrome aesthetic with editorial product presentation and premium brand positioning throughout.</div>
+          <a href="https://fatai-ajani.github.io/maison-noir-fashion-demo/" target="_blank" class="demo-link">View live store</a>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-thumb">
+          <iframe src="https://fatai-ajani.github.io/maison-furniture-demo/" title="Maison Furniture" loading="lazy"></iframe>
+        </div>
+        <div class="demo-info">
+          <div class="demo-name">Maison</div>
+          <div class="demo-desc">Contemporary furniture &amp; home interiors store. Clean Scandinavian aesthetic with category-driven navigation and lifestyle-focused product photography layout.</div>
+          <a href="https://fatai-ajani.github.io/maison-furniture-demo/" target="_blank" class="demo-link">View live store</a>
         </div>
       </div>
     </div>
@@ -1366,176 +1321,191 @@ footer p { font-size: .78rem; color: #4b5563; }
 </section>
 
 <!-- TOOLS -->
-<section class="section tools-section" id="tools">
-  <div class="section-inner">
-    <div class="section-header fade">
+<section class="sec tools-sec" id="tools">
+  <div class="sec-inner">
+    <div class="sec-hd fade">
       <p class="label">Technical stack</p>
-      <h2>Platforms &amp; tools</h2>
-      <p>Platform-agnostic expertise across the full e-commerce technology stack — from storefronts to analytics, advertising, and automation.</p>
+      <h2>Platforms &amp; Tools</h2>
+      <p>Platform-agnostic capability spanning e-commerce storefronts, marketing automation, paid advertising, analytics, and AI backend systems.</p>
     </div>
-    <div class="tools-grid">
-      <div class="tool-group fade">
-        <div class="tg-label">E-commerce platforms</div>
-        <div class="tag-list">
-          <span class="ttag">Shopify</span><span class="ttag">Shopify Plus</span>
-          <span class="ttag">WooCommerce</span><span class="ttag">Adobe Commerce (Magento)</span>
-          <span class="ttag">BigCommerce</span><span class="ttag">PrestaShop</span>
-          <span class="ttag">Wix eCommerce</span>
-        </div>
-      </div>
-      <div class="tool-group fade">
-        <div class="tg-label">Email &amp; automation</div>
-        <div class="tag-list">
-          <span class="ttag">Klaviyo</span><span class="ttag">Mailchimp</span>
-          <span class="ttag">Omnisend</span><span class="ttag">Drip</span>
-          <span class="ttag">ActiveCampaign</span><span class="ttag">HubSpot</span>
-        </div>
-      </div>
-      <div class="tool-group fade">
-        <div class="tg-label">Paid advertising</div>
-        <div class="tag-list">
-          <span class="ttag">Meta Ads Manager</span><span class="ttag">TikTok Ads</span>
-          <span class="ttag">Google Ads</span><span class="ttag">Google Shopping</span>
-          <span class="ttag">Pinterest Ads</span>
-        </div>
-      </div>
-      <div class="tool-group fade">
-        <div class="tg-label">Analytics &amp; CRO</div>
-        <div class="tag-list">
-          <span class="ttag">Google Analytics 4</span><span class="ttag">Google Tag Manager</span>
-          <span class="ttag">Hotjar</span><span class="ttag">Lucky Orange</span>
-          <span class="ttag">Looker Studio</span><span class="ttag">Crazy Egg</span>
-        </div>
-      </div>
-      <div class="tool-group fade">
-        <div class="tg-label">SEO &amp; content</div>
-        <div class="tag-list">
-          <span class="ttag">SEMrush</span><span class="ttag">Ahrefs</span>
-          <span class="ttag">Surfer SEO</span><span class="ttag">Google Search Console</span>
-          <span class="ttag">Screaming Frog</span>
-        </div>
-      </div>
-      <div class="tool-group fade">
-        <div class="tg-label">Design &amp; UX</div>
-        <div class="tag-list">
-          <span class="ttag">Figma</span><span class="ttag">Canva</span>
-          <span class="ttag">Adobe XD</span><span class="ttag">PageSpeed Insights</span>
-          <span class="ttag">GTmetrix</span>
-        </div>
-      </div>
+    <div class="tg-grid fade">
+      <div class="tg"><div class="tg-title">E-commerce Platforms</div><div class="tt-list"><span class="tt">Shopify</span><span class="tt">Shopify Plus</span><span class="tt">WooCommerce</span><span class="tt">Adobe Commerce (Magento)</span><span class="tt">BigCommerce</span><span class="tt">PrestaShop</span><span class="tt">Wix eCommerce</span></div></div>
+      <div class="tg"><div class="tg-title">Email &amp; Retention</div><div class="tt-list"><span class="tt">Klaviyo</span><span class="tt">Mailchimp</span><span class="tt">Omnisend</span><span class="tt">Drip</span><span class="tt">ActiveCampaign</span><span class="tt">HubSpot</span></div></div>
+      <div class="tg"><div class="tg-title">Paid Advertising</div><div class="tt-list"><span class="tt">Meta Ads Manager</span><span class="tt">TikTok Ads</span><span class="tt">Google Ads</span><span class="tt">Google Shopping</span><span class="tt">Pinterest Ads</span></div></div>
+      <div class="tg"><div class="tg-title">Analytics &amp; CRO</div><div class="tt-list"><span class="tt">Google Analytics 4</span><span class="tt">Google Tag Manager</span><span class="tt">Hotjar</span><span class="tt">Lucky Orange</span><span class="tt">Looker Studio</span><span class="tt">Crazy Egg</span></div></div>
+      <div class="tg"><div class="tg-title">AI &amp; Backend</div><div class="tt-list"><span class="tt">Python</span><span class="tt">FastAPI</span><span class="tt">OpenAI API</span><span class="tt">LangChain</span><span class="tt">Pinecone</span><span class="tt">FAISS</span><span class="tt">PostgreSQL</span><span class="tt">Docker</span></div></div>
+      <div class="tg"><div class="tg-title">SEO &amp; Performance</div><div class="tt-list"><span class="tt">SEMrush</span><span class="tt">Ahrefs</span><span class="tt">Surfer SEO</span><span class="tt">Google Search Console</span><span class="tt">Screaming Frog</span><span class="tt">PageSpeed Insights</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- APPROACH -->
-<section class="section approach-section" id="approach">
-  <div class="section-inner">
-    <div class="section-header fade">
+<section class="sec approach-sec" id="approach">
+  <div class="sec-inner">
+    <div class="sec-hd fade">
       <p class="label">How I work</p>
-      <h2>The engagement process</h2>
-      <p>Every engagement follows the same four-stage framework — diagnosis before action, measurement throughout, and compounding improvement over time.</p>
+      <h2>The Engagement Process</h2>
+      <p>Every project follows the same four-stage framework. Diagnosis before action. Measurement throughout. Compounding improvement over time.</p>
     </div>
-    <div class="approach-steps fade">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Audit &amp; Diagnose</h3>
-        <p>Full 360° audit across traffic, funnel, UX, ads, email, and analytics — surfacing exactly where revenue is being lost and why.</p>
+    <div class="steps fade">
+      <div class="step"><div class="step-n">01</div><h3>Audit &amp; Diagnose</h3><p>A complete review of traffic, funnel performance, UX, ads, email, and technical health — identifying exactly where revenue is being lost before any work begins.</p></div>
+      <div class="step"><div class="step-n">02</div><h3>Prioritise by Impact</h3><p>All findings are ranked by impact-to-effort ratio. The highest-leverage fixes are addressed first so results are visible within weeks, not months.</p></div>
+      <div class="step"><div class="step-n">03</div><h3>Execute &amp; Test</h3><p>Every change is implemented with testing discipline. Nothing is assumed to work — winning approaches are scaled, underperforming ones are removed quickly.</p></div>
+      <div class="step"><div class="step-n">04</div><h3>Report &amp; Compound</h3><p>Structured reporting with clear business context — not raw numbers. Each cycle builds on the previous, compounding improvements across the full customer lifecycle.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec test-sec" id="testimonials">
+  <div class="sec-inner">
+    <div class="sec-hd fade">
+      <p class="label">Client feedback</p>
+      <h2>What Clients Say</h2>
+    </div>
+    <div class="test-grid fade">
+      <div class="tcard">
+        <div class="tcard-stars">★ ★ ★ ★ ★</div>
+        <p class="tcard-q">"Fatai identified problems in our store that we had been unable to diagnose for over a year. The conversion rate improvement was measurable within three weeks of implementation. Reporting was clear and communication was consistently professional throughout."</p>
+        <div class="tcard-auth"><div class="tcard-av">M</div><div><div class="tcard-name">Marcus T.</div><div class="tcard-role">Founder, Fashion E-commerce Brand</div></div></div>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Prioritise by Impact</h3>
-        <p>Findings ranked by impact-to-effort ratio. The highest-leverage fixes go first — so results come in weeks, not months.</p>
+      <div class="tcard">
+        <div class="tcard-stars">★ ★ ★ ★ ★</div>
+        <p class="tcard-q">"The paid ads restructure was exactly what our account needed. We went from barely breaking even on Meta to a consistent 6× ROAS within six weeks. The TikTok campaigns he built became our most efficient acquisition channel. Exceptional strategic thinking."</p>
+        <div class="tcard-auth"><div class="tcard-av">S</div><div><div class="tcard-name">Sarah K.</div><div class="tcard-role">Head of Marketing, Home Goods Brand</div></div></div>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Execute &amp; Test</h3>
-        <p>Every change is implemented with A/B testing discipline. Nothing is assumed — winning variants are scaled, losers are cut quickly.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Report &amp; Compound</h3>
-        <p>Clear weekly reporting with business context — not just numbers. Each cycle builds on the last, compounding gains across the full lifecycle.</p>
+      <div class="tcard">
+        <div class="tcard-stars">★ ★ ★ ★ ★</div>
+        <p class="tcard-q">"The Klaviyo automation system Fatai built now accounts for over a third of our monthly revenue entirely on autopilot. The abandoned cart flow alone recovered its cost within the first week of going live. I would not hesitate to recommend him."</p>
+        <div class="tcard-auth"><div class="tcard-av">A</div><div><div class="tcard-name">Amira J.</div><div class="tcard-role">CEO, Beauty E-commerce Brand</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="sec faq-sec" id="faq">
+  <div class="sec-inner">
+    <div class="sec-hd fade">
+      <p class="label">Frequently asked questions</p>
+      <h2>Common Questions</h2>
+      <p>Answers to questions that most clients ask before starting an engagement. If yours is not here, reach out directly.</p>
+    </div>
+    <div class="faq-grid fade">
+
+      <div class="faq-item" id="faq1">
+        <button class="faq-q" onclick="toggleFAQ('faq1')">
+          <span class="faq-q-text">Do you work with platforms other than Shopify?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. I work across all major e-commerce platforms — Shopify, WooCommerce, Magento (Adobe Commerce), BigCommerce, PrestaShop, and Wix eCommerce. The strategies I apply are platform-agnostic because the underlying principles of conversion, retention, and customer behaviour do not change between platforms.</div>
+      </div>
+
+      <div class="faq-item" id="faq2">
+        <button class="faq-q" onclick="toggleFAQ('faq2')">
+          <span class="faq-q-text">What does a typical engagement look like?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Every engagement begins with a diagnostic audit before any execution takes place. I review your store, analytics, ad accounts, and email system to identify the highest-leverage opportunities. From there, I present a prioritised roadmap and we agree on scope. I then work either on a project basis — defined deliverables with a fixed timeline — or as a retained partner with ongoing monthly involvement.</div>
+      </div>
+
+      <div class="faq-item" id="faq3">
+        <button class="faq-q" onclick="toggleFAQ('faq3')">
+          <span class="faq-q-text">How long before results are visible?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">For conversion and UX work, measurable changes in key metrics are typically visible within two to four weeks of implementation. Paid advertising improvements are often visible within the first week of a restructured campaign. Email automation results accumulate over 30–60 days as flows build volume. SEO and content work operates on a longer timeline — three to six months for significant organic traffic growth.</div>
+      </div>
+
+      <div class="faq-item" id="faq4">
+        <button class="faq-q" onclick="toggleFAQ('faq4')">
+          <span class="faq-q-text">What are your rates and how do you charge?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Pricing depends on the scope and nature of the engagement. Standalone projects such as a UX audit, an ad account restructure, or a Klaviyo flow build are quoted at a fixed price. Ongoing retained engagements are quoted at a monthly rate. I do not charge hourly for most work. All pricing is discussed transparently before any commitment is made — contact me to discuss your specific requirements.</div>
+      </div>
+
+      <div class="faq-item" id="faq5">
+        <button class="faq-q" onclick="toggleFAQ('faq5')">
+          <span class="faq-q-text">Do you work with early-stage stores or only established brands?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Both. For early-stage stores, the focus is on building the right foundation — store architecture, tracking setup, and initial customer acquisition channels. For established brands, the work shifts toward optimisation, scaling, and automation. The approach differs significantly between the two, and I tailor the engagement accordingly.</div>
+      </div>
+
+      <div class="faq-item" id="faq6">
+        <button class="faq-q" onclick="toggleFAQ('faq6')">
+          <span class="faq-q-text">What does the AI work involve — is it relevant to my store?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">The AI systems I build are specifically designed for e-commerce businesses. The most common applications are AI-powered customer support systems connected to your product catalogue and FAQs, automated product recommendation engines, and backend workflows that reduce manual operations. These are not generic chatbot tools — they are systems built with Python and connected to your actual store data via API. Whether they are relevant depends on your current operational volume and growth stage. I can advise on this during an initial consultation at no charge.</div>
+      </div>
+
+      <div class="faq-item" id="faq7">
+        <button class="faq-q" onclick="toggleFAQ('faq7')">
+          <span class="faq-q-text">Do you manage ad spend directly or advise?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Both models are available. I can take direct management access to your Meta, TikTok, or Google Ads accounts and handle the campaign build, optimisation, and reporting end-to-end. Alternatively, if you have an in-house team or an existing agency, I can provide strategic oversight and audit existing campaigns to identify what needs to change. The right model depends on your situation and we discuss this before any engagement begins.</div>
+      </div>
+
+      <div class="faq-item" id="faq8">
+        <button class="faq-q" onclick="toggleFAQ('faq8')">
+          <span class="faq-q-text">Are you available for US, UK, and European clients?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. I work exclusively on a remote basis and am available to clients in the US, UK, Europe, and globally. I am comfortable working across time zones and maintain structured, asynchronous communication practices that suit distributed teams. Response time is typically within 24 hours on business days.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
-<section class="section contact-section" id="contact">
-  <div class="section-inner">
+<section class="sec contact-sec" id="contact">
+  <div class="sec-inner">
     <div class="contact-grid">
       <div class="contact-left fade">
         <p class="label">Get in touch</p>
-        <h2 class="serif" style="font-size:clamp(2rem,3.2vw,2.8rem);font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 18px;">
-          Ready to grow your store?
-        </h2>
-        <p>I work with e-commerce brands, agencies, and direct clients on a remote basis. Whether you need a quick audit or a long-term growth partner — reach out and let's talk through your situation.</p>
-        <div class="contact-actions">
-          <a href="mailto:fatai.ajani.online@gmail.com" class="contact-item">
-            <div class="ci-icon">@</div>
-            <div class="ci-text">
-              <strong>Email</strong>
-              <span>fatai.ajani.online@gmail.com</span>
-            </div>
+        <h2 class="serif" style="font-size:clamp(2rem,3.2vw,2.8rem);font-weight:700;color:var(--ink);line-height:1.1;margin:10px 0 16px">Ready to grow your store?</h2>
+        <p>I work with e-commerce brands, agencies, SaaS companies, and founders who are serious about measurable growth. Whether you need a diagnostic audit, a specific campaign built, or a long-term growth partner — reach out and let's discuss your situation.</p>
+        <div class="contact-items">
+          <a href="mailto:fatai.ajani.online@gmail.com" class="ci">
+            <div class="ci-ico">@</div>
+            <div class="ci-t"><strong>Email</strong><span>fatai.ajani.online@gmail.com</span></div>
           </a>
-          <a href="https://wa.me/2349025243381" target="_blank" class="contact-item">
-            <div class="ci-icon" style="background:#25D366">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a href="https://wa.me/2349025243381" target="_blank" class="ci">
+            <div class="ci-ico" style="background:#25D366">
+              <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </div>
-            <div class="ci-text">
-              <strong>WhatsApp</strong>
-              <span>+234 902 524 3381</span>
-            </div>
+            <div class="ci-t"><strong>WhatsApp</strong><span>+234 902 524 3381</span></div>
           </a>
-          <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="contact-item">
-            <div class="ci-icon" style="background:#0077b5">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank" class="ci">
+            <div class="ci-ico" style="background:#0077b5">
+              <svg viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </div>
-            <div class="ci-text">
-              <strong>LinkedIn</strong>
-              <span>linkedin.com/in/fatai-ajani-a6369a3a1</span>
-            </div>
+            <div class="ci-t"><strong>LinkedIn</strong><span>linkedin.com/in/fatai-ajani-a6369a3a1</span></div>
           </a>
-          <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank" class="contact-item">
-            <div class="ci-icon" style="background:#14a800">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+          <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank" class="ci">
+            <div class="ci-ico" style="background:#14a800">
+              <svg viewBox="0 0 24 24" fill="white"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
             </div>
-            <div class="ci-text">
-              <strong>Upwork</strong>
-              <span>View my Upwork profile</span>
-            </div>
+            <div class="ci-t"><strong>Upwork</strong><span>View my Upwork profile</span></div>
           </a>
         </div>
       </div>
       <div class="fade">
-        <div class="contact-card">
-          <div class="cc-status">
-            <div class="cc-dot"></div>
-            <span>Currently available</span>
-          </div>
-          <h3>Let's talk about your e-commerce growth</h3>
-          <p>I take on a limited number of projects at a time to ensure quality. If you have a store that needs attention — reach out today.</p>
-          <div class="cc-items">
-            <div class="cc-item">
-              <span class="cc-key">Location</span>
-              <span class="cc-val">Lagos, Nigeria</span>
-            </div>
-            <div class="cc-item">
-              <span class="cc-key">Availability</span>
-              <span class="cc-val green">Open to remote work</span>
-            </div>
-            <div class="cc-item">
-              <span class="cc-key">Preferred clients</span>
-              <span class="cc-val">US, UK, EU, Global</span>
-            </div>
-            <div class="cc-item">
-              <span class="cc-key">Engagement type</span>
-              <span class="cc-val">Project &amp; retainer</span>
-            </div>
-            <div class="cc-item">
-              <span class="cc-key">Response time</span>
-              <span class="cc-val green">Within 24 hours</span>
-            </div>
+        <div class="avail-card">
+          <div class="avail-dot-row"><div class="avail-dot"></div><span>Currently available</span></div>
+          <h3>Let's talk about your project</h3>
+          <p>I take on a limited number of engagements at a time to ensure quality and attention. If you have a store, campaign, or system that needs work — the best first step is a conversation.</p>
+          <div class="avail-rows">
+            <div class="avail-row"><span class="k">Location</span><span class="v">Lagos, Nigeria</span></div>
+            <div class="avail-row"><span class="k">Work mode</span><span class="v g">Remote — global</span></div>
+            <div class="avail-row"><span class="k">Preferred markets</span><span class="v">US, UK, EU, Global</span></div>
+            <div class="avail-row"><span class="k">Engagement type</span><span class="v">Project &amp; retainer</span></div>
+            <div class="avail-row"><span class="k">Response time</span><span class="v g">Within 24 hours</span></div>
+            <div class="avail-row"><span class="k">Platforms</span><span class="v">Upwork · Direct</span></div>
           </div>
         </div>
       </div>
@@ -1545,32 +1515,46 @@ footer p { font-size: .78rem; color: #4b5563; }
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Fatai Ajani · E-commerce Growth Strategist · Lagos, Nigeria</p>
-  <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#tools">Stack</a>
-    <a href="#contact">Contact</a>
-    <a href="https://www.linkedin.com/in/fatai-ajani-a6369a3a1" target="_blank">LinkedIn</a>
-    <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank">Upwork</a>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img class="footer-logo" src="https://i.postimg.cc/XJpNgRG5/FATISCO-STACK-DARK-LOGO.png" alt="FATISCO">
+      <span class="footer-copy">Fatai Ajani · E-commerce Growth &amp; AI Systems</span>
+    </div>
+    <div class="footer-center">
+      <p>Lagos, Nigeria · Remote-first · Available globally<br>© 2025 Fatai Ajani. All rights reserved.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#demos">Demos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.upwork.com/freelancers/~0163b48fc43c692046" target="_blank">Upwork</a>
+    </div>
   </div>
 </footer>
 
 <script>
 // Case study accordion
 function toggleCS(id) {
-  const card = document.getElementById(id);
-  card.classList.toggle('open');
+  const c = document.getElementById(id);
+  c.classList.toggle('open');
+}
+
+// FAQ accordion
+function toggleFAQ(id) {
+  const f = document.getElementById(id);
+  f.classList.toggle('open');
 }
 
 // Lightbox
 function openLB(img) {
   document.getElementById('lb-img').src = img.src;
-  document.getElementById('lb').classList.add('open');
+  document.getElementById('lb').classList.add('on');
   document.body.style.overflow = 'hidden';
 }
 function closeLB() {
-  document.getElementById('lb').classList.remove('open');
+  document.getElementById('lb').classList.remove('on');
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
@@ -1578,19 +1562,24 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); }
 // Scroll fade
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.08 });
+}, { threshold: 0.06 });
 document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 
 // Mobile nav
 function toggleNav() {
   const ul = document.querySelector('.nav-links');
-  const open = ul.style.display === 'flex';
-  if (open) {
+  const isOpen = ul.style.display === 'flex';
+  if (isOpen) {
     ul.style.display = 'none';
   } else {
-    ul.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:#fff;padding:24px 6%;border-bottom:1px solid #e4e8ef;gap:20px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08)';
+    ul.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#fff;padding:24px 6%;border-bottom:1px solid #dde2ec;gap:18px;z-index:299;box-shadow:0 8px 32px rgba(0,0,0,.1)';
   }
 }
+
+// Open first CS by default on load
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('cs1').classList.add('open');
+});
 </script>
 </body>
 </html>
